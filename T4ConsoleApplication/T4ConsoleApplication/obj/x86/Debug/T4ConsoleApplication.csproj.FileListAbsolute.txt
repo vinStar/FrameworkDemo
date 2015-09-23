@@ -1,0 +1,5 @@
+F:\Downloads\T4ConsoleApplication\T4ConsoleApplication\T4ConsoleApplication\bin\Debug\T4ConsoleApplication.exe
+F:\Downloads\T4ConsoleApplication\T4ConsoleApplication\T4ConsoleApplication\bin\Debug\T4ConsoleApplication.pdb
+F:\Downloads\T4ConsoleApplication\T4ConsoleApplication\T4ConsoleApplication\obj\x86\Debug\T4ConsoleApplication.exe
+F:\Downloads\T4ConsoleApplication\T4ConsoleApplication\T4ConsoleApplication\obj\x86\Debug\T4ConsoleApplication.pdb
+F:\Downloads\T4ConsoleApplication\T4ConsoleApplication\T4ConsoleApplication\obj\x86\Debug\T4ConsoleApplication.csprojResolveAssemblyReference.cache
