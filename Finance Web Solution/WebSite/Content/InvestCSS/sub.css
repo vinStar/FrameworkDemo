@@ -1,0 +1,331 @@
+/* 右边内容中的一级页面：例如tb_clxx */
+
+#tabnavbox { padding-top: 10px; margin-left:10px;}
+.secondnav{ padding-right: 25px; margin-top:5px;}
+.secondnav a { float:left; color:#199776; height: 26px; line-height: 26px;margin-left: 20px; display:inline;}
+
+.secondnav{
+	padding-right:25px;
+}
+.Statistics{
+	margin-bottom:-3px;
+	line-height:30px;
+}
+.Statistics .stnumber{
+	font-size:24px;
+	color:red;
+	padding-right:20px;
+}
+
+
+.breadcrumbs{
+	position: relative;
+	border-bottom: 1px solid #e5e5e5;
+	background-color: #f5f5f5;
+	min-height: 41px;
+	line-height: 40px;
+	padding: 0 12px 0 0;
+	display: block
+}
+
+.breadcrumbs_mm .home{
+	background:url(../Images/icon5.png) left 40% no-repeat;
+	padding-left:22px;
+	margin-left:19px;
+}
+.breadcrumbs_mm .arrow_sm{margin:0 11px;}
+.breadcrumbs_mm .cur_page{color:#555;}
+
+.breadcrumb li{
+	display:inline-block;
+}
+
+.breadcrumb .home-icon {
+	margin-left: 4px;
+	margin-right: 2px;
+	font-size: 20px;
+	position: relative;
+	top: 2px
+}
+
+
+.tb_main{
+	min-width:1080px;
+}
+
+
+.tb_container{
+	height:100%;
+	padding-top:10px;
+	background-color:#fff;
+}
+
+
+.iframePanel{
+	position:relative;
+	z-index:6;
+}
+
+
+.btnpx,.btnpx2{
+	margin-top:15px;
+	text-align:center;
+	position:fixed;
+	left:50%;
+	bottom:3px;
+}
+.tbDiv3{
+	background-color: #a8d7ca;
+}
+
+
+
+/*被选中的td加背景颜色*/
+.addbg{background: #b9d7b5;}
+
+.showPop.ys,.showPop.yf,.showPop.yus,.showPop.df,.showPop.djfk{cursor: pointer;}
+
+/*选择日期的选择框背景*/
+.timeInput{background: url(../Images/lv_bg/calendar.png) no-repeat 96% center;}
+/*弹出框表格的样式控制*/
+table.pop tr th,table.pop tr td{
+	height:22px;
+	line-height: 22px;
+	overflow: hidden;
+}
+.overflowDiv
+{
+	height: 22px;
+	overflow: hidden;
+}
+
+
+
+.seek{
+	width: 16px;
+	height: 14px;
+	display:inline-block;
+	background: url(../Images/KF/seek.png) no-repeat 0 0;
+}
+
+.ui_bottomtab .tr_special td,.ui_bottomtab .tr_special td a{
+	color: red;
+	background-color: #ffdfdf;
+}
+
+.div_left{
+	width:78%;
+	float: left;
+}
+.div_right{
+	float: left;
+	width:20%;
+	padding: 0 1%;
+	overflow-y: auto;
+}
+.div_left2{
+	width:59%;
+	float: left;
+}
+.div_right2{
+	float: left;
+	width:39%;
+	padding-left:2%;
+	overflow-y: auto;
+	padding-top: 5px;
+}
+.div_left3{
+	width:78%;
+	float: left;
+	padding-right:1%;
+}
+.div_right3{
+	float: left;
+	width:19%;
+	padding-left:1%;
+	overflow-y: auto;
+	border-left:3px solid #ccc;
+    height:100%;
+}
+.color_r{color:red;}
+.color_g{color: green;}
+.btn_yhkh{
+	background-color:#06b39c;
+	width:98%;
+	margin: 0 1%;
+	cursor:pointer;
+	color:#fff;
+	height: 47px;
+	line-height: 47px;
+	font-size: 28px;
+	border: none;
+	outline: none;
+}
+.selectpanel{padding: 4px 0 10px 0;}
+.selectpanel2{padding: 5px 0 5px 0;}
+.btn_country,.btn_region{
+	background-color: #fff;
+	color: #999999;
+	border: 1px solid #cccccc;
+	display: block;
+	float: left;
+	outline: none;
+	cursor: pointer;
+}
+.btn_country{
+	width: 100px;
+	height:35px;
+	border: 1px solid #cccccc;
+}
+.btn_region{
+	width: 50px;
+	padding: 4px 0;
+	margin: 4px 0 0 10px;
+}
+.btn_country:hover,.btn_region:hover{
+	color: #86b97e;
+	border: 1px solid #86b97e;
+}
+.btn_country.active,.btn_region.active{
+	background-color: #86b97e;
+	color: #fff;
+	border: none;
+}
+input[type="text"].selectTxt{
+	height: 20px;
+	line-height: 20px;
+	margin: 4px 0 0 10px;
+	border: 1px solid #a9a9a9;
+	color: #cccccc;
+}
+.btnMend, .btnMend:hover {
+	width:52px;
+	height:24px;
+	line-height:24px;
+	border:none;
+	text-align:center;
+	display:inline-block;
+	color:#fff;
+	cursor:pointer;
+}
+.btnMend {
+	background:url(../Images/lv_bg/btn.png) no-repeat 0 0;
+	margin-right:5px;
+}
+.btnMend:hover {
+	background:url(../Images/lv_bg/btnActive1.png) no-repeat 0 0;
+}
+.houseType{
+	color: #4f4f4f;
+}
+.houseDiv{
+	width: 142px;
+	height: 76px;
+	padding: 15px 25px 0 25px;
+	position: absolute;
+	top:168px;
+	left: 140px;
+	border:1px solid #a0a0a0;
+	background-color: #fff;
+	border-radius: 4px;
+}
+.arrowTop{
+	width: 15px;
+	height: 8px;
+	background: url(../Images/InvestImg/arrowTop.png) no-repeat 0 0;
+	position: absolute;
+	top:161px;
+	left:168px;
+	z-index: 2;
+}
+.txt_jbh,.txt_grh{width: 142px;height: 26px;line-height: 26px;text-align: center;color: #fff; display: block;}
+.txt_jbh{background:url(../Images/InvestImg/txt_jbh.png)  no-repeat 0 0;}
+.txt_grh{background:url(../Images/InvestImg/txt_grh.png)  no-repeat 0 0;margin-top: 10px;}
+.ui_bottomtab td.addMark{
+	background: #b9d7b5;
+}
+
+
+/*自定义的下拉列表地区*/
+.selectRegion{ /*margin-right:14px;*/ position: relative; /*margin-top: 14px;*/ cursor: pointer;z-index: 2;}
+.regionTxt{text-align:left; padding-left: 13px;width:157px;color: #797979;height: 24px; cursor: pointer; border:none;outline:none;background: url(../Images/InvestImg/select.png) no-repeat 0 0; line-height: 24px;position:relative;z-index: 2;}
+.regionlist label{ text-align:left; display: block;margin-left: 10px;cursor: pointer;}
+/*.regionlist label:hover,.regionlist label.active{color:#23c8b2;}*/
+.regionlist{background:#ffffff;border:1px solid #23c8b2;width:158px;height:150px;overflow-y: auto; position: absolute;z-index:1; top:12px; left: 0;padding-top: 13px; display: none;}
+
+
+/*集团管理费*/
+.btnall,.btnpart{
+	width:120px;
+	height:28px;
+	display: block;
+	line-height: 24px;
+	border: 1px solid #ccc;   
+	float: left;
+	margin-right: 5px;
+	color: #999999;
+	background-color: #fff;
+	cursor: pointer;
+	outline: none;
+}
+.btnall:hover,.btnall.active,.btnpart:hover,.btnpart.active{
+	background-color: #42c6a2;
+	color:#fff;
+}
+.activearr{
+	width: 19px;
+	height: 38px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display:none;
+	background:url(../Images/InvestImg/activearr.png)  no-repeat 0 0;
+}
+.ui_bottomtab .trActive td{
+	background-color:#A8D7CA;
+}
+.tableshow2 .target_tr{cursor: pointer;}
+
+
+.table_1.tbh29 tbody>tr>td,.table_1.tbh29 thead>tr>th{
+	height: 29px;
+	line-height: 29px;
+}
+.table_1 tbody>tr.tr_color1>td{ color:#ff8080;}
+.table_1 tfoot>tr.tr_color2>td{ color:#ff0000;}
+
+.Content_up{ padding-bottom: 5px; border-bottom: 3px solid #ccc;}
+
+.btnaddx{
+	width:150px;
+	height: 30px;
+	line-height: 30px;
+	margin: -2px 2px 0 7px;
+	background-color:#278168;
+	color: #fff;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+.addDiv{
+	width: 150px;
+	height: 91px;
+	background: url(../Images/InvestImg/addDivbg.png) no-repeat 0 0;
+	position: absolute;
+	right:2px;
+	top:33px;
+	display: none;
+}
+.btn_xmjz,.btn_qtjz{
+	width: 120px;
+	height: 30px;
+	display: block;
+	border: none;
+	color: #278168;
+	background: transparent;
+	outline: none;
+	margin: 10px 0 0 15px;
+	text-align: center;
+	cursor: pointer;
+}
+

@@ -1,0 +1,95 @@
+/* CSS Document */
+
+/*À¶É«»ùµ÷*/
+
+.navbar{background: #438eb9;}
+.navbar-brand .logo {background:url(../../img/logo.png) no-repeat 0 0;}
+.navbar-brand .version{background:url(../../img/version.png) no-repeat left 32%;}
+.navbar .navbar-brand{color: #fff;}
+.sidebar-shortcuts .short1{
+	background:url(../../img/short.gif) no-repeat 0 0;
+}
+.sidebar-shortcuts .short2{
+	background:url(../../img/short2.gif) no-repeat 0 0;
+}
+.sidebar-shortcuts .short3{
+	background:url(../../img/short3.gif) no-repeat 0 0;
+}
+.sidebar-shortcuts .short4{
+	background:url(../../img/short4.gif) no-repeat 0 0;
+}
+.nav-list>li.active>a, .nav-list>li.active>a:hover, .nav-list>li.active>a:focus, .nav-list>li.active>a:active{
+    background-color:#fff;
+	color:#2b7dbc;
+}
+
+.sidebar-collapse .icon_left{
+	background:url(../../img/lan_bg/icon_left.png) no-repeat 0 0;
+}
+.sidebar-collapse .icon_right{
+	background:url(../../img/lan_bg/icon_right.png) no-repeat 0 0;
+}
+.nav-list li.parent_li.active a .icon-angle-down{
+	background:url(../../img/angle_arrow2.gif) no-repeat 0  0;
+}
+.icon-all{
+		background:url(../Images/icon5.png) no-repeat 0 0;
+}
+.active .icon-all{
+		background:url(../../img/lan_bg/icon_all_cur.png) no-repeat 0 0;
+}
+.icon-first{
+		background:url(../../img/icon_x.png) no-repeat 0 0;
+}
+.active .icon-first{
+	background:url(../../img/lan_bg/icon_x_cur.png) no-repeat 0 0;
+}
+.icon-second{
+		background:url(../../img/icon_k.png) no-repeat 0 0;
+}
+.active .icon-second{
+		background:url(../../img/lan_bg/icon_k_cur.png) no-repeat 0 0;
+}
+.icon-third{
+		background:url(../../img/icon6.png) no-repeat 0 0;
+}
+.active .icon-third{
+		background:url(../../img/lan_bg/icon6_cur.png) no-repeat 0 0;
+}
+.icon-fourth{
+		background:url(../../img/icon9.png) no-repeat 0 0;
+	
+}
+.active .icon-fourth{
+		background:url(../../img/lan_bg/icon9_cur.png) no-repeat 0 0;
+}
+.icon-fifth{
+		background:url(../../img/icon7.png) no-repeat 0 0;
+}
+.active .icon-fifth{
+		background:url(../../img/lan_bg/icon7_cur.png) no-repeat 0 0;
+}
+.menu-min .nav-list .parent_li.active a .menu-text{
+	border-left-color:#1963aa;
+	/*border-left:1px solid #2b7dbc;*/
+}
+.nav-list li.parent_li.active a span.arrow, .nav-list li.active li.active2 a span.arrow2{background:url(../../img/lan_bg/arrow_b.png) no-repeat 0 0;}
+.nav-list>li>.submenu>li>a{
+	border-top:1px solid #fafafa;
+	border-left:1px dotted #9dbdd6;
+ }
+.nav-list>li .submenu>li>a:hover{
+	color:#4b88b7;
+}
+.nav-list>li .submenu>li.active>a>[class*="icon-"]:first-child{
+	color:#c86139;
+}
+.nav-list li.parent_li .line{background:#2b7dbc;}
+.sidebar-collapse .bg_bd{
+	
+	border-top:1px solid #2b7dbc;
+	
+}
+.pull-right{
+	 background-color: #7CBCE0;
+}

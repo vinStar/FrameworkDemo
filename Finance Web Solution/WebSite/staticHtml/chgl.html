@@ -1,0 +1,368 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>储户管理</title>
+
+
+    <link href="../Content/CSS/base.css" rel="stylesheet" />
+    <link href="../Content/CSS/layout.css" rel="stylesheet" />
+    <link href="../Content/CSS/lvse/Inside_color.css" rel="stylesheet" />
+    <link href="../Content/CSS/sub.css" rel="stylesheet" />
+    <link href="../Content/CSS/alert.css" rel="stylesheet" />
+    <style>
+        #tongjitip {
+            padding:10px 0 10px;
+        }
+            #tongjitip span {
+                font-size:21px;
+            }
+             .greencolor {
+                color: #278168;
+            }
+        
+    </style>
+    <script>
+        window.onload = function () {
+            document.getElementById('mask2').style.display = 'none';
+        }
+    </script>
+</head>
+
+<body style="overflow:hidden;overflow-x:auto;">
+    <div class="mask_layer" id="mask2">
+    </div>
+    <div class="tb_main" id="tb_main">
+        <div class="breadcrumbs j_outerheight" id="breadcrumbs">
+            <div class="breadcrumbs_mm">
+                <span class="home fl">首页</span><span class="color_1 fl arrow_sm"> > </span><span class="fl cur_page">储户管理</span>
+            </div>
+
+        </div>
+        
+        <div class="tb_container" style="padding-top:0;">
+            <div id="tongjitip" class="j_outerheight">
+                本行总资产： <span class="greencolor">1561.7</span> 万，自有资产： <span class="greencolor">100.0</span> 万，储户存款： <span class="greencolor">1461.7</span> 万，准备金：<span class="greencolor">584.7</span> 万，已投资：<span class="Red_color">200.0</span> 万，已借出：<span class="Red_color">177.0</span> 万，本行账面资金：<span class="greencolor">600.0</span> 万
+            </div>
+            <div class="tb_sub_container">
+                <div class="ui-jqgrid-hbox j_outerheight">
+                    <table class="table_1" id="tb_1">
+                        <thead>
+                            <tr>
+                                <th width="6%">序号</th>
+                                <th width="10%">地区 / 机构</th>
+                                <th width="12%">储户总资产 (万)</th>
+                                <th width="12%">储户存款 (万)</th>
+                                <th width="12%">储户账面资金 (万)</th>
+                                <th width="12%">出纳待办项 (万)</th>
+                                <th width="12%">状态</th>
+                                <th width="12%">明细</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <!-- -->
+                <div class="ui-jqgrid-bdiv" style="overflow:auto;">
+                    <table class="table_1 notop  noright noleft" id="tb_2">
+                        <tbody>
+                            <tr class="target_tr">
+                                <td width="6%"> 02</td>
+                                <td width="10%">R6</td>
+                                <td width="12%">102.5</td>
+                                <td width="12%">83.2</td>
+                                <td width="12%"><span class="light-blue">19.3</span></td>
+                                <td width="12%">12.8</td>
+                                <td width="12%"><span class="Red_color">预警</span></td>
+                                <td width="12%"><input class="cssbtnv1 transfer_03" type="button" value="查看明细" /></td>
+                                <td><input class="cssbtnv1 transfer_04" type="button" value="回拨资金" /></td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td> 02</td>
+                                <td>R6</td>
+                                <td>102.5</td>
+                                <td>83.2</td>
+                                <td><span class="light-blue">19.3</span></td>
+                                <td>12.8</td>
+                                <td><span class="light-blue">超额</span></td>
+                                <td><input class="cssbtnv1 transfer_03" type="button" value="查看明细" /></td>
+                                <td><input class="cssbtnv1 transfer_04" type="button" value="回拨资金" /></td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td> 02</td>
+                                <td>R6</td>
+                                <td>102.5</td>
+                                <td>83.2</td>
+                                <td><span class="light-blue">19.3</span></td>
+                                <td>12.8</td>
+                                <td>正常</td>
+                                <td><input class="cssbtnv1 transfer_03" type="button" value="查看明细" /></td>
+                                <td><input class="cssbtnv1 transfer_04" type="button" value="回拨资金" /></td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td> 02</td>
+                                <td>R6</td>
+                                <td>102.5</td>
+                                <td>83.2</td>
+                                <td><span class="light-blue">19.3</span></td>
+                                <td>12.8</td>
+                                <td>正常</td>
+                                <td><input class="cssbtnv1 transfer_03" type="button" value="查看明细" /></td>
+                                <td><input class="cssbtnv1 transfer_04" type="button" value="回拨资金" /></td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td> 02</td>
+                                <td>R6</td>
+                                <td>102.5</td>
+                                <td>83.2</td>
+                                <td><span class="light-blue">19.3</span></td>
+                                <td>12.8</td>
+                                <td>正常</td>
+                                <td><input class="cssbtnv1 transfer_03" type="button" value="查看明细" /></td>
+                                <td><input class="cssbtnv1 transfer_04" type="button" value="回拨资金" /></td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td> 02</td>
+                                <td>R6</td>
+                                <td>102.5</td>
+                                <td>83.2</td>
+                                <td><span class="light-blue">19.3</span></td>
+                                <td>12.8</td>
+                                <td>正常</td>
+                                <td><input class="cssbtnv1 transfer_03" type="button" value="查看明细" /></td>
+                                <td><input class="cssbtnv1 transfer_04" type="button" value="回拨资金" /></td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td> 02</td>
+                                <td>R6</td>
+                                <td>102.5</td>
+                                <td>83.2</td>
+                                <td><span class="light-blue">19.3</span></td>
+                                <td>12.8</td>
+                                <td>正常</td>
+                                <td><input class="cssbtnv1 transfer_03" type="button" value="查看明细" /></td>
+                                <td><input class="cssbtnv1 transfer_04" type="button" value="回拨资金" /></td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td> 02</td>
+                                <td>R6</td>
+                                <td>102.5</td>
+                                <td>83.2</td>
+                                <td><span class="light-blue">19.3</span></td>
+                                <td>12.8</td>
+                                <td>正常</td>
+                                <td><input class="cssbtnv1 transfer_03" type="button" value="查看明细" /></td>
+                                <td><input class="cssbtnv1 transfer_04" type="button" value="回拨资金" /></td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td> 02</td>
+                                <td>R6</td>
+                                <td>102.5</td>
+                                <td>83.2</td>
+                                <td><span class="light-blue">19.3</span></td>
+                                <td>12.8</td>
+                                <td>正常</td>
+                                <td><input class="cssbtnv1 transfer_03" type="button" value="查看明细" /></td>
+                                <td><input class="cssbtnv1 transfer_04" type="button" value="回拨资金" /></td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td> 02</td>
+                                <td>R6</td>
+                                <td>102.5</td>
+                                <td>83.2</td>
+                                <td><span class="light-blue">19.3</span></td>
+                                <td>12.8</td>
+                                <td>正常</td>
+                                <td><input class="cssbtnv1 transfer_03" type="button" value="查看明细" /></td>
+                                <td><input class="cssbtnv1 transfer_04" type="button" value="回拨资金" /></td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td> 02</td>
+                                <td>R6</td>
+                                <td>102.5</td>
+                                <td>83.2</td>
+                                <td><span class="light-blue">19.3</span></td>
+                                <td>12.8</td>
+                                <td>正常</td>
+                                <td><input class="cssbtnv1 transfer_03" type="button" value="查看明细" /></td>
+                                <td><input class="cssbtnv1 transfer_04" type="button" value="回拨资金" /></td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td> 02</td>
+                                <td>R6</td>
+                                <td>102.5</td>
+                                <td>83.2</td>
+                                <td><span class="light-blue">19.3</span></td>
+                                <td>12.8</td>
+                                <td>正常</td>
+                                <td><input class="cssbtnv1 transfer_03" type="button" value="查看明细" /></td>
+                                <td><input class="cssbtnv1 transfer_04" type="button" value="回拨资金" /></td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td> 02</td>
+                                <td>R6</td>
+                                <td>102.5</td>
+                                <td>83.2</td>
+                                <td><span class="light-blue">19.3</span></td>
+                                <td>12.8</td>
+                                <td>正常</td>
+                                <td><input class="cssbtnv1 transfer_03" type="button" value="查看明细" /></td>
+                                <td><input class="cssbtnv1 transfer_04" type="button" value="回拨资金" /></td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td> 02</td>
+                                <td>R6</td>
+                                <td>102.5</td>
+                                <td>83.2</td>
+                                <td><span class="light-blue">19.3</span></td>
+                                <td>12.8</td>
+                                <td>正常</td>
+                                <td><input class="cssbtnv1 transfer_03" type="button" value="查看明细" /></td>
+                                <td><input class="cssbtnv1 transfer_04" type="button" value="回拨资金" /></td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td> 02</td>
+                                <td>R6</td>
+                                <td>102.5</td>
+                                <td>83.2</td>
+                                <td><span class="light-blue">19.3</span></td>
+                                <td>12.8</td>
+                                <td>正常</td>
+                                <td><input class="cssbtnv1 transfer_03" type="button" value="查看明细" /></td>
+                                <td><input class="cssbtnv1 transfer_04" type="button" value="回拨资金" /></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+                <div class="tbDiv3 j_outerheight">
+                    <table class="tb_all">
+                        <thead>
+                            <tr>
+                                <td width="6%">合计</td>
+                                <td width="10%">&nbsp;</td>
+                                <td width="12%">1997.9</td>
+                                <td width="12%">1561.7</td>
+                                <td width="12%">432.1</td>
+                                <td width="12%">275.5</td>
+                                <td width="12%">正常</td>
+                                <td width="12%">&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+              </div>
+            <div class="alert_box alert_box_transfer05">
+                <div class="alert_trans_top3"></div>
+                <div class="alert_trans_mid3">
+                    <div class="alert_box_head">
+                        <h3>查看明细</h3>
+                        <a class="del"></a>
+                    </div>
+                    <div class="alert_box_body alert_box_iframe">
+                        <iframe src="" frameborder="no" scrolling="no" style="width:100%;height:400px" id="lsiframe" name="lsiframe"></iframe>
+                    </div>
+
+                </div>
+                <div class="alert_trans_bottom3"></div>
+            </div>
+            <div class="alert_box alert_box_transfer01">
+                <div class="alert_trans_top"></div>
+                <div class="alert_trans_mid">
+                    <div class="alert_box_head">
+                        <h3>回拨资金</h3>
+                        <a class="del"></a>
+                    </div>
+                    <div class="alert_box_body" style="height:100px;">
+                        <p style="margin-bottom:10px">回拨额度：<input type="text" style="width:120px;margin-right:5px;" />元</p>
+                        <p><span style="padding-left:60px;color:#c1c1c1">区间：28，000~128，000</span></p>
+                    </div>
+                    <div class="alert_box_foot">
+                        <input class="cssbtnv1" type="button" value="取消">
+                        <input class="cssbtnv1" type="button" value="提交">
+                    </div>
+                </div>
+                <div class="alert_trans_bottom"></div>
+            </div>
+
+        </div>
+    </div>
+    <script src="../Scripts/js/jquery-1.8.3.min.js"></script>
+    <script src="../Scripts/My97DatePicker/WdatePicker.js"></script>
+    <script src="../Scripts/js/publicMethod.js"></script>
+
+   
+
+    <script>
+        $(function () {
+            $(".transfer_03").click(function (e) {
+                $(".alert_box_transfer05 #lsiframe").attr("src","ckmx.html");
+                alertShow($(".alert_box_transfer05"));
+                e.stopPropagation();
+               // var ochildbody=$("#childbody", document.frames('lsiframe').document)
+                // var ochildbody = window.frames["lsiframe"].document.getElementById("childbody");
+                //alert(ochildbody.length);
+                //$("#lsiframe").height($(ochildbody).height());
+            })
+            $(".alert_box_transfer05 .del,.alert_box_transfer05 .cancel").click(function () {
+                alertHide($(".alert_box_transfer05"));
+            })
+            $(".transfer_04").click(function (e) {
+                alertShow($(".alert_box_transfer01"));
+                e.stopPropagation();
+            })
+            $(".alert_box_transfer01 .del,.alert_box_transfer01 .cancel").click(function () {
+                alertHide($(".alert_box_transfer01"));
+            })
+            //点击查看明细按钮弹出层
+            
+
+
+            //计算高度和宽度
+            $(window).load(function () {
+                rxued.table.countTB($("#tb_1"), $("#tb_2"), $(".ui-jqgrid-bdiv"), function () {
+                    if ($('.tb_all').length > 0) {
+                        $('.tb_all').css('width', $("#tb_2").width() + 'px');
+                    }
+                });
+               // judgeBodyH();
+            });
+            parent.$(window).load(function () {
+                rxued.table.countTB($("#tb_1"), $("#tb_2"), $(".ui-jqgrid-bdiv"), function () {
+                    if ($('.tb_all').length > 0) {
+                        $('.tb_all').css('width', $("#tb_2").width() + 'px');
+                    }
+                });
+                //judgeBodyH();
+            });
+            parent.$(window).resize(function () {
+                rxued.table.countTB($("#tb_1"), $("#tb_2"), $(".ui-jqgrid-bdiv"), function () {
+                    if ($('.tb_all').length > 0) {
+                        $('.tb_all').css('width', $("#tb_2").width() + 'px'); 
+                    }
+                });
+                //judgeBodyH();
+            });
+            $(window).resize(function () {
+                rxued.table.countTB($("#tb_1"), $("#tb_2"), $(".ui-jqgrid-bdiv"), function () {
+                    if ($('.tb_all').length > 0) {
+                        $('.tb_all').css('width', $("#tb_2").width() + 'px');
+                        
+                    }
+                });
+               // judgeBodyH();
+            });
+           
+
+            //$(window).load(function () { countTb_height(40); });
+            //parent.$(window).load(function () { countTb_height(40); });
+            //parent.$(window).resize(function () { countTb_height(40); });
+            //$(window).resize(function () { countTb_height(40); })
+
+        });
+    </script>
+</body>
+</html>

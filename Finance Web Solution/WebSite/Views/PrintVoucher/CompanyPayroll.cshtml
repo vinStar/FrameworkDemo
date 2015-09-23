@@ -1,0 +1,240 @@
+﻿@model WebSite.Models.Fa_Cashier.FA_SalaryListViewModel
+@using HyBy.Trading.BusinessEntity
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+    <link href="~/Content/CSS/css/base.css" rel="stylesheet" />
+    <link href="~/Content/CSS/css/gzd.css" rel="stylesheet" />
+    <script src="../Scripts/js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+    <div style="text-align:center"> <input type="button" value="打印" class="button button-rounded divInput bt2" id="btnPrint"></div>
+    <div class="main">
+
+        <div class="header clear">
+            <div class="logo"></div>
+            <h3>公司工资单</h3>
+            <p class="fr fz9 date"><span>Date:<span>@ViewBag.year</span>.<span></span>@ViewBag.month</span></p>
+        </div>
+        @if (Model.salaryList != null && Model.salaryList.Count != 0)
+        {
+            var AllCount = Model.salaryList.Count;
+
+            decimal AllBaseSalary = 0;
+            decimal AllSubsidy = 0;
+            decimal AllSecrecy = 0;
+            decimal AllPerformance = 0;
+            decimal AllSalary = 0;
+            decimal AllCheckingInFine = 0;
+            decimal AllDepart = 0;
+            decimal AllManage = 0;
+            decimal AllCommission = 0;
+            decimal AllDividend = 0;
+            decimal AllSocialSecurity = 0;
+            decimal AllHousingFund = 0;
+            decimal AllTax = 0;
+            decimal AllFsalary = 0;
+            var i = 0;
+            int jj = 1;
+            <table class="tb" cellpadding="0" cellspacing="0">
+                <tr class="oneline">
+                    <td width="3%">序</td>
+                    <td width="5%">所属部门</td>
+                    <td width="4%">姓名</td>
+                    <td width="8%">账户</td>
+                    <td width="4%">基本工资</td>
+                    <td width="4%">岗位津贴</td>
+                    <td width="4%">保密费</td>
+                    <td width="4%">绩效工资</td>
+                    <td width="4%">综合工资</td>
+                    <td width="4%">考勤扣款</td>
+                    <td width="4%">部门考核</td>
+                    <td width="4%">管理奖罚</td>
+                    <td width="4%">业绩提成</td>
+                    <td width="4%">管理提成</td>
+                    <td width="4%">社保</td>
+                    <td width="4%">公积金</td>
+                    <td width="4%">个税</td>
+                    <td width="4%">工资总额</td>
+                </tr>
+                @for (; i < 25; i++)
+                {
+                    if (AllCount > i)
+                    {
+                        AllBaseSalary =AllBaseSalary+Convert.ToDecimal(Model.salaryList[i].BaseSalary);
+                        AllSubsidy = AllSubsidy + Convert.ToDecimal(Model.salaryList[i].Subsidy);
+                        AllSecrecy = AllSecrecy + Convert.ToDecimal(Model.salaryList[i].Secrecy);
+                        AllPerformance = AllPerformance + Convert.ToDecimal(Model.salaryList[i].Performance);
+                        AllSalary = AllSalary + Convert.ToDecimal(Model.salaryList[i].Salary);
+                        AllCheckingInFine = AllCheckingInFine + Convert.ToDecimal(Model.salaryList[i].CheckingInFine);
+                        AllDepart = AllDepart + Convert.ToDecimal(Model.salaryList[i].DepartAward) + Convert.ToDecimal(Model.salaryList[i].DepartPenalty) + Convert.ToDecimal(Model.salaryList[i].DepartPerformance);
+                        AllManage = AllManage + Convert.ToDecimal(Model.salaryList[i].ManageAward) + Convert.ToDecimal(Model.salaryList[i].ManagePenalty);
+                        AllCommission = AllCommission + Convert.ToDecimal(Model.salaryList[i].Commission) + Convert.ToDecimal(Model.salaryList[i].CommissionGroup);
+                        AllDividend = AllDividend + Convert.ToDecimal(Model.salaryList[i].Dividend);
+                        AllSocialSecurity = AllSocialSecurity + Convert.ToDecimal(Model.salaryList[i].SocialSecurity);
+                        AllHousingFund = AllHousingFund + Convert.ToDecimal(Model.salaryList[i].BaseSalary);
+                        AllTax = AllTax + Convert.ToDecimal(Model.salaryList[i].Tax);
+                        AllFsalary = AllFsalary + Convert.ToDecimal(Model.salaryList[i].Fsalary);
+                        <tr>
+                            <td>@(jj++)</td>
+                            <td>@Model.salaryList[i].Department</td>
+                            <td>@Model.salaryList[i].Name</td>
+                            <td>@Model.salaryList[i].BankNo</td>
+                            <td>@Model.salaryList[i].BaseSalary</td>
+                            <td>@Model.salaryList[i].Subsidy</td>
+                            <td>@Model.salaryList[i].Secrecy</td>
+                            <td>@Model.salaryList[i].Performance</td>
+                            <td>@Model.salaryList[i].Salary</td>
+                            <td>@Model.salaryList[i].CheckingInFine</td>
+                            <td>@(Model.salaryList[i].DepartAward + Model.salaryList[i].DepartPenalty + Model.salaryList[i].DepartPerformance)</td>
+                            <td>@(Model.salaryList[i].ManageAward + Model.salaryList[i].ManagePenalty)</td>
+                            <td>@(Model.salaryList[i].Commission + Model.salaryList[i].CommissionGroup)</td>
+                            <td>@Model.salaryList[i].Dividend</td>
+                            <td>@Model.salaryList[i].SocialSecurity</td>
+                            <td>@Model.salaryList[i].HousingFund</td>
+                            <td>@Model.salaryList[i].Tax</td>
+                            <td>@Model.salaryList[i].Fsalary</td>
+                        </tr>
+                    }
+                }
+                <tr class="lastLine">
+                    <td colspan="4" class="clearfw">本页合计</td>
+                    <td class="ffw">@AllBaseSalary</td>
+                    <td class="ffw">@AllSubsidy</td>
+                    <td class="ffw">@AllSecrecy</td>
+                    <td class="ffw">@AllPerformance</td>
+                    <td class="ffw">@AllSalary</td>
+                    <td class="ffw">@AllCheckingInFine</td>
+                    <td class="ffw">@AllDepart</td>
+                    <td class="ffw">@AllManage</td>
+                    <td class="ffw">@AllCommission</td>
+                    <td class="ffw">@AllDividend</td>
+                    <td class="ffw">@AllSocialSecurity</td>
+                    <td class="ffw">@AllHousingFund</td>
+                    <td class="ffw">@AllTax</td>
+                    <td class="ffw">@AllFsalary</td>
+                </tr>
+            </table>
+            if (AllCount > 25)
+            {
+                var coun = (AllCount - 25) / 25 + ((AllCount - 25) % 25 > 0 ? 1 : 0);
+                for (var j = 0; j < coun; j++)
+                {
+                    AllBaseSalary = 0;
+                    AllSubsidy = 0;
+                    AllSecrecy = 0;
+                    AllPerformance = 0;
+                    AllSalary = 0;
+                    AllCheckingInFine = 0;
+                    AllDepart = 0;
+                    AllManage = 0;
+                    AllCommission = 0;
+                    AllDividend = 0;
+                    AllSocialSecurity = 0;
+                    AllHousingFund = 0;
+                    AllTax = 0;
+                    AllFsalary = 0;
+                    int End = (j+2) * 25;
+                    <div style="page-break-before:always;">
+                        <table class="tb" cellpadding="0" cellspacing="0">
+                            <tr class="oneline">
+                                <td width="3%">序</td>
+                                <td width="5%">所属部门</td>
+                                <td width="4%">姓名</td>
+                                <td width="8%">账户</td>
+                                <td width="4%">基本工资</td>
+                                <td width="4%">岗位津贴</td>
+                                <td width="4%">保密费</td>
+                                <td width="4%">绩效工资</td>
+                                <td width="4%">综合工资</td>
+                                <td width="4%">考勤扣款</td>
+                                <td width="4%">部门考核</td>
+                                <td width="4%">管理奖罚</td>
+                                <td width="4%">业绩提成</td>
+                                <td width="4%">管理提成</td>
+                                <td width="4%">社保</td>
+                                <td width="4%">公积金</td>
+                                <td width="4%">个税</td>
+                                <td width="4%">工资总额</td>
+                            </tr>
+                            @for (; i < End; i++)
+                            {
+                                if (AllCount > i)
+                                {
+                                    AllBaseSalary = AllBaseSalary + Convert.ToDecimal(Model.salaryList[i].BaseSalary);
+                                    AllSubsidy = AllSubsidy + Convert.ToDecimal(Model.salaryList[i].Subsidy);
+                                    AllSecrecy = AllSecrecy + Convert.ToDecimal(Model.salaryList[i].Secrecy);
+                                    AllPerformance = AllPerformance + Convert.ToDecimal(Model.salaryList[i].Performance);
+                                    AllSalary = AllSalary + Convert.ToDecimal(Model.salaryList[i].Salary);
+                                    AllCheckingInFine = AllCheckingInFine + Convert.ToDecimal(Model.salaryList[i].CheckingInFine);
+                                    AllDepart = AllDepart + Convert.ToDecimal(Model.salaryList[i].DepartAward) + Convert.ToDecimal(Model.salaryList[i].DepartPenalty) + Convert.ToDecimal(Model.salaryList[i].DepartPerformance);
+                                    AllManage = AllManage + Convert.ToDecimal(Model.salaryList[i].ManageAward) + Convert.ToDecimal(Model.salaryList[i].ManagePenalty);
+                                    AllCommission = AllCommission + Convert.ToDecimal(Model.salaryList[i].Commission) + Convert.ToDecimal(Model.salaryList[i].CommissionGroup);
+                                    AllDividend = AllDividend + Convert.ToDecimal(Model.salaryList[i].Dividend);
+                                    AllSocialSecurity = AllSocialSecurity + Convert.ToDecimal(Model.salaryList[i].SocialSecurity);
+                                    AllHousingFund = AllHousingFund + Convert.ToDecimal(Model.salaryList[i].BaseSalary);
+                                    AllTax = AllTax + Convert.ToDecimal(Model.salaryList[i].Tax);
+                                    AllFsalary = AllFsalary + Convert.ToDecimal(Model.salaryList[i].Fsalary);
+                                    <tr>
+                                        <td>@(jj++)</td>
+                                        <td>@Model.salaryList[i].Department</td>
+                                        <td>@Model.salaryList[i].Name</td>
+                                        <td>@Model.salaryList[i].BankNo</td>
+                                        <td>@Model.salaryList[i].BaseSalary</td>
+                                        <td>@Model.salaryList[i].Subsidy</td>
+                                        <td>@Model.salaryList[i].Secrecy</td>
+                                        <td>@Model.salaryList[i].Performance</td>
+                                        <td>@Model.salaryList[i].Salary</td>
+                                        <td>@Model.salaryList[i].CheckingInFine</td>
+                                        <td>@(Model.salaryList[i].DepartAward + Model.salaryList[i].DepartPenalty + Model.salaryList[i].DepartPerformance)</td>
+                                        <td>@(Model.salaryList[i].ManageAward + Model.salaryList[i].ManagePenalty)</td>
+                                        <td>@(Model.salaryList[i].Commission + Model.salaryList[i].CommissionGroup)</td>
+                                        <td>@Model.salaryList[i].Dividend</td>
+                                        <td>@Model.salaryList[i].SocialSecurity</td>
+                                        <td>@Model.salaryList[i].HousingFund</td>
+                                        <td>@Model.salaryList[i].Tax</td>
+                                        <td>@Model.salaryList[i].Fsalary</td>
+                                    </tr>
+                                }
+                            }
+                            <tr class="lastLine">
+                                <td colspan="4" class="clearfw">本页合计</td>
+                                <td class="ffw">@AllBaseSalary</td>
+                                <td class="ffw">@AllSubsidy</td>
+                                <td class="ffw">@AllSecrecy</td>
+                                <td class="ffw">@AllPerformance</td>
+                                <td class="ffw">@AllSalary</td>
+                                <td class="ffw">@AllCheckingInFine</td>
+                                <td class="ffw">@AllDepart</td>
+                                <td class="ffw">@AllManage</td>
+                                <td class="ffw">@AllCommission</td>
+                                <td class="ffw">@AllDividend</td>
+                                <td class="ffw">@AllSocialSecurity</td>
+                                <td class="ffw">@AllHousingFund</td>
+                                <td class="ffw">@AllTax</td>
+                                <td class="ffw">@AllFsalary</td>
+                            </tr>
+                        </table>
+                    </div>
+                }
+            }
+        }
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    $("#btnPrint").click(function () {
+        $("#btnPrint").css("display", "none");
+        window.print();
+        window.location.href = window.location.href;
+    });
+</script>

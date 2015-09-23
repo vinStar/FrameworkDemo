@@ -1,0 +1,526 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>投资管理-全部</title>
+    <link href="../Content/CSS/base.css" rel="stylesheet" />
+    <link href="../Content/CSS/layout.css" rel="stylesheet" />
+    <link href="../Content/CSS/lvse/Inside_color.css" rel="stylesheet" />
+    <link href="../Content/CSS/sub.css" rel="stylesheet" />
+    <link href="../Content/CSS/alert.css" rel="stylesheet" /><style>
+    .textdiv span {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .btnPos {
+        margin: 4px 0 0;
+    }
+
+    .bdBottom1 {
+        border-bottom: 1px solid #fff;
+    }
+</style>
+
+</head>
+<body>
+    <div class="btnPanel clear btnPanelmend j_outerheight" id="btnPanel1">
+        <div class="textdiv fl" style="line-height:30px;padding-left:1%;">
+            现有投资占用： <span class="Red_color">700.0</span> 万，年均回报：<span class="Green_color">102.4</span> 万(6.0%)，累计获利：<span class="Green_color">263.1</span> 万
+        </div>
+        <div class="btnPos clear">
+            <div class="boxPos">
+                <input name="txt_Search" type="text" value="请输入关键字搜索" id="txt_Search" onblur="this.value = (this.value == '') ? '请输入关键字搜索' : this.value" onfocus="    this.value = (this.value == '请输入关键字搜索') ? '' : this.value" style="width: 150px">
+
+                <input type="submit" name="But_Search" value="搜索" id="But_Search" class="btnMend">
+            </div>
+        </div>
+    </div>
+    <div class="tb_container" style="padding-top:0;" id="tb_container1">
+
+        <div class="tb_sub_container">
+            <div class="ui-jqgrid-hbox j_outerheight">
+                <table class="table_1" id="tb_1">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" width="5%">序号</th>
+                            <th rowspan="2" width="7%">投资编号</th>
+                            <th rowspan="2" width="7%">投资日期</th>
+                            <th rowspan="2" width="7%">结束时间</th>
+                            <th rowspan="2" width="7%">剩余天数</th>
+                            <th rowspan="2" width="10%">投资项目</th>
+                            <th rowspan="2" width="8%">投资金额</th>
+                            <th rowspan="2" width="8%">已回金额</th>
+                            <th rowspan="2" width="7%">已回率</th>
+                            <th rowspan="2" width="8%">回报周期</th>
+                            <th colspan="4" class="bdBottom1">投资回报</th>
+                        </tr>
+                        <tr>
+                            <th width="7%">下限年率</th>
+                            <th width="7%">上限年率</th>
+                            <th width="7%">上线额</th>
+                            <th>上线额</th>
+                        </tr>
+
+                    </thead>
+                </table>
+            </div>
+            <!-- -->
+            <div class="ui-jqgrid-bdiv" style="overflow:auto;">
+                <table class="table_1 notop  noright noleft" id="tb_2">
+                    <tbody>
+                        <tr class="target_tr">
+                            <td width="5%">01</td>
+                            <td width="7%">T54241</td>
+                            <td width="7%">2014-05-01</td>
+                            <td width="7%">2014-05-01</td>
+                            <td width="7%">已到期</td>
+                            <td width="10%">建行理财JLC5425</td>
+                            <td width="8%">1,000,000</td>
+                            <td width="8%">0</td>
+                            <td width="7%">52.7%</td>
+                            <td width="8%">每季度</td>
+                            <td width="7%">4.00%</td>
+                            <td width="7%">7.30%</td>
+                            <td width="7%">40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                        <tr class="target_tr">
+                            <td>01</td>
+                            <td>T54241</td>
+                            <td>2014-05-01</td>
+                            <td>2014-05-01</td>
+                            <td>已到期</td>
+                            <td>建行理财JLC5425</td>
+                            <td>1,000,000</td>
+                            <td>0</td>
+                            <td>52.7%</td>
+                            <td>每季度</td>
+                            <td>4.00%</td>
+                            <td>7.30%</td>
+                            <td>40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tbDiv3 j_outerheight">
+                <table class="tb_all">
+                    <thead>
+                        <tr>
+                            <td width="5%">合计</td>
+                            <td width="7%">&nbsp;</td>
+                            <td width="7%">&nbsp;</td>
+                            <td width="7%">&nbsp;</td>
+                            <td width="7%">&nbsp;</td>
+                            <td width="10%">&nbsp;</td>
+                            <td width="8%">1,000,000</td>
+                            <td width="8%">0</td>
+                            <td width="7%">52.7%</td>
+                            <td width="8%">&nbsp;</td>
+                            <td width="7%">4.00%</td>
+                            <td width="7%">7.30%</td>
+                            <td width="7%">40,000</td>
+                            <td>73,000</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="big_paging clear j_outerheight">
+                <div class="big_paging_left">
+                    <label>共有</label><span class="txt_danger">1</span><label>条数据 共</label><span class="txt_danger">1</span><label>页</label>
+                </div>
+                <div class="big_paging_right clear">
+                    <div class="big_paging_content_l fl">
+                        <div class="big_page_left fl"></div>
+                        <div class="big_page_mid fl ">
+                            <a href="#" class="pre">上一页</a>
+                            <a href="#" class="page_num active">1</a>
+                            <a href="#" class="page_num">2</a>
+                            <a href="#" class="page_num">...</a>
+                            <a href="#" class="page_num">4</a>
+                            <a href="#" class="next">下一页</a>
+                        </div>
+                        <div class="big_page_right fl"></div>
+                    </div>
+                    <div class="big_paging_content_r fl ">
+                        <span class="fl">跳转至</span>
+                        <input type="text" class="big_paging_txt fl">
+                        <span class="fl">页</span>
+                        <input type="button" value="确认" class="big_paging_btn fl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../Scripts/js/jquery-1.8.3.min.js"></script>
+    <script src="../Scripts/My97DatePicker/WdatePicker.js"></script>
+    <script src="../Scripts/js/publicMethod.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $(".ui-jqgrid-bdiv tr").click(function () {
+                //显示弹出层
+                $("#tzjhiframe", parent.document).attr("src", "tzjh2.html");
+                alertThreeShow($(".new_tzbox", parent.document));
+            });
+            
+        
+        $(window).load(function () {
+            rxued.iframe.autoHeight("main_iframe");
+            rxued.table.countTB($("#tb_1"), $("#tb_2"), $(".ui-jqgrid-bdiv"), function () {
+                if ($('.tb_all').length > 0) {
+                    $('.tb_all').css('width', $("#tb_2").width() + 'px');
+                }
+            });
+        });
+        parent.$(window).load(function () {
+            rxued.iframe.autoHeight("main_iframe");
+            rxued.table.countTB($("#tb_1"), $("#tb_2"), $(".ui-jqgrid-bdiv"), function () {
+                if ($('.tb_all').length > 0) {
+                    $('.tb_all').css('width', $("#tb_2").width() + 'px');
+                }
+            });
+        });
+        parent.$(window).resize(function () {
+            rxued.iframe.autoHeight("main_iframe");
+            rxued.table.countTB($("#tb_1"), $("#tb_2"), $(".ui-jqgrid-bdiv"), function () {
+                if ($('.tb_all').length > 0) {
+                    $('.tb_all').css('width', $("#tb_2").width() + 'px');
+                }
+            });
+        });
+        $(window).resize(function () {
+            rxued.iframe.autoHeight("main_iframe");
+            rxued.table.countTB($("#tb_1"), $("#tb_2"), $(".ui-jqgrid-bdiv"), function () {
+                if ($('.tb_all').length > 0) {
+                    $('.tb_all').css('width', $("#tb_2").width() + 'px');
+
+                }
+            });
+        });
+        });
+    </script>
+</body>
+</html>

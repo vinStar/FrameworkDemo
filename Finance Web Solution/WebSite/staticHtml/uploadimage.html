@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>资金平台-弹出层</title>
+    <link href="/Content/CSS/base.css" type="text/css" rel="stylesheet">
+    <link href="/Content/CSS/layout.css" type="text/css" rel="stylesheet">
+    <link href="/Content/CSS/sub.css" type="text/css" rel="stylesheet">
+    <link href="/Content/CSS/alert.css" type="text/css" rel="stylesheet">
+    <link href="/Content/CSS/listcase.css" type="text/css" rel="stylesheet">
+    <link href="/Content/CSS/color.css" type="text/css" rel="stylesheet">
+    <style type="text/css">
+        html, body {
+            height: auto;
+        }
+        .tb_main p{
+            padding:10px 0;
+            text-align:center;
+        }
+        .chosezl li {
+            position: relative;
+            float: left;
+            width: 60px;
+            margin-left: 10px;
+            display: inline;
+            cursor: pointer;
+        }
+
+            .chosezl li img {
+                max-width: 60px;
+            }
+
+            .chosezl li .close_link {
+                background: url(../Content/Images/close_aa_l.jpg) no-repeat left center;
+                width: 13px;
+                height: 13px;
+                margin-left: 5px;
+                overflow: hidden;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+            }
+    </style>
+</head>
+<body>
+    <div class="tb_main" id="tb_main">
+        <p><input type="button" value="浏览" /></p>
+        <ul class="chosezl clear">
+            <li>
+                <a href="javascript:;" class="close_link"></a>
+                <img src="../Content/Images/u569.png" zz-url="../Content/Images/u569.png" zz-minurl="../Content/Images/u569.png">
+            </li>
+            <li>
+                <a href="javascript:;" class="close_link"></a>
+                <img src="../Content/Images/u569.png" zz-url="../Content/Images/u569.png" zz-minurl="../Content/Images/u569.png">
+            </li>
+        </ul>
+    </div>
+    <script src="../Scripts/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../Scripts/js/rxued.js"></script>
+    <script>
+        
+        $(function () {
+            rxued.iframe.autoHeight2("uploadiframe", 10);
+            parent.$(window).load(function () { rxued.iframe.autoHeight2("uploadiframe", 10); })
+            parent.parent.$(window).load(function () { rxued.iframe.autoHeight2("uploadiframe", 10); })
+            parent.parent.$(window).resize(function () {
+                rxued.iframe.autoHeight2("uploadiframe", 10);
+            });
+            parent.$(window).resize(function () {
+                rxued.iframe.autoHeight2("uploadiframe", 10);
+            });
+            $(".chosezl li .close_link").click(function () {
+                $(this).parent().hide();
+            });
+            //点击资料放大图片
+            $(document).on("click", "img[zz-url]", function () {
+                var url = "";
+                $(this).parent().parent().parent().find("img[zz-url]").each(function (i) {
+                    url += $(this).attr("zz-url") + ";";
+                    $(this).attr('data-i', i);
+                });
+                if (url != "") {
+                    var index = $(this).attr('data-i');
+                    //alert(index);
+                    url = url.substring(0, url.length - 1);
+                    var aUrl = url.split(';');
+                    $("#targetPic", top.document).attr({ 'data-msg': url, 'data-count': aUrl.length }).show();
+                    $("#targetPic img", top.document).attr({ 'src': aUrl[index], 'data-index': index });
+                    $("#mask0", top.document).show();
+                }
+            });
+
+            //点击资料放大图片end
+
+        })
+    </script>
+</body>
+</html>

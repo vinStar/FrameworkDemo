@@ -1,0 +1,221 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>凭证封面</title>
+    <link href="~/Content/CSS/css/base.css" rel="stylesheet" />
+    <link href="~/Content/CSS/css/pzfm.css" rel="stylesheet" />
+    <script src="../Scripts/js/jquery-1.8.3.min.js"></script>
+    <script src="../Scripts/js/rxued.js"></script>
+    <script src="~/Scripts/My97DatePicker/WdatePicker.js"></script>
+    <script>
+        $(function () {
+            var now = new Date();
+            var nowDate = now.Format("yyyy-MM");
+            $("#txt_time").val(nowDate);
+            $("#orderID").html("NO:" + now.Format("yyyyMM") + "01");
+            $("#timeYear").html(now.Format("yyyy"));
+            $("#timeMonth").html(now.Format("MM"));
+            var str = "";
+            $.ajax({
+                type: "POST",
+                data: "year=" + now.Format("yyyy") + "&&month=" + now.Format("MM") + "&&nowCeshu=1",//注意这里的参数名称要和Action 的参数名称相同。
+                url: "/PrintVoucher/GetDistrictStr",
+                async: false,
+                success: function (data) {
+                    str = data;
+                }
+            });
+            if (str != "") {
+                var str1 = str.split(',');
+                $("#allceshu").html(str1[0]);
+                $("#nowceshu").html(str1[1]);
+                $("#startCode").html(str1[2]);
+                $("#endCode").html(str1[3]);
+                $("#zhangshu").html(str1[4]);
+                $("#allyearCount").html(str1[5])
+            }
+        });
+        window.onload = function () {
+            rxued.iframe.autoHeight2('j_framepz', 30);
+        }
+
+
+        window.onresize = function () {
+            rxued.iframe.autoHeight2('j_framepz', 30);
+        }
+    </script>
+    <script language="javascript">
+        function printdiv(printpage) {
+            if ($("#txtfuji").val() == "" || $("#txtfuji").val() == "请填写附记") {
+                alert("请填写附记");
+                return false;
+            }
+            $("#sp_txtfuji").text($("#txtfuji").val());
+            //var headstr = "<html><head><title></title></head><body>";
+            //var footstr = "</body>";
+            //var newstr = document.all.item(printpage).innerHTML;
+            //var oldstr = document.body.innerHTML;
+            //document.body.innerHTML = headstr + newstr + footstr;
+            //window.print();
+            //document.body.innerHTML = oldstr;
+
+            $(".clear").css("display", "none");
+            window.print();
+            //window.location.href = window.location.href;
+            $(".clear").css("display", "block");
+            $("#sp_txtfuji").text("");
+            $("#txtfuji").val("");
+            return false;
+        }
+
+        function TimeChange() {
+            var time = $("#txt_time").val();
+            var year = "";
+            var month = "";
+            if (time != null) {
+                var str = time.split('-');
+                year = str[0];
+                month = str[1];
+            }
+            GetData(year, month, "/PrintVoucher/GetDistrictList");
+            var str = "";
+            $.ajax({
+                type: "POST",
+                data: "year=" + year + "&&month=" + month + "&&nowCeshu=1",//注意这里的参数名称要和Action 的参数名称相同。
+                url: "/PrintVoucher/GetDistrictStr",
+                async: false,
+                success: function (data) {
+                    str = data;
+                }
+            });
+            if (str != "") {
+                var str1 = str.split(',');
+                $("#allceshu").html(str1[0]);
+                $("#nowceshu").html(str1[1]);
+                $("#startCode").html(str1[2]);
+                $("#endCode").html(str1[3]);
+                $("#zhangshu").html(str1[4]);
+                $("#allyearCount").html(str1[5])
+            }
+            //alert(year + month)
+            $("#orderID").html("NO:" + year + month + "01");
+            $("#timeYear").html(year);
+            $("#timeMonth").html(month);
+        }
+
+        function GetData(year, month, varURL) {
+
+            $("#select_ceuu").html("");
+            //设置异步传输参数
+            var option = {
+                url: varURL,
+                type: 'Get',
+                dataType: 'json',
+                data: { year: year, month: month }, //发送服务器数据
+                success: function (data) {  //成功事件
+                    $.each(data, function (i, item) {
+                        $("<option></option>")
+                                .val(data[i].Value)
+                                .text(data[i].Text)
+                                .appendTo($("#select_ceuu"));
+                    });
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) { //发送失败事件
+                    alert(textStatus);
+                }
+            };
+            //进行异步传输
+            $.ajax(option);
+        }
+
+        $(function () {
+            $("#select_ceuu").change(function () {
+                var time = $("#txt_time").val();
+                var year = "";
+                var month = "";
+                if (time != null) {
+                    var str = time.split('-');
+                    year = str[0];
+                    month = str[1];
+                }
+                var str = "";
+                $.ajax({
+                    type: "POST",
+                    data: "year=" + year + "&&month=" + month + "&&nowCeshu=" + $("#select_ceuu").val(),//注意这里的参数名称要和Action 的参数名称相同。
+                    url: "/PrintVoucher/GetDistrictStr",
+                    async: false,
+                    success: function (data) {
+                        str = data;
+                    }
+                });
+                if (str != "") {
+                    var str1 = str.split(',');
+                    $("#allceshu").html(str1[0]);
+                    $("#nowceshu").html(str1[1]);
+                    $("#startCode").html(str1[2]);
+                    $("#endCode").html(str1[3]);
+                    $("#zhangshu").html(str1[4]);
+                    $("#allyearCount").html(str1[5])
+                }
+            })
+
+        })
+    </script>
+</head>
+<body>
+    @*dchanging: TimeChange(1), Mchanging: cc(2), ychanging: cc(3), dchanged: cc(4), Mchanged: cc(5), ychanged: cc(6),*@
+    <div style="margin: 10px 0 0 424px; " class="clear">
+        <input class="fl mr10 Wdate Bordercolorbox ptb0lr5" type="text" id="txt_time" onfocus="WdatePicker({ dateFmt: 'yyyy-MM', maxDate: '%y-%M', onpicked: TimeChange })" />
+        <span class="txt_cs">册数:</span>@Html.DropDownList("select_ceuu", ViewData["ceuu"] as List<SelectListItem>, new { @class = "select" })
+        <a class="btn" onclick="printdiv('div_print')"><span>打印</span></a>
+    </div>
+    <div class="container" id="div_print">
+        <div class="logo"></div>
+        <div class="header">
+            <div class="head">
+                <h3>凭 证 封 面</h3>
+            </div>
+            <span class="order" id="orderID">NO:20150101</span>
+        </div>
+        <div class="main">
+            <table class="tb">
+                <tr>
+                    <td width="120">
+                        日　　　期
+                    </td>
+                    <td width="478">
+                        <b class="timeNum" id="timeYear"></b>年<b class="timeNum" id="timeMonth"></b>月<span class="ml60">本 年 第</span><b class="timeNum" id="allyearCount">@ViewBag.allyearCount</b>册
+                    </td>
+                </tr>
+                <tr>
+                    <td>册　　　数</td>
+                    <td>
+                        本月共<b class="timeNum" id="allceshu">@ViewBag.chushu</b>册<span class="ml60">本 册 是 第</span><b class="timeNum" id="nowceshu"></b>册
+                    </td>
+                </tr>
+                <tr>
+                    <td>张　　　数</td>
+                    <td>
+                        本 册 自 第<b class="serialNumber" id="startCode"></b>号 至 第<b class="serialNumber" id="endCode"></b>号<span class="ml12">共</span><b class="countnum" id="zhangshu"></b>张
+                    </td>
+                </tr>
+                <tr class="tr_fj">
+                    <td>附　　　记</td>
+                    <td>
+                        <b class="fmW" id="sp_txtfuji"><textarea id="txtfuji" style="margin: 0px; height: 84px; width: 242px;"></textarea>@*<input type="text" multiple="" id="txtfuji" value="请填写附记" onblur="this.value = (this.value == '') ? '请填写附记' : this.value" onfocus="this.value = (this.value == '请填写附记') ? '' : this.value">*@</b>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="foot">
+            <label class="lbl1">会计：<b class="txtPerson">@ViewBag.bursar</b></label> <label class="lbl2">装订人：<b class="txtPerson">@ViewBag.cashier</b></label>
+        </div>
+    </div>
+</body>
+</html>

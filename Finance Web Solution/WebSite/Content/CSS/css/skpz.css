@@ -1,0 +1,138 @@
+﻿@charset "utf-8";
+/*72px分辨率*/
+/*AI上宽度496pt = 660px NO*/
+
+.container{
+	width:600px;
+	margin: 0 auto;
+	margin-top: 26px;
+	font-family: '宋体';
+	/*font-size: 12px;*/
+	color: #000;
+	font-size: 10pt;
+}
+
+.voucher  th{
+	height: 32pt;
+	/*height: 38pt;*/
+	border: 1px solid #000;
+	text-align: center;
+	color: #000;
+}
+.voucher td.col_debite, .voucher td.col_credit, .voucher td.col_money {background-image:url(/Content/Images/img/bg2.png); background-repeat: repeat-y;background-position: 1px 0; }
+.edit_summary, .edit_money, .edit_subject { float: left; outline: none; resize: none; border: 2px solid #4bb8f3; box-shadow: rgba(0,0,0,.1) 0 1px 2px 1px inset;width:118px; height: 36px;overflow: hidden; line-height:36px\9; }
+.container .logo{
+	width: 100%;
+	height: 20px;
+	background:url(/Content/Images/img/logo4.png) no-repeat left center;
+}
+.logo p{
+	line-height: 22pt;
+	float: right;
+}
+.header{
+	width: 100%;
+	/*position: relative;*/
+	height:97px;
+}
+.head{
+	width: 286px;
+	height:50px;
+}
+.head h3{
+	width: 286px;
+	position: absolute;
+	left: 50%;
+	margin-left: -143px;
+	font-size:18pt;
+	color: #000;
+	text-align: center; 
+	height:47px;
+	line-height: 47px;
+	border-bottom: 1px solid #000;
+}
+.tips{
+	height: 14pt;
+	line-height: 14pt;
+	margin-top: 22px;
+	padding: 0 10px;
+}
+.main{
+	width: 600px;
+	padding-right: 20px;
+	position: relative;
+}
+
+.tb{
+	border: 2px solid #000;
+	border-collapse: collapse;
+}
+.tb td{
+	height: 32pt;
+	/*height: 38pt;*/
+	border: 1px solid #000;
+	text-align: center;
+	color: #000;
+}
+.tb td.unit{height: 19pt;}
+.unit span.first{border-left:none;}
+.unit span{
+	float: left;
+	display: block;
+	width: 11px;
+	height: 19pt;
+	line-height: 19pt;
+	border-left: 1px solid #000;
+	font-size: 9px;
+	text-align: center;
+}
+.unit2 span.first{border-left:none;}
+.unit2 span{
+	float: left;
+	display: block;
+	width: 11px;
+	height: 32pt;
+	line-height: 32pt;
+	border-left: 1px solid #000;
+	font-size: 9px;
+	text-align: center;
+}
+.tb td.txtLeft{text-align: left;}
+.txtHJ{
+	margin-left: 12px;
+}
+
+.txt{
+	width: 114px;
+	border-bottom: 1px solid #000;
+	resize: none;
+}
+.foot{
+	height: 26pt;
+	line-height: 26pt;
+	color: #000;
+}
+.lbl1{
+	margin-left: 124px;
+}
+.lbl2{
+	margin-left: 162px;
+}
+
+.lbl1{margin-left: 26px;}
+.lbl2{margin-left: 120px;}
+.lbl3{margin-left: 120px;}
+.lbl4{margin-left: 120px;}
+.fdj{
+	width: 22px;
+	text-align: center;
+	height: 314px;
+	white-space:normal;
+	position: absolute;
+	right: 0;
+	top:68px;
+}
+.fdj .unit{
+	display: block;
+	margin-top:129px;
+}

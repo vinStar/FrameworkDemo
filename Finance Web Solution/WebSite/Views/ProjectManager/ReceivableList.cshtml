@@ -1,0 +1,66 @@
+﻿@model WebSite.Models.Fa_Cashier.FA_ReceivableDetailsFillViewModel
+@using HyBy.Trading.BusinessEntity
+
+<div class="ui_toptable  j_outerheight">
+    <table cellpadding="0" cellspacing="0" class="headtable wb100" id="headtable">
+        <thead>
+            <tr>
+                <th width="4%">序号</th>
+                <th width="8%">近期应收</th>
+                <th width="6%"><a>剩余天数</a></th>
+                <th width="6%"><a>期款</a></th>
+                <th width="8%"><a>本期应收</a></th>
+                <th width="8%"><a>本期已收</a></th>
+                <th width="8%"><a>回款率</a></th>
+                <th width="12%"><a>总应收</a></th>
+                <th width="8%">项目名称</th>
+                <th width="8%">任务单号</th>
+                <th width="8%">合同编号</th>
+                <th width="8%">合同日期</th>
+                <th class="last"><a>剩余工期</a></th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<div class="tableshow" style="overflow:auto;" id="j_scrollbox">
+    <table cellpadding="0" cellspacing="0" class="wb100 txtCenter ui_bottomtab" id="minshowtable">
+        <tbody>
+            @if (Model.ReceivableList == null || Model.ReceivableList.Count <= 0)
+            {
+                <tr class="target_tr">
+                    <td colspan="13">暂无数据</td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model.ReceivableList)
+                {
+                    <tr class="target_tr">
+                        <td width="4%">@item.RN</td>
+                        <td width="8%">@Convert.ToDateTime(item.Time).ToString("yyyy-MM-dd")</td>
+                        <td width="6%">@item.Status</td>
+                        <td width="6%">@Html.Action("GetPeriodType", new { period = item.Period, type = item.Type, deduction = item.Deduction })</td>
+                        @if (Convert.ToDecimal(item.Receivable) <= (Convert.ToDecimal(item.Received) + Convert.ToDecimal(item.Deduction)))
+                        {
+                            <td width="8%"><a class="color_b" onclick="alert('回款已收完')">@item.Receivable</a></td>
+                        }
+                        else
+                        {
+                            <td width="8%"><a class="color_b" href="/Voucher/Index?ID=@item.ID" target="framepz" huikuan_id="@item.ID" huikuan_orderid="@item.OrderID" huikuan_billtype="@item.BillType" huikuan_type="@item.Type" huikuan_period="@item.Period" onclick="IFFinish(this)">@item.Receivable</a></td>
+                        }
+                        <td width="8%">@item.Received</td>
+                        <td width="8%">@Math.Round(Convert.ToDecimal(item.Received / item.Receivable * 100), 2)%</td>
+                        <td width="12%">@item.Amount</td>
+                        <td width="8%">@item.Name</td>
+                        <td width="8%">@item.OrderID</td>
+                        <td width="8%">@item.Number</td>
+                        <td width="8%">@Convert.ToDateTime(item.HeTongTime).ToString("yyyy-MM-dd")</td>
+                        <td class="last">@item.EndDay</td>
+                    </tr>
+                }
+            }
+
+
+        </tbody>
+    </table>
+</div>

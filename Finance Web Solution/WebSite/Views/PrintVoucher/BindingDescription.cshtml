@@ -1,0 +1,106 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>凭证装订说明</title>
+    <link href="~/Content/CSS/css/base.css" rel="stylesheet" />
+    <link href="~/Content/CSS/css/pzzd.css" rel="stylesheet" />
+    <script src="../Scripts/js/jquery-1.8.3.min.js"></script>
+    <script src="../Scripts/js/rxued.js"></script>
+    <script>
+        window.onload = function () {
+            rxued.iframe.autoHeight2('j_framepz', 40);
+        }
+    </script>
+    <script language="javascript">
+        function printdiv(printpage) {
+            if ($("#year").val() == "" || $("#month").val() == "" || $("#startCode").val() == "" || $("#endCode").val() == "" || $("#nowCeshu").val() == "" || $("#allCeshu").val() == "") {
+                alert("信息不完整无法打印");
+                return false;
+            }
+            $("#sp_year").text($("#year").val());
+            $("#sp_month").text($("#month").val());
+            $("#sp_startCode").text($("#startCode").val());
+            $("#sp_endCode").text($("#endCode").val());
+            $("#sp_nowCeshu").text($("#nowCeshu").val());
+            $("#sp_allCeshu").text($("#allCeshu").val());
+
+
+            //var headstr = "<html><head><title></title></head><body>";
+            //var footstr = "</body>";
+            //var newstr = document.all.item(printpage).innerHTML;
+            //var oldstr = document.body.innerHTML;
+            //document.body.innerHTML = headstr + newstr + footstr;
+            //window.print();
+            //document.body.innerHTML = oldstr;
+
+            $(".btn").css("display", "none");
+            window.print();
+            window.location.href = window.location.href;
+            return false;
+        }
+    </script>
+
+</head>
+<body>
+    <div class="dis_il_block mlt5" style="margin-left:686px;">
+        <a class="btn" onclick="printdiv('div_print')"><span>打印</span></a>
+    </div>
+    <div class="mainC" id="div_print">
+        <div class="bd"></div>
+        <div class="container">
+            <div class="main clear">
+                <div class="content fl">
+                    <p class="txt_c1">凭证装订说明</p>
+                    <div class="txt_c2 txtc">
+                        <p>1、整理凭证</p>
+                        <p>将所有凭证按照编号从小到大依次排列，排列整</p>
+                        <p>齐后，将目录置于所有凭证前。</p>
+                    </div>
+                    <div class="txt_c2">
+                        <p>2、凭证装订</p>
+                        <p>将目录及所有凭证码放整齐，用厚质牛皮纸封皮</p>
+                        <p>将目录及凭证包裹在内，整理边角，边角整齐后</p>
+                        <p>进行装订打孔，装订孔保证在2个以上。</p>
+                    </div>
+                    <div class="txt_c2">
+                        <p>3、粘贴封皮及封脊</p>
+                        <p>将印有封脊信息的纸张沿虚线折叠，依照折痕对</p>
+                        <p>比凭证厚度粘贴封脊，粘贴完毕后，按照纸张提</p>
+                        <p>示粘贴处粘贴所打印的封皮</p>
+                    </div>
+                </div>
+                <div class="cover fl">
+                    <div class="covernum fl">
+                        <p>
+                            <b id="sp_year"><input type="text" id="year"></b>
+                            <span class="span1">年</span>
+                            <b class="time"><span id="sp_month"><input type="text" id="month"></span></b><span>月</span>
+                            <b class="day" id="sp_startCode"><input type="text" id="startCode"></b><span>号</span><span>至</span>
+                            <b class="day" id="sp_endCode"><input type="text" id="endCode"></b><span>号</span>
+                            <span class="span1">第</span>
+                            <b class="time"><span id="sp_nowCeshu"><input type="text" id="nowCeshu"></span></b><span>册</span><span>共</span>
+                            <b class="day" id="sp_allCeshu"><input type="text" id="allCeshu"></b><span>册</span>
+                        </p>
+                    </div>
+                    <div class="covertxt fl">
+                        <p>
+                            <span class="mt mb">封</span>
+                            <span class="mb">皮</span>
+                            <span class="mb">粘</span>
+                            <span class="mb">贴</span>
+                            <span class="mb">处</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

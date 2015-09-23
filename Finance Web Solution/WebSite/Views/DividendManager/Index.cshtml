@@ -1,0 +1,104 @@
+﻿@model WebSite.Models.Fa_Cashier.FA_ProfitDeliveringListViewModel
+@using HyBy.Trading.BusinessEntity
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>首页-缴纳分红</title>
+    <link href="~/Content/CSS/base.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/layout.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/sub.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/alert.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/listcase.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/color.css" type="text/css" rel="stylesheet">
+</head>
+<body style="overflow-x:auto;">
+    <div class="mask_layer" id="mask2">
+    </div>
+    <div class="tb_main" id="tb_main">
+        <div class="breadcrumbs j_alertHeight j_outerheight" id="breadcrumbs">
+            <div class="breadcrumbs_mm">
+                <span class="home fl">首页</span><span class="color_1 fl arrow_sm"> > </span><span class="fl cur_page">缴纳分红</span>
+            </div>
+        </div>
+        <div style="height: 5px;" class="j_outerheight"></div>
+        <div class="tb_main" id="tb_main2">
+            <div class="tb_container" id="tablecontent" style="padding-top:0;">
+
+                <div class="ui_toptable  j_outerheight">
+                    <table cellpadding="0" cellspacing="0" class="headtable wb100" id="headtable">
+                        <thead>
+                            <tr>
+                                <th width="14%">序号</th>
+                                <th width="15%">公司名称</th>
+                                <th width="15%">分红时间</th>
+                                <th width="15%">人数</th>
+                                <th width="15%">分红金额</th>
+                                <th class="last">操作</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <!-- -->
+                <div class="tableshow" style="overflow:auto;" id="j_scrollbox">
+                    <table cellpadding="0" cellspacing="0" class="wb100 txtCenter ui_bottomtab" id="minshowtable">
+                        <tbody>
+                            @foreach (var item in Model.ProfitDeliveringList)
+                            {
+                                <tr class="target_tr">
+                                    <td width="14%">@item.RN</td>
+                                    <td width="15%">@Html.Action("GetType", new { type = item.Type })</td>
+                                    <td width="15%"><span>@item.year</span>-<span>@item.month</span>月分红</td>
+                                    <td width="15%">@item.num</td>
+                                    <td width="15%"><a class="SalaryBtn color_b" href="/VoucherSalary/Index?diqu=@ViewBag.diqu&bumen=&year=@item.year&month=@item.month&salary=@item.allBonus&type=@item.Type&menuType=1&profitIDS=@Html.Action("GetProfitIDS", new { diqu = ViewBag.diqu , type = item.Type , year = item.year , month = item.month, allBonus = item.allBonus })" target='framepz'>@item.allBonus</a></td>
+                                    <td>
+                                        <div class="dis_il_block">
+                                            <a class="btn" href="/DividendManager/DividendListInfor?diqu=@ViewBag.diqu&type=@item.Type&year=@item.year&month=@item.month&allBonus=@item.allBonus" target='_parent'><span>查看</span></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="j_outerheight tbDiv3">
+                    <table class="tb_all">
+                        <tr>
+                            <td width="14%">总</td>
+                            <td width="15%"></td>
+                            <td width="15%"></td>
+                            <td width="15%"></td>
+                            <td width="15%">@ViewBag.AllMoney</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script type="text/javascript" src="~/Scripts/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="~/Scripts/js/rxued.js"></script>
+<script type="text/javascript" src="~/Scripts/js/listbase.js"></script>
+
+
+<script>
+    $(function () {
+        rxued.check.allCheck($("#chk1"), $("#j_scrollbox input:checkbox"), true, $("#chk2"));
+        $('#mask2').hide();
+        $(".SalaryBtn").click(function () {
+            $("#j_alertboxPZP,#mask0", top.document).show();
+            $("#j_alertboxPZP .mask_layer", top.document).show();
+        })
+    });
+</script>

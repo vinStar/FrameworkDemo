@@ -1,0 +1,178 @@
+/*每个系统不同的css文件，每次更新，只更新此css文件*/
+
+
+
+/*材料系统弹出框*/
+.options{
+	width: 98%;
+	margin: 1% auto;
+}
+.options h3{
+	height:29px;
+	line-height: 29px;
+	color:#199776;
+	border-bottom: 1px solid #ccc;
+	padding-left:10px;
+}
+
+.options_f{
+	width:99%;
+}
+.options_f h3{
+	height:32px;
+	line-height:44px;
+	color:#199776;
+	/*border-bottom: 1px solid #ccc;
+	padding-left:10px;*/
+}
+
+.secondnav{ padding-right: 25px; margin-top:5px;}
+.secondnav a { float:left; color:#199776; height: 26px; line-height: 26px;margin-left: 20px; display:inline;}
+
+.secondnav{
+	padding-right:25px;
+}
+
+/*资金账户*/
+.bank1,.bank2{
+    cursor:pointer;
+}
+.bank1{
+	padding-left:18px;
+	background: url(/Content/Images/KF/bank1.png) no-repeat left center;
+}
+.bank2{
+	padding-left:18px;
+	background: url(/Content/Images/KF/bank2.png) no-repeat left center;
+}
+
+
+.seek{
+	width: 16px;
+	height: 14px;
+	display:inline-block;
+	background: url(/Content/Images/KF/seek.png) no-repeat 0 0;
+}
+
+/*.btnR{
+	width: 9px;
+	height: 161px;
+	background: url(/Content/Images/KF/btnR.png) no-repeat 0 0;
+	position: fixed;
+	top: 200px;
+	right:1px;
+}*/
+
+.option_bh a{
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	color: #393939;
+	border: 1px solid #ccc;
+	border-width: 1px 0 0 0;
+	display: block;
+}
+.option_bh a.first{
+	border-top: none;
+}
+.option_bh a:hover,.option_bh a.active{
+	background-color:#a8d7ca;
+	color: #fff;
+}
+.option_bh {
+	border: 1px solid #ccc;
+	border-width: 0 1px 1px 1px;
+	max-height: 410px;
+	overflow-y: auto;
+}
+.degreeCont{height: 390px;}
+.degree,.degreeUp{
+	width:73px;
+	height:75px;
+	display:block;
+	float:left;
+	margin-top:10px;
+	margin-right:4px;
+	cursor:pointer;
+	text-align:center;
+}
+.degreeUp{position:relative;}
+.degreeUp .deladd{
+    display:block;
+	width:16px;
+	height:16px;
+	position:absolute;
+	right:5px;
+	top:-6px;
+	cursor:pointer;
+	background:url(../Images/KF/delBtn.png) no-repeat 0 0;
+}
+.degreeImg{
+	display:block;
+	width:42px;
+	height:56px;
+	line-height: 56px;
+	margin:0 20px;
+}
+.dig1{
+	background:url(/Content/Images/KF/upload_1.png) no-repeat  0 0;
+}
+.deNum{
+	width:14px;
+	height: 14px;
+	line-height: 14px;
+	display: inline-block;
+	color: #fff;
+}
+.dig1 .deNum{
+	background:url(/Content/Images/KF/deNum1.png) no-repeat  0 0;
+}
+.active .dig1 .deNum,.degree:hover .dig1 .deNum{
+	background:url(/Content/Images/KF/deNum2.png) no-repeat  0 0;
+}
+.active .dig1,.degree:hover .dig1,.degreeUp:hover .dig1{
+	background:url(/Content/Images/KF/upload_1cur.png) no-repeat  0 0;
+}
+.degreeUp:hover .deAdd{
+	color: #438eb9;
+}
+.degreeText{
+	color:#276884;
+}
+.degreeText1{
+	text-decoration:underline;
+	color:grey;
+}
+.imgBox p{
+	line-height:35px;
+	margin-bottom:5px;
+}
+#boxPic img{
+	margin: 0;
+	width:292px;
+	height: 340px;
+}
+#boxPic{
+	margin-bottom:12px;
+}
+.titleH3{
+	height: 26px;
+	line-height:26px;
+	background-color: #999;
+	color: #fff;
+}
+.titleH3 span{
+	display:inline-block;
+	text-align: center;
+}
+
+.closeDB {
+	width: 36px;
+	height: 35px;
+	background: url(/Content/Images/closeDB.png) no-repeat 0 0;
+	display:block;
+	position:absolute;
+	right:0px;
+	top:-1px;
+	cursor:pointer;
+}

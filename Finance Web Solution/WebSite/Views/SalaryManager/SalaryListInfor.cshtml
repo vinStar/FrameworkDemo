@@ -1,0 +1,186 @@
+﻿@model WebSite.Models.Fa_Cashier.FA_SalaryListViewModel
+@using HyBy.Trading.BusinessEntity
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SalaryListInfor</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/base.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/layout.css" />
+    <link href="~/Content/CSS/lvse/Outer_color.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/listcase.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/color.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/sub.css" />
+
+</head>
+<body>
+    <div id="tb_main2" class="tb_main2">
+        <div class="navbar navbar-default j_outerheight" id="navbar">
+            <div class="navbar-header pull-left">
+                <a href="#" class="navbar-brand clear">
+                    <span class="logo fl"></span><span class="version fl">7.0</span>
+                </a>
+            </div>
+        </div>
+        <div id="serchbox" class="txtRight j_outerheight" style="border: none;">
+            <div class="boxPos">
+                <a class="btn" onclick="fun()">
+                    <span>返回主页</span>
+                </a>
+                <a href="javascript:void(0);" class="btn" id="print">
+                    <span>打印</span>
+                </a>
+            </div>
+        </div>
+        <h3 class="txtCenter lh30 j_outerheight">@ViewBag.bumenMonth<span>月工资清单</span></h3>
+        <div class="tb_container" id="tablecontent" style="padding-top:0;">
+            <div class="ui_toptable j_outerheight">
+                <table class="headtable wb100" id="headtable" cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th width="3%">序号</th>
+                            <th width="7%">所属部门</th>
+                            <th width="5%">姓名</th>
+                            <th width="15%">账户</th>
+                            <th width="5%">基本工资</th>
+                            <th width="5%">岗位津贴</th>
+
+                            @*<th width="5%">工龄工资</th>
+                                <th width="5%">交通补贴</th>
+                                <th width="5%">通信补贴</th>*@
+                            <th width="5%">保密费</th>
+                            <th width="5%">绩效工资</th>
+                            <th width="5%">综合工资</th>
+                            <th width="5%">考勤扣款</th>
+                            <th width="5%">部门考核</th>
+                            <th width="5%">管理奖罚</th>
+                            @*<th width="5%">应发工资</th>*@
+                            <th width="5%">业绩提成</th>
+                            <th width="5%">管理提成</th>
+                            <th width="5%">社保</th>
+                            <th width="5%">公积金</th>
+                            <th width="5%">个税</th>
+                            <th>实发工资</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="tableshow" id="j_scrollbox">
+                <table id="minshowtable" class="wb100 txtCenter ui_bottomtab" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        @{int i = 1;}
+                        @foreach (var item in Model.salaryList)
+                        {
+                            <tr class="target_tr">
+                                <td width="3%">@(i++)</td>
+                                <td width="7%">@item.Department</td>
+                                <td width="5%">@item.Name</td>
+                                <td width="15%"><div class="brk">@item.BankNo</div></td>
+                                <td width="5%">@item.BaseSalary</td>
+                                @* 岗位津贴 *@
+                                <td width="5%">@item.Subsidy</td>
+                                @* 保密费 *@
+                                <td width="5%">@item.Secrecy</td>
+                                <td width="5%">@item.Performance</td>
+                                @*工龄*@
+                                @*<td width="5%">@item.SeniorityPay</td>*@
+                                @*<td width="5%">@item.Travel</td>
+                                    <td width="5%">@item.Communication</td>*@
+
+                                <td width="5%">@item.Salary</td>
+                                <td width="5%">@item.CheckingInFine</td>
+                                @* 部门绩效 *@
+                                <td width="5%">@(item.DepartAward + item.DepartPenalty + item.DepartPerformance)</td>
+                                <td width="5%">@(item.ManageAward + item.ManagePenalty)</td>
+                                <td width="5%">@(item.Commission + item.CommissionGroup)</td>
+                                @* 管理提成 *@
+                                <td width="5%">@item.Dividend</td>
+                                @*<td width="5%">@item.ShouldPay</td>*@
+                                <td width="5%">@item.SocialSecurity </td>
+                                <td width="5%">@item.HousingFund</td>
+                                <td width="5%">@item.Tax</td>
+                                @* 最终工资，包含管理提成 *@
+                                <td class="last">@item.Fsalary</td>
+                            </tr>
+                        }
+                        @if (Model.salaryList == null || Model.salaryList.Count <= 0)
+                        {
+                            <tr class="target_tr">
+                                <td colspan="18">暂无数据</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="tbDiv3 j_outerheight">
+                <table id="tb_3" class="tb_all txtCenter">
+                    <tbody>
+                        <tr>
+                            <td width="3%">总</td>
+                            <td width="7%"></td>
+                            <td width="5%"></td>
+                            <td width="15%"></td>
+                            <td width="5%">@ViewBag.AllBaseSalary</td>
+                            <td width="5%">@ViewBag.AllSubsidy</td>
+                            <td width="5%">@ViewBag.AllSecrecy</td>
+                            <td width="5%">@ViewBag.AllPerformance</td>
+                            <td width="5%">@ViewBag.AllSalary</td>
+                            <td width="5%">@ViewBag.AllCheckingInFine</td>
+                            <td width="5%">@ViewBag.AllDepart</td>
+                            <td width="5%">@ViewBag.AllManage</td>
+                            <td width="5%">@ViewBag.AllCommission</td>
+                            <td width="5%">@ViewBag.AllDividend</td>
+                            <td width="5%">@ViewBag.AllSocialSecurity</td>
+                            <td width="5%">@ViewBag.AllHousingFund</td>
+                            <td width="5%">@ViewBag.AllTax</td>
+                            <td class="last">@ViewBag.AllFsalary</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <input type="hidden" id="hid_diqu" value="@ViewBag.diqu" />
+            <input type="hidden" id="hid_bumen" value="@ViewBag.bumen" />
+            <input type="hidden" id="hid_year" value="@ViewBag.year" />
+            <input type="hidden" id="hid_month" value="@ViewBag.month" />
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="~/Scripts/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/rxued.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/listbase.js"></script>
+
+    <script type="text/javascript">
+        function fun() {
+            window.location.href = "/Home/CashierIndex?type=0";
+            //$("#ifmPz", document).attr("src", "/SalaryManager/Index");
+        }
+        //含多个iframe的页面的计算高度
+        function init() {
+            rxued.table.countTB($('#headtable'), $('#minshowtable'), $(".tableshow"));
+        }
+
+        $(function () {
+
+            //计算高度和宽度
+            $(window).load(function () {
+                init();
+            });
+            $(window).resize(function () {
+                init();
+            })
+
+            $("#print").click(function () {
+                window.open("/PrintVoucher/CompanyPayroll?diqu=" + $("#hid_diqu").val() + "&bumen=" + $("#hid_bumen").val() + "&year=" + $("#hid_year").val() + "&month=" + $("#hid_month").val(), "PrintVoucher");
+            })
+        })
+
+    </script>
+</body>
+
+</html>

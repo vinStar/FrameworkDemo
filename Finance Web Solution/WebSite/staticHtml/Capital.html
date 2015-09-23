@@ -1,0 +1,393 @@
+﻿
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>资金平台-待办事项</title>
+    <link href="/Content/CSS/base.css" type="text/css" rel="stylesheet">
+    <link href="/Content/CSS/layout.css" type="text/css" rel="stylesheet">
+    <link href="/Content/CSS/sub.css" type="text/css" rel="stylesheet">
+    <link href="/Content/CSS/alert.css" type="text/css" rel="stylesheet">
+    <link href="/Content/CSS/listcase.css" type="text/css" rel="stylesheet">
+    <link href="/Content/CSS/color.css" type="text/css" rel="stylesheet">
+    <style type="text/css">
+        .collection_task, .Dial_back {
+            background: #288068;
+            border: 1px solid #ccc;
+        }
+        .collection_task_left, .Dial_back_left {
+            float: left;
+            width: 100px;
+            height:100%;
+            color: #fff;
+            text-align: center;
+            vertical-align: middle;
+            position:relative;
+        }
+        .collection_task_left span, .Dial_back_left span {
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin:-30px 0 0 -5px;
+        } 
+        .collection_task_right, .Dial_back_right {
+                margin-left: 100px;
+                background: #fff;
+                padding: 0 10px;
+                height: 100%;
+            }
+        #serchbox strong{font-size:20px;
+        }
+        .boxPos strong {
+            color: #FF8080;
+        }
+        #minshowtable tr input[type="text"] {
+            width:90%;
+        }
+        
+    </style>
+</head>
+
+<body style="overflow-x:auto;">
+    <div class="mask_layer" id="mask2" style="display:none;">
+    </div>
+    <div class="tb_main" id="tb_main">
+        <div class="breadcrumbs " id="breadcrumbs">
+            <div class="breadcrumbs_mm">
+                <span class="home fl">首页</span><span class="color_1 fl arrow_sm"> > </span><span class="fl cur_page">资金平台</span>
+            </div>
+        </div>
+        <div style="height: 5px;" class="otherdiv"></div>
+        <div class="tb_main" id="tb_main2">
+            
+            <div class="tb_container" id="tablecontent" style="padding-top:0;">
+                <div class="collection_task">
+                    <div class="collection_task_left">
+                        <span> 归<br />集<br />任<br />务</span>
+                    </div>
+                    <div class="collection_task_right">
+                        <div id="serchbox" style="border: none;" class="txtRight j_outerheight">
+                            <div class="Statistics fl" style="margin-left:1%;">
+                                <span>需归集资金：<strong>82,000.00</strong> 元</span>
+                            </div>
+                            <div class="boxPos fr">
+                                <span class="fl">剩余待归集：<strong>32,000.00 </strong>元</span>
+                                <a class="btn" style="margin-left:10px; display:inline;"><span>提交</span></a>
+                            </div>
+                        </div>
+                        <div class="ui_toptable  j_outerheight">
+                            <table cellpadding="0" cellspacing="0" class="headtable wb100" id="headtable">
+                                <thead>
+                                    <tr>
+
+                                        <th width="8%">序号</th>
+                                        <th width="10%">属性</th>
+                                        <th width="10%">开户行</th>
+                                        <th width="10%">账户</th>
+                                        <th width="10%">户名</th>
+                                        <th width="12%">余额 (元)</th>
+                                        <th width="12%">本次归集 (元)</th>
+                                        <th width="12%">剩余 (元)</th>
+                                        <th class="last">回执单</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <!-- -->
+                        <div class="tableshow" style="overflow:auto;" id="j_scrollbox">
+                            <table cellpadding="0" cellspacing="0" class="wb100 txtCenter ui_bottomtab" id="minshowtable">
+                                <tbody>
+                                    <tr class="target_tr">
+                                        <td width="8%">01</td>
+                                        <td width="10%">个人户</td>
+                                        <td width="10%">工商银行</td>
+                                        <td width="10%">工商银行</td>
+                                        <td width="10%">李小四</td>
+                                        <td width="12%">250,000.00</td>
+                                        <td width="12%"><input type="text" /></td>
+                                        <td width="12%">10,500.00</td>
+                                        <td><a class="btn uploadimg" style="float:none;display:inline-block;"><span>上传图片</span></a></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>01</td>
+                                        <td>个人户</td>
+                                        <td>工商银行</td>
+                                        <td>工商银行</td>
+                                        <td>李小四</td>
+                                        <td>250,000.00</td>
+                                        <td><input type="text" /></td>
+                                        <td>10,500.00</td>
+                                        <td><a class="btn uploadimg" style="float:none;display:inline-block;"><span>上传图片</span></a></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>01</td>
+                                        <td>个人户</td>
+                                        <td>工商银行</td>
+                                        <td>工商银行</td>
+                                        <td>李小四</td>
+                                        <td>250,000.00</td>
+                                        <td><input type="text" /></td>
+                                        <td>10,500.00</td>
+                                        <td><a class="btn uploadimg" style="float:none;display:inline-block;"><span>上传图片</span></a></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>01</td>
+                                        <td>个人户</td>
+                                        <td>工商银行</td>
+                                        <td>工商银行</td>
+                                        <td>李小四</td>
+                                        <td>250,000.00</td>
+                                        <td><input type="text" /></td>
+                                        <td>10,500.00</td>
+                                        <td><a class="btn uploadimg" style="float:none;display:inline-block;"><span>上传图片</span></a></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>01</td>
+                                        <td>个人户</td>
+                                        <td>工商银行</td>
+                                        <td>工商银行</td>
+                                        <td>李小四</td>
+                                        <td>250,000.00</td>
+                                        <td><input type="text" /></td>
+                                        <td>10,500.00</td>
+                                        <td><a class="btn uploadimg" style="float:none;display:inline-block;"><span>上传图片</span></a></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>01</td>
+                                        <td>个人户</td>
+                                        <td>工商银行</td>
+                                        <td>工商银行</td>
+                                        <td>李小四</td>
+                                        <td>250,000.00</td>
+                                        <td><input type="text" /></td>
+                                        <td>10,500.00</td>
+                                        <td><a class="btn uploadimg" style="float:none;display:inline-block;"><span>上传图片</span></a></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>01</td>
+                                        <td>个人户</td>
+                                        <td>工商银行</td>
+                                        <td>工商银行</td>
+                                        <td>李小四</td>
+                                        <td>250,000.00</td>
+                                        <td><input type="text" /></td>
+                                        <td>10,500.00</td>
+                                        <td><a class="btn uploadimg" style="float:none;display:inline-block;"><span>上传图片</span></a></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>01</td>
+                                        <td>个人户</td>
+                                        <td>工商银行</td>
+                                        <td>工商银行</td>
+                                        <td>李小四</td>
+                                        <td>250,000.00</td>
+                                        <td><input type="text" /></td>
+                                        <td>10,500.00</td>
+                                        <td><a class="btn uploadimg" style="float:none;display:inline-block;"><span>上传图片</span></a></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>01</td>
+                                        <td>个人户</td>
+                                        <td>工商银行</td>
+                                        <td>工商银行</td>
+                                        <td>李小四</td>
+                                        <td>250,000.00</td>
+                                        <td><input type="text" /></td>
+                                        <td>10,500.00</td>
+                                        <td><a class="btn uploadimg" style="float:none;display:inline-block;"><span>上传图片</span></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="j_outerheight tbDiv3">
+                            <table class="tb_all">
+                                <tbody>
+                                    <tr>
+                                        <td width="8%">合计</td>
+                                        <td width="10%">&nbsp;</td>
+                                        <td width="10%">&nbsp;</td>
+                                        <td width="10%">&nbsp;</td>
+                                        <td width="10%">&nbsp;</td>
+                                        <td width="10%">250,000.00</td>
+                                        <td width="10%">250,000.00</td>
+                                        <td width="10%">10,500.00</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                     </div>
+                        
+
+                    </div>
+                <div class="divoth" style="height:20px; overflow:hidden;"></div>
+                <div class="Dial_back">
+                    <div class="Dial_back_left">
+                        <span>回<br />拨<br />通<br />知<br /></span>
+                    </div>
+                    <div class="Dial_back_right">
+                        <div class="ui_toptable  j_outerheight2">
+                            <table cellpadding="0" cellspacing="0" class="headtable wb100" id="headtable2">
+                                <thead>
+                                    <tr>
+
+                                        <th width="8%">序号</th>
+                                        <th width="20%">回拨时间</th>
+                                        <th width="15%">回拨金额</th>
+                                        <th width="15%">剩余存款</th>
+                                        <th width="25%">附件</th>
+                                        <th class="last">确认收款</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <!-- -->
+                        <div class="tableshow" style="overflow:auto;" id="j_scrollbox2">
+                            <table cellpadding="0" cellspacing="0" class="wb100 txtCenter ui_bottomtab" id="minshowtable2">
+                                <tbody>
+                                    <tr class="target_tr">
+                                        <td width="8%">01</td>
+                                        <td width="20%">2015-05-06  14：32：56</td>
+                                        <td width="15%">100,000.00</td>
+                                        <td width="15%">700,000.00</td>
+                                        <td width="25%"><a class="btn uploadimg" style="float:none;display:inline-block;"><span>上传图片</span></a></td>
+                                        <td><a class="btn" style="float:none;display:inline-block;"><span>确定</span></a></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>01</td>
+                                        <td>2015-05-06  14：32：56</td>
+                                        <td>100,000.00</td>
+                                        <td>700,000.00</td>
+                                        <td><a class="btn uploadimg" style="float:none;display:inline-block;"><span>上传图片</span></a></td>
+                                        <td><a class="btn" style="float:none;display:inline-block;"><span>确定</span></a></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>01</td>
+                                        <td>2015-05-06  14：32：56</td>
+                                        <td>100,000.00</td>
+                                        <td>700,000.00</td>
+                                        <td><a class="btn uploadimg" style="float:none;display:inline-block;"><span>上传图片</span></a></td>
+                                        <td><a class="btn" style="float:none;display:inline-block;"><span>确定</span></a></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>01</td>
+                                        <td>2015-05-06  14：32：56</td>
+                                        <td>100,000.00</td>
+                                        <td>700,000.00</td>
+                                        <td><a class="btn uploadimg" style="float:none;display:inline-block;"><span>上传图片</span></a></td>
+                                        <td><a class="btn" style="float:none;display:inline-block;"><span>确定</span></a></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>01</td>
+                                        <td>2015-05-06  14：32：56</td>
+                                        <td>100,000.00</td>
+                                        <td>700,000.00</td>
+                                        <td><a class="btn uploadimg" style="float:none;display:inline-block;"><span>上传图片</span></a></td>
+                                        <td><a class="btn" style="float:none;display:inline-block;"><span>确定</span></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                
+
+
+            </div>
+        </div>
+    </div>
+    <div class="alert_box alert_box_transfer02" style="display: none;">
+        <div class="alerttopimg">
+            <span class="leftbian"></span>
+            <h3>上传图片</h3>
+            <a href="javascript:" class="del"></a>
+        </div>
+        <div class="alertminbox">
+            <iframe src="" frameborder="no" scrolling="no" style="width:100%;height:100%" id="uploadiframe" name="uploadiframe"></iframe>
+        </div>
+        <div class="alertbottomimg">
+            <span class="leftbian"></span>
+        </div>
+    </div>
+    <script src="../Scripts/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../Scripts/js/rxued.js"></script>
+    <!--<script type="text/javascript" src="../Scripts/js/listbase.js"></script>-->
+
+    <script>
+        function countTb(mainheight,tb1, tb2,otherheight, resultObj, fn) {
+            if (typeof (fn) == "function") {
+                fn();
+            }
+            var aHeight = 0;
+            var ReductionBox = otherheight; //所有需要减去高度的元素加上CLASS："j_outerheight"
+
+            for (var i = 0; i < ReductionBox.length; i++) {
+                aHeight += ReductionBox.eq(i).outerHeight();
+
+            }
+            if (tb2.width() > 0) {
+                var ominWidth = tb2.outerWidth();
+                tb1.width(ominWidth);
+            }
+            //alert(ominWidth);
+            var ResultHeight = mainheight.height() - parseInt(aHeight);
+            resultObj.css("max-height", ResultHeight + 'px');
+        }
+        //关闭弹出层
+        rxued.alertbox.hideBox1($(".alert_box_transfer02 .del"), $(".alert_box_transfer02"), function () {
+            $("#mask2").hide();
+            $("#mask", parent.document).hide();
+        });
+
+
+        $(function () {
+            
+
+            //让 “归集任务”和“回拨通知”各占50%高度
+            function init(){
+                var obodyH = $("body").height();
+                var obreadcrumbsH = $(".breadcrumbs").outerHeight();
+                var otherH = $(".otherdiv").outerHeight();
+                var odivothH = $(".divoth").outerHeight();
+                var olastH = obodyH - obreadcrumbsH - otherH - odivothH-4;
+                $(".collection_task,.Dial_back").css("height", parseInt(olastH) * 0.5 + "px");
+                //end
+                countTb($(".collection_task"), $('#headtable'), $('#minshowtable'), $(".j_outerheight"), $(".collection_task .tableshow"), function () {
+                    $(".tb_all").width($("#minshowtable").outerWidth());
+                });
+                countTb($(".Dial_back"), $('#headtable2'), $('#minshowtable2'), $(".j_outerheight2"), $(".Dial_back .tableshow"));
+                //点击上传图片 弹出层
+                rxued.alertbox.showBox2($(".uploadimg"), $("#mask2"), $("#mask", parent.document), function () {
+                    $("#mask2").css("background-image","none");
+                    $(".alert_box_transfer02").show();
+                    $("#uploadiframe").attr("src", "uploadimage.html");
+                });
+                rxued.alertbox.hideBox1($(".alert_box_transfer02 .del"), $("#mask2"), $("#mask", parent.document), function () {
+                    $(".alert_box_transfer02").hide();
+                });
+            }
+
+            countTb($(".collection_task"), $('#headtable'), $('#minshowtable'), $(".j_outerheight"), $(".collection_task .tableshow"), function () {
+                $(".tb_all").width($("#minshowtable").outerWidth());
+            });
+            countTb($(".Dial_back"), $('#headtable2'), $('#minshowtable2'), $(".j_outerheight2"), $(".Dial_back .tableshow"));
+            parent.$(window).load(function () {
+                init();
+            });
+            parent.parent.$(window).load(function () {
+                init();
+            });
+            parent.parent.$(window).resize(function () {
+                init();
+            });
+            parent.$(window).resize(function () {
+                init();
+            });
+            
+            
+        });
+    </script>
+
+</body>
+</html>

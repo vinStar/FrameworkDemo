@@ -1,0 +1,39 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+html,body{ height:100%; /*overflow:hidden;*/ background-color:#fff;}
+/**+html, * html {overflow:hidden;}*/
+.Statistics .stnumber { font-size: 24px; color: red; padding-right: 20px;}
+#serchbox{height:27px;border:1px solid #288068;border-bottom:none; padding-top: 5px; padding: 5px 10px 3px 0; position:relative;}
+
+.Bordercolorbox{ height: 24px; line-height:24px;}
+.boxPos{position:absolute; right:0; top:5px;}
+
+.headtable{}
+.headtable th{height:37px;line-height:37px;color:#fff;border-right:1px solid #fff;}
+.headtable .last { border-right: none;}
+.tableshow{ overflow-y:auto; overflow-x:hidden;}
+.alingcenter td { text-align: center;}
+.ui_bottomtab td{border:1px solid #e7e7e7;color:#4f4f4f;height:37px;line-height:24px;}
+
+
+.ui-jqgrid-hbox{ background-color:#288068;}
+
+#tabnavbox { padding-top: 10px; border-bottom: 1px dashed #ccc; margin-right: 29px;}
+.secondnav{ padding-right: 25px; margin-top:5px;}
+.secondnav a { float:left; color:#199776; height: 26px; line-height: 26px;margin-left: 20px; display:inline;}
+
+
+.alertbox{position:absolute;top:0; left:50%; display: none;z-index:10;}
+.w884box{ width:884px; margin: 0 auto;}
+.w884box.alertbox{margin-left:-442px;}
+.w930box{ width:930px; margin: 0 auto;}
+.w930box.alertbox{margin-left:-465px;}
+.alerttopimg{height: 37px; position: relative; margin-left: 3px; }
+.alerttopimg .leftbian{width: 3px;height: 37px; position: absolute; left: -3px; top: 0;}
+.alertminbox{border-width:0 1px 0 1px; border-style:solid;background-color: #fff;}
+.del{width:20px;height:20px;position:absolute;right:5px;top:5px;cursor:pointer; outline: none;}
+.alerttopimg h3{ color: #fff; line-height: 37px; padding-left: 10px; font-size: 14px; font-weight: normal;}
+
+.alertbottomimg{height: 6px; position: relative;background:url(../img/CL/alert_botton1.png) no-repeat right bottom; margin-left: 5px;}
+.alertbottomimg .leftbian{width: 5px;height: 6px; position: absolute; left: -5px; top: 0;background: url(../img/CL/alert_botton1.png) no-repeat left top;}

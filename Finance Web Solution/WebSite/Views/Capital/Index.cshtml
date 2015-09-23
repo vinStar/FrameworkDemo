@@ -1,0 +1,677 @@
+﻿@model WebSite.Models.FA_FundAccountModel
+@using HyBy.Trading.BusinessEntity
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
+    <meta name="viewport" content="width=device-width" />
+    <title>资金平台</title>
+    <link href="~/Content/CSS/base.css" rel="stylesheet" />
+    <link href="~/Content/CSS/layout.css" rel="stylesheet" />
+    <link href="~/Content/CSS/sub.css" rel="stylesheet" />
+    <link href="~/Content/CSS/alert.css" rel="stylesheet" />
+    <link href="~/Content/CSS/listcase.css" rel="stylesheet" />
+
+    <link href="~/Content/CSS/mend.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/color.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/pz.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="~/Scripts/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/rxued.js"></script>
+    <link href="~/Scripts/uploadify/uploadify.css" rel="stylesheet" />
+    <script src="~/Scripts/uploadify/jquery.uploadify.min.js?@(new Random().Next())=@(new Random().Next())"></script>
+
+    <style type="text/css">
+        .collection_task, .Dial_back {
+            background: #288068;
+            border: 1px solid #ccc;
+        }
+
+        .collection_task_left, .Dial_back_left {
+            float: left;
+            width: 100px;
+            height: 100%;
+            color: #fff;
+            text-align: center;
+            vertical-align: middle;
+            position: relative;
+        }
+
+            .collection_task_left span, .Dial_back_left span {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: -30px 0 0 -5px;
+            }
+
+        .collection_task_right, .Dial_back_right {
+            margin-left: 100px;
+            background: #fff;
+            padding: 0 10px;
+            height: 100%;
+        }
+
+        #serchbox strong {
+            font-size: 20px;
+        }
+
+        .boxPos strong {
+            color: #FF8080;
+        }
+
+        #minshowtable tr input[type="text"] {
+            width: 90%;
+        }
+
+
+
+
+        .tb_main p {
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .chosezl li {
+            position: relative;
+            float: left;
+            width: 60px;
+            margin-left: 10px;
+            display: inline;
+            cursor: pointer;
+        }
+
+            .chosezl li img {
+                max-width: 60px;
+            }
+
+            .chosezl li .close_link {
+                background: url(../Content/Images/close_aa_l.jpg) no-repeat left center;
+                width: 13px;
+                height: 13px;
+                margin-left: 5px;
+                overflow: hidden;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+            }
+    </style>
+</head>
+<body style="overflow-x:auto;">
+    <div class="mask_layer" id="mask2" style="display:none;">
+    </div>
+    <div class="tb_main" id="tb_main">
+        <div class="breadcrumbs " id="breadcrumbs">
+            <div class="breadcrumbs_mm">
+                <span class="home fl">首页</span><span class="color_1 fl arrow_sm"> > </span><span class="fl cur_page">资金平台</span>
+            </div>
+        </div>
+        <div style="height: 5px;" class="otherdiv"></div>
+        <div class="tb_main" id="tb_main2">
+
+            <div class="tb_container" id="tablecontent" style="padding-top:0;">
+                <div class="collection_task">
+                    <div class="collection_task_left">
+                        <span> 归<br />集<br />任<br />务</span>
+                    </div>
+                    <div class="collection_task_right">
+                        <div id="serchbox" style="border: none;" class="txtRight j_outerheight">
+                            <div class="Statistics fl" style="margin-left:1%;">
+                                <span>需归集资金：<strong>@(string.Format("{0:N}", ViewData["guiji"]))</strong> 元</span>
+                            </div>
+                            <div class="boxPos fr">
+                                <select class="select" id="selGjType">
+                                    <option value="1" selected="selected">一般归集</option>
+                                    <option value="5">风险押金</option>
+                                </select>
+                                <a class="btn" style="margin-left:10px; display:inline;" id="btnCollectionConfirm"><span>提交</span></a>
+                            </div>
+                        </div>
+                        <div class="ui_toptable  j_outerheight">
+                            <table cellpadding="0" cellspacing="0" class="headtable wb100" id="headtable">
+                                <thead>
+                                    <tr>
+                                        <th width="8%">序号</th>
+                                        <th width="10%">属性</th>
+                                        <th width="15%">开户行</th>
+                                        <th width="15%">账户</th>
+                                        <th width="10%">户名</th>
+                                        <th width="12%">余额 (元)</th>
+                                        <th width="12%">本次归集 (元)</th>
+                                        <th class="last">回执单</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <!-- -->
+                        <div class="tableshow" style="overflow:auto;" id="j_scrollbox">
+                            <table cellpadding="0" cellspacing="0" class="wb100 txtCenter ui_bottomtab" id="minshowtable">
+                                <tbody>
+                                    @if (Model.bankList != null && Model.bankList.Count > 0)
+                                    {
+                                        for (int i = 0; i < Model.bankList.Count; i++)
+                                        {
+                                            <tr class="target_tr">
+                                                <td width="8%">@(i + 1)</td>
+                                                @switch (Model.bankList[i].AccountType.ToString())
+                                                {
+                                                    case "0":
+                                                        <td width="10%"> 一般户</td>
+                                                        break;
+                                                    case "1":
+                                                    <td width="10%"> 基本户</td>
+                                                        break;
+                                                    case "2":
+                                                    <td width="10%"> 个人卡</td>
+                                                        break;
+                                                    case "3":
+                                                    <td width="10%"> 库存现金</td>
+                                                        break;
+                                                    default:
+                                                        break;
+                                                }
+
+                                                <td width="15%">@(Model.bankList[i].BankName)</td>
+                                                <td width="15%">@(Model.bankList[i].BankNo)</td>
+                                                <td width="10%">@(Model.bankList[i].Cardholder)</td>
+                                                <td width="12%" class="tbBalance" data-balance="@Model.bankList[i].Balance">@(string.Format("{0:N}", Model.bankList[i].Balance))</td>
+                                                <td width="12%"><input type="text" class="CollectionMoney" data-id="@(Model.bankList[i].BankNo)" data-no="@(Model.bankList[i].ID)" /></td>
+
+                                                <td><a class="btn uploadimg" style="float:none;display:inline-block;" id="bank@(Model.bankList[i].ID)"><span>上传图片</span></a></td>
+                                            </tr>
+                                        }
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="j_outerheight tbDiv3">
+                            <table class="tb_all">
+                                <tbody>
+                                    @if (Model.bankList != null && Model.bankList.Count > 0)
+                                    {
+
+                                        <tr>
+                                            <td width="8%">合计</td>
+                                            <td width="10%">&nbsp;</td>
+                                            <td width="15%">&nbsp;</td>
+                                            <td width="15%">&nbsp;</td>
+                                            <td width="10%">&nbsp;</td>
+                                            <td width="10%">@(string.Format("{0:N}", Model.bankList.Sum(a => a.Balance)))</td>
+                                            <td width="10%"></td>
+
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="divoth" style="height:20px; overflow:hidden;"></div>
+                <div class="Dial_back">
+                    <div class="Dial_back_left">
+                        <span>回<br />拨<br />通<br />知<br /></span>
+                    </div>
+                    <div class="Dial_back_right">
+                        <div class="ui_toptable  j_outerheight2">
+                            <table cellpadding="0" cellspacing="0" class="headtable wb100" id="headtable2">
+                                <thead>
+                                    <tr>
+
+                                        <th width="8%">序号</th>
+                                        <th width="20%">回拨时间</th>
+                                        <th width="15%">回拨金额</th>
+                                        <th width="25%">附件</th>
+                                        <th class="last">确认收款</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <!-- -->
+                        <div class="tableshow" style="overflow:auto;" id="j_scrollbox2">
+                            <table cellpadding="0" cellspacing="0" class="wb100 txtCenter ui_bottomtab" id="minshowtable2">
+                                <tbody>
+                                    @if (Model.fundAccountRecordList != null && Model.fundAccountRecordList.Count > 0)
+                                    {
+                                        foreach (FA_FundAccountRecordEntity item in Model.fundAccountRecordList)
+                                        {
+                                            <tr class="target_tr">
+                                                <td width="8%">@item.RN</td>
+                                                <td width="20%">@(Convert.ToDateTime(item.UpdateDate).ToString("yyyy-MM-dd HH:mm:ss"))</td>
+                                                <td width="15%">@(string.Format("{0:N}", item.Account))</td>
+                                                <td width="25%"><a class="btn uploadimg" style="float:none;display:inline-block;" id="@item.ID" data-content=""><span>上传图片</span></a></td>
+                                                <td><a class="btn btnConfirm" style="float:none;display:inline-block;" data-money="@item.Account" data-id="@item.ID" data-type="@item.AccType"><span>确定</span></a></td>
+                                            </tr>
+                                        }
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="alert_box alert_box_transfer02" style="display: none;">
+        <div class="alerttopimg">
+            <span class="leftbian"></span>
+            <h3>
+                上传图片
+            </h3>
+            <a href="javascript:" class="del"></a>
+        </div>
+        <div class="alertminbox">
+            @*<iframe src="" frameborder="no" scrolling="no" style="width:100%;height:100%" id="uploadiframe" name="uploadiframe"></iframe>*@
+            <div class="tb_main" id="tb_main">
+                <input type="file" name="uploadify" id="uploadify" />
+                <ul class="chosezl clear" id="newImages">
+                    @*<li>
+                            <a href="javascript:;" class="close_link"></a>
+                            <img src="../Content/Images/u569.png" zz-url="../Content/Images/u569.png" zz-minurl="../Content/Images/u569.png">
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="close_link"></a>
+                            <img src="../Content/Images/u569.png" zz-url="../Content/Images/u569.png" zz-minurl="../Content/Images/u569.png">
+                        </li>*@
+                </ul>
+            </div>
+        </div>
+        <div class="alertbottomimg">
+            <span class="leftbian"></span>
+        </div>
+    </div>
+    <input type="hidden" id="UploadImageURL" value="@ViewData["UploadImageURL"]" />
+    <input type="hidden" id="SaveImageURL" value="@ViewData["SaveImageURL"]" />
+    <input type="hidden" id="curID" value="" />
+
+    @*<div class="index_pic" id="targetPic" style="display:none; z-index=1000;" data-msg="" data-count=''>
+            <a id="cp_left" class="abtn aleft" href="javascript:void(0);" title="左移"></a>
+            <a id="cp_right" class="abtn aright" href="javascript:void(0);" title="右移"></a>
+            <div class="btnCont">
+                <input id="idRight" type="button" title="向右旋转" />
+                <input id="idDel" type="button" title="关闭" />
+            </div>
+        </div>*@
+</body>
+
+</html>
+@*<script src="~/Scripts/js/jquery-1.8.3.min.js"></script>
+    <script src="~/Scripts/js/rxued.js"></script>*@
+<script>
+    function countTb(mainheight, tb1, tb2, otherheight, resultObj, fn) {
+        if (typeof (fn) == "function") {
+            fn();
+        }
+        var aHeight = 0;
+        var ReductionBox = otherheight; //所有需要减去高度的元素加上CLASS："j_outerheight"
+
+        for (var i = 0; i < ReductionBox.length; i++) {
+            aHeight += ReductionBox.eq(i).outerHeight();
+
+        }
+        if (tb2.width() > 0) {
+            var ominWidth = tb2.outerWidth();
+            tb1.width(ominWidth);
+        }
+        //alert(ominWidth);
+        var ResultHeight = mainheight.height() - parseInt(aHeight);
+        resultObj.css("max-height", ResultHeight + 'px');
+    }
+    //关闭弹出层
+    rxued.alertbox.hideBox1($(".alert_box_transfer02 .del"), $(".alert_box_transfer02"), function () {
+        $("#mask2").hide();
+        $("#mask", parent.document).hide();
+    });
+
+
+
+
+
+    //让 “归集任务”和“回拨通知”各占50%高度
+    function init() {
+        var obodyH = $("body").height();
+        var obreadcrumbsH = $(".breadcrumbs").outerHeight();
+        var otherH = $(".otherdiv").outerHeight();
+        var odivothH = $(".divoth").outerHeight();
+        var olastH = obodyH - obreadcrumbsH - otherH - odivothH - 4;
+        $(".collection_task,.Dial_back").css("height", parseInt(olastH) * 0.5 + "px");
+        //end
+        countTb($(".collection_task"), $('#headtable'), $('#minshowtable'), $(".j_outerheight"), $(".collection_task .tableshow"), function () {
+            $(".tb_all").width($("#minshowtable").outerWidth());
+        });
+        countTb($(".Dial_back"), $('#headtable2'), $('#minshowtable2'), $(".j_outerheight2"), $(".Dial_back .tableshow"));
+
+        $(".uploadimg").click(function () {
+            $("#curID").val($(this).attr("id"));
+        });
+
+        //点击上传图片 弹出层
+        rxued.alertbox.showBox2($(".uploadimg"), $("#mask2"), $("#mask", parent.document), function () {
+            $("#mask2").css("background-image", "none");
+
+            $(".alert_box_transfer02").show();
+            //不再显示所有图片，只显示通过该按钮预览的
+            var curId = $("#curID").val();
+            $("#newImages li").each(function () {
+                if ($(this).attr("id").substr(0, $(this).attr("id").indexOf("_")) == curId) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+
+        });
+        rxued.alertbox.hideBox1($(".alert_box_transfer02 .del"), $("#mask2"), $("#mask", parent.document), function () {
+            $(".alert_box_transfer02").hide();
+        });
+    }
+
+
+    countTb($(".collection_task"), $('#headtable'), $('#minshowtable'), $(".j_outerheight"), $(".collection_task .tableshow"), function () {
+        $(".tb_all").width($("#minshowtable").outerWidth());
+    });
+    countTb($(".Dial_back"), $('#headtable2'), $('#minshowtable2'), $(".j_outerheight2"), $(".Dial_back .tableshow"));
+
+    $(".uploadimg").click(function () {
+        $("#curID").val($(this).attr("id"));
+    });
+
+    //点击上传图片 弹出层
+    rxued.alertbox.showBox2($(".uploadimg"), $("#mask2"), $("#mask", parent.document), function () {
+        $("#mask2").css("background-image", "none");
+
+        $(".alert_box_transfer02").show();
+        //var curId = $("#curID").val();
+        //$("#newImages").html("");
+        //var template = "";
+        //$("img[name='img_" + curId + "']").each(
+        //     function () {
+        //         var url = $(this).attr("src");
+        //         alert(url);
+        //          template += "<li><a href=\"javascript:;\" class=\"close_link\"></a><img  name=\"img_" + $("#curID").val() + "\" src=\"" + url + "\" zz-url=\"" + url + "\" zz-minurl=\"" + url + "\"></li>";
+        //  }
+        //);
+        //$("#newImages").html(template);
+        //$("#uploadiframe").attr("src", "../Capital/uploadimage.html");
+    });
+    rxued.alertbox.hideBox1($(".alert_box_transfer02 .del"), $("#mask2"), $("#mask", parent.document), function () {
+        $(".alert_box_transfer02").hide();
+    });
+
+
+    countTb($(".collection_task"), $('#headtable'), $('#minshowtable'), $(".j_outerheight"), $(".collection_task .tableshow"), function () {
+        $(".tb_all").width($("#minshowtable").outerWidth());
+    });
+    countTb($(".Dial_back"), $('#headtable2'), $('#minshowtable2'), $(".j_outerheight2"), $(".Dial_back .tableshow"));
+    parent.$(window).load(function () {
+        init();
+    });
+    parent.parent.$(window).load(function () {
+        init();
+    });
+    parent.parent.$(window).resize(function () {
+        init();
+    });
+    parent.$(window).resize(function () {
+        init();
+    });
+
+
+
+    rxued.iframe.autoHeight2("uploadiframe", 10);
+    $(window).load(function () { rxued.iframe.autoHeight2("uploadiframe", 10); })
+    parent.$(window).load(function () { rxued.iframe.autoHeight2("uploadiframe", 10); })
+    parent.$(window).resize(function () {
+        rxued.iframe.autoHeight2("uploadiframe", 10);
+    });
+    $(window).resize(function () {
+        rxued.iframe.autoHeight2("uploadiframe", 10);
+    });
+    //$(".chosezl li .close_link").click(function () {
+    //    $(this).parent().remove();
+    //});
+
+
+    //点击资料放大图片
+    //$(document).on("click", "img[zz-url]", function () {
+    //    var url = "";
+    //    $(this).parent().parent().find("img[zz-url]").each(function (i) {
+    //        url += $(this).attr("zz-url") + ";";
+    //        $(this).attr('data-i', i);
+    //    });
+    //    if (url != "") {
+    //        var index = $(this).attr('data-i');
+    //        //alert(index);
+    //        url = url.substring(0, url.length - 1);
+    //        var aUrl = url.split(';');
+    //        $("#targetPic", top.document).attr({ 'data-msg': url, 'data-count': aUrl.length }).show();
+    //        $("#targetPic img", top.document).attr({ 'src': aUrl[index], 'data-index': index });
+    //        $("#mask0", top.document).show();
+    //    }
+    //});
+
+    function ShowbigImg(id) {
+        //var url = "";
+        ////$("#"+id).parent().parent().find("img[zz-url]").each(function (i) {
+        ////    url += $("#" + id).attr("zz-url") + ";";
+        ////    $("#" + id).attr('data-i', i);
+        ////});
+
+        //url = $("#" + id).attr("src");
+        //if (url != "") {
+        //    //var index = $("#" + id).attr('data-i');
+        //    //alert(index);
+        //    //url = url.substring(0, url.length - 1);
+        //    //var aUrl = url.split(';');
+        //    $("#targetPic", top.document).attr({ 'data-msg': url, 'data-count': 1 }).show();
+        //    $("#targetPic img", top.document).attr({ 'src': url, 'data-index': 1 });
+        //    $("#mask0", top.document).show();
+        //}
+    }
+
+    //点击资料放大图片end
+
+
+</script>
+
+<script>
+    //回拨通知提交
+    $(".btnConfirm").click(function () {
+        var money = $(this).attr("data-money");
+        var id = $(this).attr("data-id");
+        var type=$(this).attr("data-type");
+        var imgs = "";
+        $("img[name='img_" + id + "']").each(
+            function () {
+                if (imgs != "") {
+                    imgs += ";" + $(this).attr("src");
+                } else {
+                    imgs = $(this).attr("src");
+                }
+            }
+            );
+        if (imgs == "") {
+            alert("请上传附件图片");
+            return;
+        }
+        if ($(this).attr("disabled") == "disabled") {
+            alert("请不要重复提交");
+            return;
+        }
+
+        var isXX = 1;
+        $.ajax({
+            type: "POST",
+            url: "/Capital/BankIsJoin",
+            chche: false,
+            async: false,
+            success: function (msg) {
+                if (msg == "0") {
+                    isXX = 0;
+                }
+            },
+            error: function (msg) {
+                alert("验证失败！");
+            }
+        });
+
+        if (isXX == 0) {
+            alert("该地区下没有对接账户！");
+            return false;
+        }
+
+        $(this).attr("disabled", "disabled");
+
+        $.ajax({
+            type: "POST",
+            url: "/Capital/BackConfirm",
+            data: { "type":type,"money": money, "id": id, "imgs": imgs },
+            chche: false,
+            success: function (msg) {
+                if (msg == "True") {
+                    alert("提交成功！");
+                    window.location.href = window.location.href;
+                } else {
+                    alert("此回拨任务已确认回拨！");
+                    window.location.href = window.location.href;
+                }
+            },
+            error: function (msg) {
+                alert("提交失败！");
+                $(this).attr("disabled", false);
+            }
+        });
+    });
+
+    var isFlag = false;
+    //归集任务提交
+    $("#btnCollectionConfirm").click(function () {
+
+
+        var str = "";
+        var sum = 0;
+        var money = "";
+        var bankID = "";
+        var imgs = "";
+        var isXX = 0;
+        $(".CollectionMoney").parent().parent().each(function () {
+            var balance = $(this).find(".tbBalance").attr("data-balance");
+            var money = $(this).find(".CollectionMoney").val();
+            if (parseFloat(balance) < parseFloat(money)) {
+                isXX = 1;
+                return false;
+            }
+        });
+
+        if (isXX == 1) {
+            alert("有归集金额超出账户余额，请修改！");
+            return false;
+        }
+        var ifHaveImg = false;//某个账号是否上传了图片
+        $(".CollectionMoney").each(function () {
+            money = $.trim($(this).val());
+            if (money != "" && !isNaN(money)) {
+                sum = parseFloat(sum) + parseFloat(money);
+                bankID = $(this).attr("data-no");
+                var bankNo = $(this).attr("data-id");
+                if ($("img[name='img_bank" + bankID + "']").length < 1) {
+                    alert("卡号为" + bankNo + "的银行卡的归集任务尚未上传文件！");
+                    ifHaveImg = true;
+                    return false;
+                }
+
+                $("img[name='img_bank" + bankID + "']").each(
+                   function () {
+                       if (imgs != "") {
+                           imgs += ";" + $(this).attr("src");
+                       } else {
+                           imgs = $(this).attr("src");
+                       }
+                   }
+                 );
+                str = str + bankID + "," + money + ";";
+            }
+        });
+        if (ifHaveImg) {
+
+            return;
+        }
+        if (sum == 0) {
+            alert("请填写归集金额！");
+            return;
+        } 
+        if (confirm("您选择的归集类型是\"" + $("#selGjType option:selected").text() + "\"，确认归集吗？")) {
+
+            if (isFlag) {
+                alert("请不要重复提交！");
+                return;
+            }
+            isFlag = true;
+            $.ajax({
+                type: "POST",
+                url: "/Capital/CollectionConfirm",
+                data: { "type": $("#selGjType").val(), "money": sum, "BankStr": str, "imgs": imgs },
+                chche: false,
+                success: function (msg) {
+                    if (msg == "True") {
+                        alert("提交成功！");
+                        isFlag = false;
+                        window.location.href = window.location.href;
+
+                    }
+                },
+                error: function (msg) {
+                    alert("提交失败！");
+                    isFinite = false;
+                }
+            });
+        }
+    });
+
+    function removeImg(id) {
+        $("#" + id).remove();
+    }
+    var i = 0;
+    $(function () {
+        var UploadImageURL = $("#UploadImageURL").val();
+        var SaveImageURL = $("#SaveImageURL").val();
+        $("#uploadify").uploadify({
+            swf: '../Scripts/uploadify/uploadify.swf',//[必须设置]swf的路径
+            uploader: UploadImageURL,//[必须设置]上传文件触发的url
+            formData: { 'folder': 'Photo' },
+            queueID: false,
+            auto: true,  //文件选择完成后，是否自动上传
+            multi: true,
+            buttonText: '浏 览',//上传按钮的文字
+            fileSizeLimit: 0,//文件的极限大小，以字节为单位，0为不限制。1MB:1*1024*1024
+            fileTypeDesc: '*.jpg; *.png; *.gif;*.jpeg',//允许上传的文件类型的描述，在弹出的文件选择框里会显示
+            fileTypeExts: '*.jpg; *.png; *.gif;*.jpeg',//上传的文件类型
+            removeCompleted: true,//文件上传完成后，是否自动移除队列中的文件
+            onUploadSuccess: function (file, data, response) {
+                //附件数量
+                var url = SaveImageURL + data.substr(data.indexOf('Photo') + 8, data.length);
+                var template = "<li id=\"" + $("#curID").val() + "_" + i + "\"><a href=\"javascript:;\" onclick=\"removeImg(\'" + $("#curID").val() + "_" + i + "\')\" class=\"close_link\"></a><img onclick=\"ShowbigImg('img_" + $("#curID").val() + "_" + i + "\')\" id=\"img_" + $("#curID").val() + "_" + i + "\"  name=\"img_" + $("#curID").val() + "\" src=\"" + url + "\" zz-url=\"" + url + "\" zz-minurl=\"" + url + "\"></li>";
+                i++;
+                ////追加到div
+                $("#newImages").append(template);
+            }
+        });
+    })
+
+
+
+</script>

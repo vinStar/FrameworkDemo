@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>新增借调</title>
+    <link href="../Content/CSS/base.css" rel="stylesheet" />
+    <link href="../Content/CSS/layout.css" rel="stylesheet" />
+    <link href="../Content/CSS/lvse/Inside_color.css" rel="stylesheet" />
+    <link href="../Content/CSS/sub.css" rel="stylesheet" />
+    <link href="../Content/CSS/alert.css" rel="stylesheet" />
+    <style type="text/css">
+        html, body {
+            height: auto;
+        }
+        .content {
+            padding: 0 20px;
+        }
+        p{line-height:30px;}
+        label {
+            width:60px;
+            display:inline-block;
+        }
+        input[type="text"] {
+            padding:0 2px;
+        }
+        select {border:1px solid #ccc;
+        }
+        textarea {
+            width:95%;
+            height:200px;
+        }
+        .operabtn {
+            text-align:center;
+        }
+            .operabtn input {
+                margin:0 5px;
+            }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <p>
+            <label>借调金额：</label>
+            <input type="text" />&nbsp;元
+        </p>
+        <p style="padding-left:70px; color:#ccc;line-height:20px;">一百贰拾万零伍仟元整</p>
+        <p>
+            <label>接收账户：</label>
+            <select>
+                <option>请选择</option>
+                <option value="工商银行 6222 3702 2541 8424 254  李某某">工商银行 6222 3702 2541 8424 254&nbsp; 李某某</option>
+                <option value="建设银行 6222 3702 2541 8424 254  张某某">建设银行 6222 3702 2541 8424 254&nbsp; 张某某</option>
+            </select>
+        </p>
+        <p>详细描述：</p>
+        <div>
+            <textarea></textarea>
+        </div>
+        <div class="operabtn">
+            <input class="cssbtnv4" type="button" value="取消">
+            <input class="cssbtnv1" type="button" value="提交">
+        </div>
+    </div>
+    <script src="../Scripts/js/jquery-1.8.3.min.js"></script>
+    <script src="../Scripts/js/publicMethod.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            rxued.iframe.autoHeight2("jdzjiframe", 10);
+            //点击取消按钮 隐藏弹出层
+            $(".operabtn input").click(function () {
+                alertThreeHide($(".new_jdzjbbox", parent.document));
+            })
+            //点击新增借调弹出层上面的x按钮
+            $(".new_jdzjbbox .del", parent.document).click(function () {
+                alertThreeHide($(".new_jdzjbbox", parent.document));
+            })
+        })
+       
+    </script>
+</body>
+</html>
+

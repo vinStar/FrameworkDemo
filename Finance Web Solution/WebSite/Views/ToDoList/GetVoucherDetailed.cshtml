@@ -1,0 +1,115 @@
+﻿@model   WebSite.Models.Fa_Cashier.AddFAvoucherViewModel
+@using HyBy.Trading.BusinessEntity
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/CSS/base.css" rel="stylesheet" />
+    <title>GetVoucherDetailed</title>
+</head>
+<body>
+    <div>
+        <table class="table_3">
+            <tr>
+                <th class="bdBottom">凭证号：</th>
+                <th class="bdBottom">@Model.Code</th>
+                <th class="bdBottom">日期：</th>
+                <th class="bdBottom" colspan="2">@Convert.ToDateTime(Model.Time).ToString("yyyy-MM-dd")</th>
+            </tr>
+            <tr>
+                <th width="15%">摘要</th>
+                <th width="25%">总账科目</th>
+                <th width="25%">明细科目</th>
+                <th width="19%">借方</th>
+                <th width="19%">贷方</th>
+            </tr>
+            @if ((Model.Debit1 != null && Model.Debit1 != 0) || (Model.Credit1 != null && Model.Credit1 != 0))
+            {
+                <tr>
+                    <td>@Model.Summary1</td>
+                    <td>@Model.SubjectA1Name</td>
+                    <td>@Model.SubjectB1Name</td>
+                    <td>@Model.Debit1</td>
+                    <td>@Model.Credit1</td>
+                </tr>
+            }
+            @if ((Model.Debit2 != null && Model.Debit2 != 0) || (Model.Credit2 != null && Model.Credit2 != 0))
+            {
+                <tr>
+                    <td>@Model.Summary2</td>
+                    <td>@Model.SubjectA2Name</td>
+                    <td>@Model.SubjectB2Name</td>
+                    <td>@Model.Debit2</td>
+                    <td>@Model.Credit2</td>
+                </tr>
+            }
+            @if ((Model.Debit3 != null && Model.Debit3 != 0) || (Model.Credit3 != null && Model.Credit3 != 0))
+            {
+                <tr>
+                    <td>@Model.Summary3</td>
+                    <td>@Model.SubjectA3Name</td>
+                    <td>@Model.SubjectB3Name</td>
+                    <td>@Model.Debit3</td>
+                    <td>@Model.Credit3</td>
+                </tr>
+            }
+            @if ((Model.Debit4 != null && Model.Debit4 != 0) || (Model.Credit4 != null && Model.Credit4 != 0))
+            {
+                <tr>
+                    <td>@Model.Summary4</td>
+                    <td>@Model.SubjectA4Name</td>
+                    <td>@Model.SubjectB4Name</td>
+                    <td>@Model.Debit4</td>
+                    <td>@Model.Credit4</td>
+                </tr>
+            }
+            <tr>
+                <td>合计：</td>
+                <td></td>
+                <td></td>
+                <td>@Model.DebitAll</td>
+                <td>@Model.CreditAll</td>
+            </tr>
+            <tr>
+                <td>凭证类型：</td>
+                <td>@Model.TypeName</td>
+                <td>付款方式：</td>
+                <td>@Model.PaymentTypeName</td>
+                <td>@Model.CheckNo</td>
+            </tr>
+            <tr>
+                <td>金额：</td>
+                <td>@Model.CreditAll</td>
+                <td style="display:none;">凭证附件:</td>
+                <td style="display:none;">
+                    <div id="fileQueue" style="text-align: center">
+                    </div>
+                    <input type="hidden" id="hid_Code" value="@Model.Code" />
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div id="div_img">
+    </div>
+    <div style="display:none;">
+
+    </div>
+    <script src="~/Scripts/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/js/rxued.js" type="text/javascript"></script>
+
+    <script>
+        $(function () {
+            rxued.iframe.autoHeight2('j_autoheightiframe2', 20);
+        })
+    </script>
+</body>
+
+</html>

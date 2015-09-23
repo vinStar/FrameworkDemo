@@ -1,0 +1,619 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
+    <meta name="viewport" content="width=device-width" />
+    <title>瑞祥出纳系统</title>
+    <link href="~/Content/Images/favicon_cash.ico" rel="icon" />
+    <link href="~/Content/CSS/base.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/layout.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/lvse/Outer_color.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/mend.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/color.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="~/Scripts/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/scrollBar.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-default " id="navbar">
+        <div class="navbar-header pull-left" style="text-align:center;line-height:40px;color:#e10000;">
+            <a href="#" class="navbar-brand clear fl">
+                <span class="logo fl"></span><span class="version fl">7.0</span>
+            </a>
+            <!--[if IE 7]> <div class="banben clear"><span> 您当前的版本是ie7，可能会影响您的使用，为了您的正常使用，<a style="color:#0070b0" target="_blank" href="http://wpsweb.glxt.rx/download/系统界面问题.rar
+            ">点击下载插件</a></span><i></i></div><![endif]-->
+
+        </div>
+    </div>
+    <div class="main-container" id="main-container">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+                <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+                    <a class="short1" title="">
+                    </a>
+                    <a class="short3" title="">
+                    </a>
+
+                    <a class="short2" title="">
+                    </a>
+                    <a class="short4" title="">
+                    </a>
+
+                </div>
+                <div class="sidebar-shortcuts-mini clear" id="sidebar-shortcuts-mini">
+                    <span class="btn btn-success"></span>
+                    <span class="btn btn-warning"></span>
+                    <span class="btn btn-danger"></span>
+                    <span class="btn btn-success"></span>
+                </div>
+
+            </div>
+            <div class="bd" id="scroll_bd">
+                <div class="top" id="bd">
+                    <ul class="nav nav-list" id="nav-list">
+                        <li class="parent_li">
+                            <a href="/Landdb/Index?sourceType=1" target="mainframe" class="parent_a" title="">
+                                <i class="icon-second"></i>
+                                <span class="menu-text">地产公司</span>
+                                <span class="icon-angle-down"></span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="last">
+                                    <a href="/Landdb/Index?sourceType=1" target="mainframe" title="">
+                                        <small class="icon-left"><img src="~/Content/Images/icon1.jpg"></small>待办事项
+                                        <span class="arrow2"></span>
+                                    </a>
+                                </li>
+                                @*<li id="liYs" class="last">
+                                        <a href="C_XMGL/tb_ysgl.html" target="mainframe" title="">
+                                            <small class="icon-left"><img src="~/Content/Images/icon1.jpg"></small>应收管理
+                                            <span class="arrow2"></span>
+                                        </a>
+                                    </li>*@
+                            </ul>
+                            <div class="line"></div>
+                        </li>
+                        <li class="parent_li">
+                            <a href="/Landdb/Index?sourceType=2" target="mainframe" class="parent_a" title="">
+                                <i class="icon-first"></i>
+                                <span class="menu-text">设计公司</span>
+                                <span class="icon-angle-down"></span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="last">
+                                    <a href="/Landdb/Index?sourceType=2" target="mainframe" title="">
+                                        <small class="icon-left"><img src="~/Content/Images/icon1.jpg"></small>待办事项
+                                        <span class="arrow2"></span>
+                                    </a>
+                                </li>
+                                @*<li id="liYs" class="last">
+                                        <a href="C_XMGL/tb_ysgl.html" target="mainframe" title="">
+                                            <small class="icon-left"><img src="~/Content/Images/icon1.jpg"></small>应收管理
+                                            <span class="arrow2"></span>
+                                        </a>
+                                    </li>*@
+                            </ul>
+                            <div class="line"></div>
+                        </li>
+                        <li class="parent_li">
+                            <a href="/Landdb/Index?sourceType=6" target="mainframe" class="parent_a" title="">
+                                <i class="icon-third"></i>
+                                <span class="menu-text">工程公司</span>
+                                <span class="icon-angle-down"></span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="last">
+                                    <a href="/Landdb/Index?sourceType=6" target="mainframe" title="">
+                                        <small class="icon-left"><img src="~/Content/Images/icon1.jpg"></small>待办事项
+                                        <span class="arrow2"></span>
+                                    </a>
+                                </li>
+                                @*<li id="liYs" class="last">
+                                        <a href="C_XMGL/tb_ysgl.html" target="mainframe" title="">
+                                            <small class="icon-left"><img src="~/Content/Images/icon1.jpg"></small>应收管理
+                                            <span class="arrow2"></span>
+                                        </a>
+                                    </li>*@
+                            </ul>
+                            <div class="line"></div>
+                        </li>
+                        <li class="parent_li">
+                            <a href="/Landdb/Index?sourceType=4" target="mainframe" class="parent_a" title="">
+                                <i class="icon-fourth"></i>
+                                <span class="menu-text">投资公司</span>
+                                <span class="icon-angle-down"></span>
+                            </a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="/Landdb/Index?sourceType=4" target="mainframe" title="">
+                                        <small class="icon-left"><img src="~/Content/Images/icon1.jpg"></small>待办事项
+                                        <span class="arrow2"></span>
+                                    </a>
+                                </li>
+
+                                <li class="last" id="btn_xjpz" style="display:block;">
+                                    <a href="javascript:void(0);" title="">
+                                        <small class="icon-left"><img src="~/Content/Images/icon1.jpg"></small>新建凭证
+                                        <span class="arrow2"></span>
+                                    </a>
+                                </li>
+                                @*<li id="liYs" class="last">
+                                        <a href="C_XMGL/tb_ysgl.html" target="mainframe" title="">
+                                            <small class="icon-left"><img src="~/Content/Images/icon1.jpg"></small>应收管理
+                                            <span class="arrow2"></span>
+                                        </a>
+                                    </li>*@
+                            </ul>
+                            <div class="line"></div>
+                        </li>
+                        <li class="parent_li active">
+                            <a href="/Landdb/Index?sourceType=3" target="mainframe" class="parent_a" title="">
+                                <i class="icon-fifth"></i>
+                                <span class="menu-text">项目管理</span>
+                                <span class="icon-angle-down"></span>
+                            </a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="/Landdb/Index?sourceType=3" target="mainframe" title="">
+                                        <small class="icon-left"><img src="~/Content/Images/icon1.jpg"></small>待办事项
+                                        <span class="arrow2"></span>
+                                    </a>
+                                </li>
+                                <li id="liYs" class="last">
+                                    <a href="/ProjectManager/Receivable" target="mainframe" title="">
+                                        <small class="icon-left"><img src="~/Content/Images/icon1.jpg"></small>应收管理
+                                        <span class="arrow2"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="line"></div>
+                        </li>
+                        <li class="parent_li">
+                            <a href="/Landdb/Index?sourceType=7" target="mainframe" class="parent_a" title="">
+                                <i class="icon-fifth"></i>
+                                <span class="menu-text">旧账管理</span>
+                                <span class="icon-angle-down"></span>
+                            </a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="/Landdb/Index?sourceType=7" target="mainframe" title="">
+                                        <small class="icon-left"><img src="~/Content/Images/icon1.jpg"></small>待办事项
+                                        <span class="arrow2"></span>
+                                    </a>
+                                </li>
+                                <li class="last">
+                                    <a href="/OldProjectManager/Index" target="mainframe" title="">
+                                        <small class="icon-left"><img src="~/Content/Images/icon1.jpg"></small>应收管理
+                                        <span class="arrow2"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="line"></div>
+                        </li>
+                        <li class="parent_li">
+                            <a href="/SalaryManager/Index" target="mainframe" class="parent_a" title="" id="btnSalary">
+                                <i class="icon-fifth"></i>
+                                <span class="menu-text">薪酬管理</span>
+                            </a>
+                        </li>
+                        <li class="parent_li">
+                            <a href="/Group/JTSalary/ApprovalRecords?type=3" target="mainframe" class="parent_a" title="">
+                                <i class="icon-fifth"></i>
+                                <span class="menu-text">薪酬发放记录</span>
+                            </a>
+                        </li>
+                        <li class="parent_li">
+                            <a href="/DividendManager/Index" target="mainframe" class="parent_a" title="" id="btnDividend">
+                                <i class="icon-fifth"></i>
+                                <span class="menu-text">分红发放</span>
+                            </a>
+                        </li>
+                        <li class="parent_li">
+                            <a href="/CommissionManager/Index" target="mainframe" class="parent_a" title="" id="btnCommission">
+                                <i class="icon-fifth"></i>
+                                <span class="menu-text">提成发放</span>
+                            </a>
+                        </li>
+                        <li class="parent_li">
+                            <a href="javascript:;" target="mainframe" class="parent_a" title="" id='btnCNDB'>
+                                <i class="icon-fifth"></i>
+                                <span class="menu-text">出纳待办</span>
+                            </a>
+                        </li>
+                        <li class="parent_li" id="btn_pzls">
+                            <a href="@(Url.Action("Index", "VoucherListSelect", new { area = "Invest" }))" target="mainframe" class="parent_a" title="">
+                                <i class="icon-fifth"></i>
+                                <span class="menu-text">凭证流水</span>
+                            </a>
+                        </li>
+                        <li class="parent_li" id="btn_pzls">
+                            <a href="/Capital/Index" target="mainframe" class="parent_a" title="">
+                                <i class="icon-fifth"></i>
+                                <span class="menu-text">资金平台</span>
+                            </a>
+                        </li>
+                        <li class="note">
+                            <div class="note_content"></div>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <div class="scroll" id="scroll">
+                    <p id="p"></p>
+                </div>
+                <!--                        <div  class="note" id="note1"><p class="note_content"></p></div>-->
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <span class="bg_bd"></span>
+                    <a class="icon_left"></a>
+                </div>
+            </div>
+
+
+            <div class="mask_layer" id="mask" style="display:none;">
+            </div>
+
+        </div>
+        <div class="fixRight" id="fixRight">
+            <iframe id="ifmRight" name="mainframe2" frameborder="no"
+                    scrolling="yes" style="width:100%;height:100%;"></iframe>
+        </div>
+        <p class="btnR" id="btnR">
+            <span class="posBtnR" id="posBtnR">
+                <span class="btn_cn">资金账户</span>
+            </span>
+        </p>
+        <div class="main-content" id="main-content">
+            <div id="ifrmaC" style="margin-bottom:10px;">
+                <iframe id="ifrma1" src="/Landdb/Index" name="mainframe" frameborder="no"
+                        scrolling="yes" style="width:100%; height: 100%;"></iframe>
+            </div>
+
+        </div>
+
+
+
+        <div id="j_alertbox_db" class="w1150box alertbox" style="display:none; z-index: 1000; top: 84px;">
+            <div class="alerttopimg j_alertHeight">
+                <span class="leftbian"></span>
+                <h3>出纳待办</h3>
+                <a href="javascript:" class="del"></a>
+            </div>
+            <div class="alertminbox">
+                <iframe id="j_autoheightiframe2" name="mainframe2" frameborder="no" scrolling="no" style="width: 100%; height: 100%;"></iframe>
+            </div>
+            <div class="alertbottomimg">
+                <span class="leftbian"></span>
+            </div>
+        </div>
+
+
+        <div class="mask_layer" style="z-index:999;display:none; opacity: 0.7;" id="mask0"></div>
+
+        <div class="index_pic" id="targetPic" style="display:none;" data-msg="" data-count=''>
+            <a id="cp_left" class="abtn aleft" href="javascript:void(0);" title="左移"></a>
+            <a id="cp_right" class="abtn aright" href="javascript:void(0);" title="右移"></a>
+            <div class="btnCont">
+                <input id="idRight" type="button" title="向右旋转" />
+                <input id="idDel" type="button" title="关闭" />
+            </div>
+        </div>
+
+
+    </div>
+    <input type="hidden" value="@ViewBag.type" id="hid_type" />
+
+
+    <div id="j_alertboxpz" class="w884box alertbox" style="display:none;z-index:1000;top:45px;">
+        <div class="alerttopimg j_alertHeight">
+            <span class="leftbian"></span>
+            <h3>装订规范</h3>
+            <a href="javascript:" class="del"></a>
+        </div>
+        <div class="alertminbox" style="overflow-y:hidden;">
+            <div class="secondnav fl" id="navBox11" style="border-bottom: 1px solid #199776;width:857px;">
+                <a href="/PrintVoucher/VoucherCover" target="ifmpz" class="tabCur"><span>凭证封面</span></a>
+                <a href="/PrintVoucher/VoucherCatalog" target="ifmpz"><span>凭证目录</span></a>
+                <a href="/PrintVoucher/BindingDescription" target="ifmpz"><span>封皮粘贴处</span></a>
+            </div>
+            <div class="clear"></div>
+            <div class="tabPZ" style="overflow-y:auto;">
+                <iframe id="j_framepz" name="ifmpz" frameborder="no" src='' scrolling="no" style="width: 100%; height: 100%;"></iframe>
+            </div>
+        </div>
+        <div class="alertbottomimg">
+            <span class="leftbian"></span>
+        </div>
+    </div>
+
+
+    <div id="j_alertboxpz2" class="w884box alertbox" style="display:none;z-index:1000;top:45px;">
+        <div class="alerttopimg j_alertHeight">
+            <span class="leftbian"></span>
+            <h3>凭单</h3>
+            <a href="javascript:" class="del"></a>
+        </div>
+        <div class="alertminbox">
+            <div class="tabPZ" style="overflow-y:auto;">
+                <iframe id="j_framepz2" name="ifmpz2" frameborder="no" src='/NewVoucher/voucher1?voucherID=&sourceType=' scrolling="yes" style="width: 100%; height: 100%;"></iframe>
+            </div>
+        </div>
+        <div class="alertbottomimg">
+            <span class="leftbian"></span>
+        </div>
+    </div>
+
+    <div id="j_alertbox1" class="w884box alertbox" style="display:block;top:45px;z-index:1000;">
+        <div class="alerttopimg j_alertHeight">
+            <span class="leftbian"></span>
+            <h3>工作须知</h3>
+        </div>
+        <div class="alertminbox">
+            <iframe id="j_autoheightiframe1" name="mainframe1" frameborder="no" scrolling="no" style="width: 100%;" src="../../index_pop.html"></iframe>
+        </div>
+        <div class="alertbottomimg">
+            <span class="leftbian"></span>
+        </div>
+    </div>
+
+
+    <div id="j_alertboxPZP" class="w884box alertbox" style="top:45px;z-index:1000;">
+        <div class="alerttopimg j_alertHeight">
+            <span class="leftbian"></span>
+            <h3>凭证操作</h3>
+            <a class="del"></a>
+        </div>
+        <div class="alertminbox">
+            <div style="border-top: 2px solid #1B4B3B;">
+
+                <div class="frameC" style="position:relative">
+                    <iframe id="ifmPz" src="/NewVoucher/voucher1?voucherID=&sourceType=" name="framepz" frameborder="no"
+                            scrolling="yes" style="width:100%; height:360PX;"></iframe>
+                    <div class="mask_layer" style="display: block; background: #000 url(/Content/Images/loading1.gif) no-repeat center center;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="alertbottomimg">
+            <span class="leftbian"></span>
+        </div>
+
+    </div>
+
+    <!-- 放大图片 -->
+    @*<div class="index_pic" id="targetPic" style="display:none;" data-msg="" data-count=''>
+            <a id="cp_left" class="abtn aleft" href="javascript:void(0);" title="左移"></a>
+            <a id="cp_right" class="abtn aright" href="javascript:void(0);" title="右移"></a>
+            <div class="layer_remark">
+                <div class="content_sm">
+                    <span id="MSInfo"></span> <a href="javascript:void(0);" data-msg="" id="allContent" class="content_lg" style="display:none;">详细查看</a>
+                </div>
+            </div>
+            <div class="btnCont">
+                <input id="idRight" type="button" title="向右旋转" />
+                <input id="idDel" type="button" title="关闭" />
+            </div>
+
+        </div>*@
+    <!-- 放大图片 end-->
+    <script src="~/Scripts/js/rxued.js" type="text/javascript"></script>
+    <script src="~/Scripts/js/index.js" type="text/javascript"></script>
+    <script src="~/Scripts/js/CJL.0.1.min.js"></script>
+    <script src="~/Scripts/js/ImageTrans.js"></script>
+    <script>
+
+        (function () {
+
+            var container = $$("targetPic"), src = "/Content/Images/bg.png",
+                options = {
+
+                },
+                it = new ImageTrans(container, options);
+            it.load(src);
+
+            //右旋转
+            $$("idRight").onclick = function () { it.right(); }
+
+            //var marginL = $(".index_pic img").css('width');
+
+            $(".index_pic img").css({ 'max-width': $(window).width() - 40 });
+
+            $(window).resize(function () {
+                $(".index_pic img").css({ 'max-width': $(window).width() - 40 });
+            })
+
+            $("#mask0").show();
+            $("#j_autoheightiframe1").attr('src', '../../index_pop.html');
+
+        })()
+
+        $(function () {
+            $("#targetPic img").attr('data-index', '');
+            $(document).keyup(function (e) {
+                var key = e.keyCode;
+                if (key == 27) {
+                    $("#mask0,#targetPic").hide();
+                }
+            });
+
+
+
+            $("#cp_right").click(function () {
+                var i = $(".index_pic img").attr('data-index');
+                var length = $("#targetPic").attr('data-count');
+                if (i == length - 1) i = 0;
+                else i++;
+                var urls = $("#targetPic").attr('data-msg');
+                var aUrl = urls.split('|');
+                $("#targetPic img").attr({ 'src': aUrl[i], 'data-index': i });
+            });
+
+
+
+            $("#cp_left").click(function () {
+                var i = $(".index_pic img").attr('data-index');
+                var length = $("#targetPic").attr('data-count');
+                if (i == 0) i = length - 1;
+                else i--;
+                var urls = $("#targetPic").attr('data-msg');
+                var aUrl = urls.split('|');
+                $("#targetPic img").attr({ 'src': aUrl[i], 'data-index': i });
+            });
+            //关闭
+            $("#idDel").click(function () {
+                $("#mask0,#targetPic").hide();
+            })
+
+        });
+    </script>
+
+
+    <script>
+        window.onload = function () {
+            var type = $("#hid_type").val();
+            if (type != null && type != "" && type == 0) {
+                $("#ifrma1").attr("src", "/SalaryManager/Index");
+                $(".parent_li").removeClass('active');
+                $("#btnSalary").parent().addClass('active');
+
+            } else if (type != null && type != "" && type == 1) {
+                $("#ifrma1").attr("src", "/DividendManager/Index");
+                $(".parent_li").removeClass('active');
+                $("#btnDividend").parent().addClass('active');
+
+            } else if (type != null && type != "" && type == 2) {
+                $("#ifrma1").attr("src", "/CommissionManager/Index");
+                $(".parent_li").removeClass('active');
+                $("#btnCommission").parent().addClass('active');
+
+            }
+        }
+        $(function () {
+            $("#navBox11 a").each(function () {
+                $(this).click(function () {
+                    //$("#navBox11 a")
+                    $(this).addClass('tabCur').siblings().removeClass('tabCur');
+                })
+            })
+
+            $("#j_alertboxpz .del").click(function () {
+                $("#j_alertboxpz,#mask0").hide();
+            })
+            $("#j_alertboxpz2 .del").click(function () {
+                $("#j_alertboxpz2,#mask0").hide();
+            })
+
+            $("#ifrmaC").css('height', parseInt($("#main-content").height()) - 10 + 'px');
+            rxued.alertbox.judgeH($(".alertminbox"), 500);
+            $(".tabPZ").css('max-height', parseInt($(".alertminbox").css('max-height')) - $("#navBox11").height() - 20 + 'px')
+            $("#fixRight").css('height', parseInt($("#main-content").height() - 10) + 'px');
+
+            parent.$(window).resize(function () {
+
+                //$("#tabframe").hide();
+                $("#ifrmaC").css('height', parseInt($("#main-content").height()) - 35 + 'px');
+                rxued.alertbox.judgeH($(".alertminbox"), 500);
+                $(".tabPZ").css('max-height', parseInt($(".alertminbox").css('max-height')) - $("#navBox11").height() - 20 + 'px')
+                $("#fixRight").css('height', parseInt($("#main-content").height() - 10) + 'px');
+            })
+
+            //$("#btnR").mouseover(function () {
+            //    $("#main-container").addClass('rightUnfold');
+            //    $("#ifmRight").attr('src', '/NewVoucher/CapitalAccount');
+            //    $("#fixRight").mouseleave(function () {
+            //        $("#main-container").removeClass('rightUnfold');
+            //    })
+            //})
+
+            $(".posBtnR").click(function () {
+                $("#main-container").addClass('rightUnfold');
+                $("#ifmRight").attr('src', '/NewVoucher/CapitalAccount');
+            });
+
+
+            //出纳待办
+            $("#btnCNDB").click(function () {
+                $("#j_alertbox_db").show();
+                $("#j_autoheightiframe2").attr('src', '/ToDoList/Index');
+                $("#mask0").show();
+            })
+            $("#j_alertbox_db .del").click(function () {
+                $("#j_alertbox_db").hide();
+                $("#mask0").hide();
+                $("#j_alertbox_db .alerttopimg h3").text('出纳待办');
+                var objWrap = $("#j_autoheightiframe2").contents().find('.voucher_wrap');
+                if (objWrap.hasClass('otherMargin')) {
+                    $("#j_autoheightiframe2").contents().find('.voucher_wrap').removeClass('otherMargin');
+                }
+            })
+
+            $("#j_alertbox_db .del").click(function () {
+                $("#j_alertbox_db").hide();
+                $("#mask0").hide();
+            })
+
+            $("#j_alertboxPZP .del").click(function () {
+                $("#j_alertboxPZP").hide();
+                $("#mask0").hide();
+                $("#j_alertboxPZP iframe").attr("src", "");
+            })
+
+            //新建凭证
+            $("#btn_xjpz").click(function () {
+                $("#j_alertboxpz2,#mask0").show();
+                $("#j_alertboxpz2 .alerttopimg h3").text('新建凭证');
+                $("#j_framepz2").attr('src', '/NewVoucher/voucher1?voucherID=&sourceType=').contents().find('.voucher_wrap');
+            })
+
+
+            //凭证流水，隐藏凭证
+            $("#btn_pzls").click(function () {
+                //$("#tabframe").hide();
+                $("#ifrmaC").css('height', parseInt($("#main-content").height()) - 35 + 'px');
+                rxued.alertbox.judgeH($(".alertminbox"), 500);
+                $(".tabPZ").css('max-height', parseInt($(".alertminbox").css('max-height')) - $("#navBox11").height() - 20 + 'px')
+            })
+
+            $(".parent_li a").click(function () {
+                //$("#tabframe").show();
+                $("#ifrmaC").css('height', parseInt($("#main-content").height()) - 10 + 'px').attr('data-title', '');
+                rxued.alertbox.judgeH($(".alertminbox"), 500);
+                $(".tabPZ").css('max-height', parseInt($(".alertminbox").css('max-height')) - $("#navBox11").height() - 20 + 'px')
+            })
+
+
+            //弹出框中，点击弹出框上的按钮，切换样式
+            $("#navBox a").each(function (index, element) {
+                $(this).click(function () {
+                    $(this).addClass('tabCur').siblings().removeClass('tabCur');
+                });
+            });
+
+            $("a[target=mainframe]").click(function () {
+                $("#ifrma1").attr("src", $(this).attr("href"));
+            });
+
+        })
+        $(function () {
+            //判断ie版本
+            //if ($.browser.msie) {
+            //    //IE浏览器
+            //    if ($.browser.msie && ($.browser.version == '7.0')) {
+            //        $(".banben").show();
+            //    }
+            //}
+
+            $(".banben i").click(function () {
+                $(this).parent(".banben").hide();
+            })
+        })
+    </script>
+
+</body>
+</html>

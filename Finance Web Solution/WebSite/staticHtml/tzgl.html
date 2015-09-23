@@ -1,0 +1,100 @@
+﻿
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>投资管理</title>
+    <link href="../Content/CSS/base.css" rel="stylesheet" />
+    <link href="../Content/CSS/layout.css" rel="stylesheet" />
+    <link href="../Content/CSS/lvse/Inside_color.css" rel="stylesheet" />
+    <link href="../Content/CSS/sub.css" rel="stylesheet" />
+    <link href="../Content/CSS/alert.css" rel="stylesheet" />
+    
+
+</head>
+
+<body style="overflow-x:auto;">
+    <div class="mask_layer" id="mask2" style="display:none;">
+    </div>
+    <div class="tb_main" id="tb_main">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <div class="breadcrumbs_mm">
+                <span class="home fl">首页</span><span class="color_1 fl arrow_sm"> > </span><span class="fl cur_page">投资管理</span>
+            </div>
+        </div>
+        <div class="alert_box_btns" style="margin:0 18px; position:relative; border-bottom:none;">
+            <a class="edit_inf  clear cur" href="tzgl_qb.html" target="main_iframe"><span class="spn_1 fl alert_cur_left"></span><span class="spn_2 fl alert_cur_mid"><span class="txt">全部</span></span><span class="spn_3 fl alert_cur_right"></span></a>
+            <a class="re_visit  clear" href="tzgl_jxz.html" target="main_iframe"><span class="spn_1 fl"></span><span class="spn_2 fl"><span class="txt">进行中</span></span><span class="spn_3 fl"></span></a>
+            <a class="re_visit  clear" href="tzgl_ywc.html" target="main_iframe"><span class="spn_1 fl"></span><span class="spn_2 fl"><span class="txt">已完成</span></span><span class="spn_3 fl"></span></a>
+
+        </div>
+        <div class="main_content">
+            <iframe src="tzgl_qb.html" frameborder="0" scrolling="no" style="width:100%;height:100%;" name="main_iframe" id="main_iframe"></iframe>
+        </div>
+        
+    </div>
+    <div class="alert_box alert_box_all new_tzbox">
+        <div class="alert_top"></div>
+        <div class="alert_mid">
+            <div class="alert_box_head">
+                <h3>新增投资计划</h3>
+                <a class="del"></a>
+            </div>
+            <div class="alert_box_body">
+                <iframe src="" id="tzjhiframe" name="tzjhiframe" frameborder="0" scrolling="yes" style="width:100%; height:100%"></iframe>
+            </div>
+        </div>
+        <div class="alert_bottom"></div>
+    </div>
+    <!-- 预览凭证 -->
+    <div class="alert_box alert_box_all new_ylpzbox" style="top:24%;">
+        <div class="alert_top"></div>
+        <div class="alert_mid">
+            <div class="alert_box_head">
+                <h3>预览凭证</h3>
+                <a class="del"></a>
+            </div>
+            <div class="alert_box_body">
+                <iframe id="ylpzIframe" name="ylpzIframe" src="jzpz.html" frameborder="0" scrolling="yes" style="width:100%;height:100%"></iframe>
+            </div>
+        </div>
+        <div class="alert_bottom"></div>
+    </div>
+    <script src="../Scripts/js/jquery-1.8.3.min.js"></script>
+    <script src="../Scripts/My97DatePicker/WdatePicker.js"></script>
+    <script src="../Scripts/js/publicMethod.js"></script>
+
+    <script>
+        function init3() {
+            var obodyH = $("body").height();
+            var obreadcrumbs = $(".breadcrumbs").outerHeight();
+            var oalert_box_btns = $(".alert_box_btns").outerHeight();
+            $("#main_iframe").css("height", obodyH - obreadcrumbs - oalert_box_btns + "px");
+        }
+        $(function () {
+            //隐藏弹出层
+            $(".new_tzbox .del").click(function () {
+                alertHide($(".new_tzbox"));
+            });
+           
+            //计算高度和宽度
+            init3();
+            parent.$(window).load(function () { init3();});
+            parent.parent.$(window).load(function () { init3();  });
+            parent.parent.$(window).resize(function () { init3(); });
+            parent.$(window).resize(function () { init3();  })
+
+            //弹出框中，点击弹出框上的按钮，切换样式
+            $(".alert_box_btns a").each(function (index, element) {
+                $(this).click(function () {
+                    change_tab_bg($(this));
+                });
+            });
+            })
+       
+        
+    </script>
+    
+
+</body>
+</html>

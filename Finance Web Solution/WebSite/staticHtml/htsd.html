@@ -1,0 +1,531 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>后台设定</title>
+
+
+    <link href="../Content/CSS/base.css" rel="stylesheet" />
+    <link href="../Content/CSS/layout.css" rel="stylesheet" />
+    <link href="../Content/CSS/lvse/Inside_color.css" rel="stylesheet" />
+    <link href="../Content/CSS/sub.css" rel="stylesheet" />
+    <link href="../Content/CSS/alert.css" rel="stylesheet" />
+    <style>
+         .greencolor {
+            color: #278168;
+        }
+        .tb_h2_title {
+            border-bottom:1px dotted #ccc;
+            padding:5px 0;
+            height:30px;
+            line-height:30px;
+            font-size:15px;
+            font-weight:normal;
+            color:#666;
+        }
+            .tb_h2_title span {
+                float:left;
+                width:80%;
+            }
+            .tb_h2_title .cssbtnv1{
+                float:right;
+                margin:4px 5px 0 0;
+                display:inline;
+            }
+        .setdata{padding:10px 0 10px;}
+         .setdata th {
+            text-align: right;
+        }
+        .setdata td { text-align:left  ;      }
+        .space {
+            padding:0 2px;
+        }
+        .alert_box_transfer01 p {
+            margin-bottom:10px;
+        }
+            .alert_box_transfer01 p label {
+                display:inline-block;
+                width:60px;
+            }
+            .alert_box_transfer01 p input {
+                padding:0 2px;
+                width:180px;
+            }
+            .alert_box_transfer01 p select {
+                width:186px;
+
+            }
+    </style>
+    <script>
+        window.onload = function () {
+            document.getElementById('mask2').style.display = 'none';
+        }
+    </script>
+</head>
+
+<body style="overflow-x:auto;">
+    <div class="mask_layer" id="mask2">
+    </div>
+    <div class="tb_main" id="tb_main">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <div class="breadcrumbs_mm">
+                <span class="home fl">首页</span><span class="color_1 fl arrow_sm"> > </span><span class="fl cur_page">后台设定</span>
+            </div>
+
+        </div>
+
+        <div class="tb_container" style="padding-top:0;">
+            <div class="setdatadiv">
+                <h2 class=" tb_h2_title">
+                <span>基本参数</span>
+                <input class="cssbtnv1 modify" type="button" value="修改" />
+                </h2>
+                <div class="tb_sub_container setdata">
+                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr>
+                            <th width="10%">风险准备金率：</th>
+                            <td width="20%"><input type="text" value="40.0" disabled /> %</td>
+                            <th width="10%">净预警金额：</th>
+                            <td width="20%"><input type="text" value="4.0" disabled /> 万</td>
+                            <th width="10%">净超额金额：</th>
+                            <td><input type="text" value="4.0" disabled /> 万</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="setDepositors" style="overflow:hidden">
+                <h2 class="tb_h2_title j_outerheight">
+                    <span>储户对接账户设定</span>
+                </h2>
+                <div class="j_outerheight" style="height:10px; overflow:hidden"></div>
+                <div class="tb_sub_container ">
+                    <div class="ui-jqgrid-hbox j_outerheight">
+                        <table class="table_1" id="tb_1">
+                            <thead>
+                                <tr>
+                                    <th width="10%">序号</th>
+                                    <th width="10%">地区</th>
+                                    <th width="10%">属性</th>
+                                    <th width="20%">开户行</th>
+                                    <th width="30%">账户</th>
+                                    <th width="10%">户名</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <!-- -->
+                    <div class="ui-jqgrid-bdiv" style="overflow:auto;">
+                        <table class="table_1 notop  noright noleft" id="tb_2">
+                            <tbody>
+                                <tr class="target_tr">
+                                    <td width="10%">1</td>
+                                    <td width="10%">北京</td>
+                                    <td width="10%">个人户</td>
+                                    <td width="20%">工商银行</td>
+                                    <td width="30%">6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                    <td width="10%">李先生</td>
+                                    <td>
+                                        <input class="cssbtnv1 revisebtn" type="button" value="修改" />
+                                    </td>
+                                </tr>
+                                <tr class="target_tr">
+                                    <td>1</td>
+                                    <td>北京</td>
+                                    <td>个人户</td>
+                                    <td>工商银行</td>
+                                    <td>6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                    <td>李先生</td>
+                                    <td>
+                                        <input class="cssbtnv1 revisebtn" type="button" value="修改" />
+                                    </td>
+                                </tr>
+                                <tr class="target_tr">
+                                    <td>1</td>
+                                    <td>北京</td>
+                                    <td>个人户</td>
+                                    <td>工商银行</td>
+                                    <td>6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                    <td>李先生</td>
+                                    <td>
+                                        <input class="cssbtnv1 revisebtn" type="button" value="修改" />
+                                    </td>
+                                </tr>
+                                <tr class="target_tr">
+                                    <td>1</td>
+                                    <td>北京</td>
+                                    <td>个人户</td>
+                                    <td>工商银行</td>
+                                    <td>6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                    <td>李先生</td>
+                                    <td>
+                                        <input class="cssbtnv1 revisebtn" type="button" value="修改" />
+                                    </td>
+                                </tr>
+                                <tr class="target_tr">
+                                    <td>1</td>
+                                    <td>北京</td>
+                                    <td>个人户</td>
+                                    <td>工商银行</td>
+                                    <td>6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                    <td>李先生</td>
+                                    <td>
+                                        <input class="cssbtnv1 revisebtn" type="button" value="修改" />
+                                    </td>
+                                </tr>
+                                <tr class="target_tr">
+                                    <td>1</td>
+                                    <td>北京</td>
+                                    <td>个人户</td>
+                                    <td>工商银行</td>
+                                    <td>6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                    <td>李先生</td>
+                                    <td>
+                                        <input class="cssbtnv1 revisebtn" type="button" value="修改" />
+                                    </td>
+                                </tr>
+                                <tr class="target_tr">
+                                    <td>1</td>
+                                    <td>北京</td>
+                                    <td>个人户</td>
+                                    <td>工商银行</td>
+                                    <td>6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                    <td>李先生</td>
+                                    <td>
+                                        <input class="cssbtnv1 revisebtn" type="button" value="修改" />
+                                    </td>
+                                </tr>
+                                <tr class="target_tr">
+                                    <td>1</td>
+                                    <td>北京</td>
+                                    <td>个人户</td>
+                                    <td>工商银行</td>
+                                    <td>6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                    <td>李先生</td>
+                                    <td>
+                                        <input class="cssbtnv1 revisebtn" type="button" value="修改" />
+                                    </td>
+                                </tr>
+                                <tr class="target_tr">
+                                    <td>1</td>
+                                    <td>北京</td>
+                                    <td>个人户</td>
+                                    <td>工商银行</td>
+                                    <td>6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                    <td>李先生</td>
+                                    <td>
+                                        <input class="cssbtnv1 revisebtn" type="button" value="修改" />
+                                    </td>
+                                </tr>
+                                <tr class="target_tr">
+                                    <td>1</td>
+                                    <td>北京</td>
+                                    <td>个人户</td>
+                                    <td>工商银行</td>
+                                    <td>6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                    <td>李先生</td>
+                                    <td>
+                                        <input class="cssbtnv1 revisebtn" type="button" value="修改" />
+                                    </td>
+                                </tr>
+                                <tr class="target_tr">
+                                    <td>1</td>
+                                    <td>北京</td>
+                                    <td>个人户</td>
+                                    <td>工商银行</td>
+                                    <td>6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                    <td>李先生</td>
+                                    <td>
+                                        <input class="cssbtnv1 revisebtn" type="button" value="修改" />
+                                    </td>
+                                </tr>
+                                <tr class="target_tr">
+                                    <td>1</td>
+                                    <td>北京</td>
+                                    <td>个人户</td>
+                                    <td>工商银行</td>
+                                    <td>6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                    <td>李先生</td>
+                                    <td>
+                                        <input class="cssbtnv1 revisebtn" type="button" value="修改" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="setmanage" style="overflow:hidden;">
+
+                <h2 class="tb_h2_title j_outerheight2">
+                    <span>理财账户设定</span>
+                    <input class="cssbtnv1 addnewcus" type="button" value="新增" />
+                </h2>
+                <div class="j_outerheight2" style="height:10px; overflow:hidden"></div>
+                    <div class="tb_sub_container">
+                        <div class="ui-jqgrid-hbox j_outerheight2">
+                            <table class="table_1" id="tb_3">
+                                <thead>
+                                    <tr>
+                                        <th width="10%">序号</th>
+                                        <th width="10%">地区</th>
+                                        <th width="10%">属性</th>
+                                        <th width="20%">开户行</th>
+                                        <th width="30%">账户</th>
+                                        <th width="10%">户名</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <!-- -->
+                        <div class="ui-jqgrid-bdiv" style="overflow:auto;">
+                            <table class="table_1 notop  noright noleft" id="tb_4">
+                                <tbody>
+                                    <tr class="target_tr">
+                                        <td width="10%">1</td>
+                                        <td width="10%">北京</td>
+                                        <td width="10%">个人户</td>
+                                        <td width="20%">工商银行</td>
+                                        <td width="30%">6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                        <td width="10%">张三</td>
+                                        <td><input class="cssbtnv1" type="button" value="删除"></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>1</td>
+                                        <td>北京</td>
+                                        <td>个人户</td>
+                                        <td>工商银行</td>
+                                        <td>6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                        <td>张三</td>
+                                        <td><input class="cssbtnv1" type="button" value="删除"></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>1</td>
+                                        <td>北京</td>
+                                        <td>个人户</td>
+                                        <td>工商银行</td>
+                                        <td>6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                        <td>张三</td>
+                                        <td><input class="cssbtnv1" type="button" value="删除"></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>1</td>
+                                        <td>北京</td>
+                                        <td>个人户</td>
+                                        <td>工商银行</td>
+                                        <td>6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                        <td>张三</td>
+                                        <td><input class="cssbtnv1" type="button" value="删除"></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>1</td>
+                                        <td>北京</td>
+                                        <td>个人户</td>
+                                        <td>工商银行</td>
+                                        <td>6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                        <td>张三</td>
+                                        <td><input class="cssbtnv1" type="button" value="删除"></td>
+                                    </tr>
+                                    <tr class="target_tr">
+                                        <td>1</td>
+                                        <td>北京</td>
+                                        <td>个人户</td>
+                                        <td>工商银行</td>
+                                        <td>6222<i class="space"></i>3700<i class="space"></i>2382<i class="space"></i>8424<i class="space"></i>2481</td>
+                                        <td>张三</td>
+                                        <td><input class="cssbtnv1" type="button" value="删除"></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+
+                        </div>
+
+                    </div>
+                <div class="j_outerheight2" style="height:10px; overflow:hidden"></div>
+                </div>
+            
+
+            <!--<div class="alert_box alert_box_transfer05">
+                <div class="alert_trans_top3"></div>
+                <div class="alert_trans_mid3">
+                    <div class="alert_box_head">
+                        <h3>查看明细</h3>
+                        <a class="del"></a>
+                    </div>
+                    <div class="alert_box_body" style="height:390px;">
+                        <iframe src="ckmx.html" frameborder="no" scrolling="no" style="width:100%;height:100%;" id="lsiframe" name="lsiframe"></iframe>
+                    </div>
+
+                </div>
+                <div class="alert_trans_bottom3"></div>
+            </div>-->
+            <div class="alert_box alert_box_transfer01 revisedivalert">
+                <div class="alert_trans_top"></div>
+                <div class="alert_trans_mid">
+                    <div class="alert_box_head">
+                        <h3>账户修改</h3>
+                        <a class="del"></a>
+                    </div>
+                    <div class="alert_box_body">
+                        <p><label>地区：</label>北京</p>
+                        <p>
+                            <label>属性：</label>
+                            <select>
+                                <option>个人户</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label>开户行：</label>
+                            <input type="text" />
+                        </p>
+                        <p>
+                            <label>账户：</label>
+                            <input type="text" />
+                        </p>
+                        <p>
+                            <label>户名：</label>
+                            <input type="text" />
+                        </p>
+                    </div>
+                    <div class="alert_box_foot">
+                        <input class="cssbtnv1" type="button" value="取消">
+                        <input class="cssbtnv1" type="button" value="提交">
+                    </div>
+                </div>
+                <div class="alert_trans_bottom"></div>
+            </div>
+            <div class="alert_box alert_box_transfer01 addcusume">
+                <div class="alert_trans_top"></div>
+                <div class="alert_trans_mid">
+                    <div class="alert_box_head">
+                        <h3>新增账户</h3>
+                        <a class="del"></a>
+                    </div>
+                    <div class="alert_box_body">
+                        <p><label>地区：</label>
+                            <select>
+                                <option>个人户</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label>属性：</label>
+                            <select>
+                                <option>个人户</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label>开户行：</label>
+                            <input type="text" />
+                        </p>
+                        <p>
+                            <label>账户：</label>
+                            <input type="text" />
+                        </p>
+                        <p>
+                            <label>户名：</label>
+                            <input type="text" />
+                        </p>
+                    </div>
+                    <div class="alert_box_foot">
+                        <input class="cssbtnv1" type="button" value="取消">
+                        <input class="cssbtnv1" type="button" value="提交">
+                    </div>
+                </div>
+                <div class="alert_trans_bottom"></div>
+            </div>
+
+        </div>
+    </div>
+    <script src="../Scripts/js/jquery-1.8.3.min.js"></script>
+    <script src="../Scripts/My97DatePicker/WdatePicker.js"></script>
+    <script src="../Scripts/js/publicMethod.js"></script>
+
+
+
+    <script>
+        //点击储户对接账户设定 的修改按钮
+        $(".revisebtn").click(function () {
+            alertShow($(".revisedivalert"));
+        });
+        //点击新增按钮弹出层
+        $(".addnewcus").click(function () {
+            alertShow($(".addcusume"));
+        });
+        //隐藏弹出层
+        $(".revisedivalert .del,.revisedivalert .cssbtnv1").click(function () {
+            alertHide($(".revisedivalert"));
+        });
+        $(".addcusume .del,.addcusume .cssbtnv1").click(function () {
+            alertHide($(".addcusume"));
+        })
+        //基本参数修改
+        $(function () {
+            $(".modify").click(function () {
+                //alert();
+                if ($(this).val() == "修改") {
+                    $(this).val("提交");
+                    $(".setdata input").removeAttr("disabled");
+                } else {
+                    $(this).val("修改");
+                    $(".setdata input").attr("disabled", "disabled");
+                }
+            });
+        })
+        
+            //计算高度和宽度
+            function setdivheight(){
+                var obodyH = $("body").height();
+                var obreadcrumbs = $("#breadcrumbs").outerHeight();
+                var setdata = $(".setdatadiv").outerHeight();
+                var last = obodyH - obreadcrumbs - setdata;
+                $(".setDepositors").height(last * 0.6);
+                $(".setmanage").height(last * 0.4);
+                
+            }
+             //表格出现滚动条
+            function counttb(parentdiv, tb1, tb2, otherheight, resultObj) {
+                var aHeight = 0;
+                var ReductionBox = otherheight; //所有需要减去高度的元素加上CLASS："j_outerheight"
+
+                for (var i = 0; i < ReductionBox.length; i++) {
+                    aHeight += ReductionBox.eq(i).outerHeight();
+
+                }
+                if (tb2.width() > 0) {
+                    var ominWidth = tb2.outerWidth();
+                    tb1.width(ominWidth);
+                }
+                var ResultHeight = parentdiv.height() - parseInt(aHeight);
+                
+                $(resultObj).css("max-height", ResultHeight + 'px');
+            }
+            
+                setdivheight();
+            $(window).load(function () {
+                setdivheight();
+                counttb($(".setDepositors"), $("#tb_1"), $("#tb_2"), $(".j_outerheight"), ".setDepositors .ui-jqgrid-bdiv");
+                counttb($(".setmanage"),$("#tb_3"), $("#tb_4"), $(".j_outerheight2"), ".setmanage .ui-jqgrid-bdiv");
+            });
+            parent.$(window).load(function () {
+                setdivheight();
+                counttb($(".setDepositors"), $("#tb_1"), $("#tb_2"), $(".j_outerheight"), ".setDepositors .ui-jqgrid-bdiv");
+                counttb($(".setmanage"), $("#tb_3"), $("#tb_4"), $(".j_outerheight2"), ".setmanage .ui-jqgrid-bdiv");
+            });
+            parent.$(window).resize(function () {
+                setdivheight();
+                counttb($(".setDepositors"), $("#tb_1"), $("#tb_2"), $(".j_outerheight"), ".setDepositors .ui-jqgrid-bdiv");
+                counttb($(".setmanage"), $("#tb_3"), $("#tb_4"), $(".j_outerheight2"), ".setmanage .ui-jqgrid-bdiv");
+            });
+            $(window).resize(function () {
+                setdivheight();
+                counttb($(".setDepositors"), $("#tb_1"), $("#tb_2"), $(".j_outerheight"), ".setDepositors .ui-jqgrid-bdiv");
+                counttb($(".setmanage"), $("#tb_3"), $("#tb_4"), $(".j_outerheight2"), ".setmanage .ui-jqgrid-bdiv");
+            });
+    </script>
+</body>
+</html>

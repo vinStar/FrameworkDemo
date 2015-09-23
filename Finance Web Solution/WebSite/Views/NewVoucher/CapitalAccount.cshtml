@@ -1,0 +1,156 @@
+﻿@model WebSite.Models.Fa_Cashier.AccountViewModel
+@using HyBy.Trading.BusinessEntity
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>资金账户管理</title>
+    <link href="~/Content/CSS/base.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/alert.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/mend.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/layout.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/sub.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/listcase.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/color.css" type="text/css" rel="stylesheet">
+
+</head>
+<body id="body1">
+    <div class="mask2"></div>
+    <span class="closeDB"></span>
+    <div class="options_f">
+        <h3 class="j_outerheight">￥资金账户管理</h3>
+        <div class="thHead j_outerheight ui_toptable">
+            <table class="headtable wb100" cellpadding="0" cellspacing="0" style="margin-top: 2px;" id="tbh2">
+                <tr>
+                    <th width="15%">类型</th>
+                    <th width="18%">银行名称</th>
+                    <th width="26%">银行</th>
+                    <th width="23%">账户余额</th>
+                    <th width="18%">流水查看</th>
+                </tr>
+            </table>
+        </div>
+        <div class="thC2 j_outerheight tableshow">
+            <table class="wb100 txtCenter ui_bottomtab" cellpadding="0" cellspacing="0" id="tbc2" style="margin-top: 0; border-top: 0;">
+                @foreach (var item in Model.bankList)
+                {
+                    <tr>
+                        <td width="15%">@Html.Action("GetAccountType", new { accountType = item.AccountType })</td>
+                        <td width="18%">@item.BankName</td>
+                        <td width="26%">
+                            @if (item.BankName.Contains("工商"))
+                            {
+                                <span class="bank2">@Html.Action("GetbankNo", new { bankNo = item.BankNo })</span>
+                            }
+                            else if (item.BankName.Contains("建设"))
+                            {
+                                <span class="bank1">@Html.Action("GetbankNo", new { bankNo = item.BankNo })</span>
+                            }
+                            else if (item.BankName.Contains("库存现金"))
+                            {
+                                <span>库存现金</span>
+                            }
+                            else
+                            {
+                                <span>@Html.Action("GetbankNo", new { bankNo = item.BankNo })</span>
+                            }
+                        </td>
+                        <td width="23%">@item.Balance</td>
+                        <td width="18%"><a class="seek" href='/NewVoucher/BankBalanceDetail?bankNo=@item.BankNo&accountType=@item.AccountType' target='_blank'></a></td>
+                    </tr>
+                }
+                @if (Model.bankList == null || Model.bankList.Count <= 0)
+                {
+                    <tr>
+                        <td colspan="5">暂无数据</td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <table class="table_3 j_outerheight" style="margin-top:2px;">
+            <tr>
+                <td width="40%"><strong>银行现金总额</strong></td>
+                <td width="60%"><strong>@Model.bankAllMoney</strong></td>
+            </tr>
+            <tr>
+                <td><strong>资金平台存款</strong></td>
+                <td><strong>@Model.fundAccountAllMoney</strong></td>
+            </tr>
+            <tr>
+                <td><strong class="color_y">差额</strong></td>
+                <td><strong>@(Model.bankAllMoney + Model.fundAccountAllMoney - Model.accountAllMoney)</strong></td>
+            </tr>
+            <tr>
+                <td><strong>账户资金总额</strong></td>
+                <td><strong>@Model.accountAllMoney</strong></td>
+            </tr>
+        </table>
+
+        <table class="table_3 j_outerheight" style="margin-top: 2px;">
+            @foreach (var item in Model.accountList)
+            {
+                <tr>
+                    <td width="25%">@Html.Action("GetType", new { type = item.Type })</td>
+                    <td width="45%">@item.Account</td>
+                    <td width="30%">
+                        @if (item.Type == 4 || item.Type == 6 || item.Type == 7 || item.Type == 8)
+                        {
+                            <a class="seek" href='/NewVoucher/AccountDetail?accountType=@item.Type' target='_blank'></a>
+                        }
+                        else if (item.Type == 5) //项目管理账户
+                        {
+                            <a class="seek" href='http://g.rx/gcb_CBKJ/gcb_ProjectWater.aspx?diqu=@(Request.Cookies["RSUser"]["u_diqu"])' target=' _blank'></a>
+                        }
+                        else if (item.Type == 2)//设计公司账户
+                        {
+                            <a class="seek" href='http://df.za.rx/Accounting/AccountAssets/WaterListByDQ.aspx?dq=@(Request.Cookies["RSUser"]["u_diqu"])' target=' _blank'></a>
+                        }
+                        else if (item.Type == 1)//今日公司账户
+                        {
+                            <a class="seek" href='http://kf.df.rx/K_GSYH/PingZhengList.aspx?diqu=@(Request.Cookies["RSUser"]["u_diqu"])' target=' _blank'></a>
+                        }
+                        else if (item.Type == 3)//工程公司账户
+                        {
+                                <a class="seek" href='http://g.rx/gcb_CBKJ/gcb_DepartmentWater.aspx?diqu=@(Request.Cookies["RSUser"]["u_diqu"])' target=' _blank'></a>
+                                }
+
+
+
+</td>
+                </tr>
+            }
+            @if (Model.accountList == null || Model.accountList.Count <= 0)
+            {
+                <tr>
+                    <td colspan="4">暂无数据</td>
+                </tr>
+            }
+        </table>
+
+    </div>
+
+    <script type="text/javascript" src="~/Scripts/js/jquery-1.8.3.min.js"></script>
+
+    <script src="~/Scripts/js/rxued.js"></script>
+    <script type="text/javascript">
+
+        window.onload = function () {
+            rxued.iframe.autoHeight2('j_autoheightiframe1', 30);
+        }
+        $(function () {
+            $(".closeDB").click(function () {
+                $("#main-container", parent.document).removeClass('rightUnfold');
+                $("#btnR", parent.document).show();
+            });
+
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+#topbar { background: #1B4B3B;}
+#navContent .active a .homeico { background: url(/Content/Images/homeico_cur.png) no-repeat;}
+#navContent .active a{ color: #408270;}
+#curico{background:url(/Content/Images/navcurico.png) no-repeat;}
+#Shrinkage .line{background-color:#35534b}
+#Shrinkage .clickico{ background: url(/Content/Images/Shrinkage_left.png) no-repeat;}
+#Shrinkage .clickico2{ background: url(/Content/Images/Shrinkage_right.png) no-repeat;}
+.Bordercolorbox{ border: 1px solid #288068;}
+.headtable th{background-color:#288068;}
+.ui_toptable{background-color:#288068;}
+.del{background: url(/Content/Images/KF/del.png) no-repeat;}
+.del:hover{background: url(/Content/Images/KF/del_cur.png) no-repeat;}
+
+
+/*弹出层样式 开始*/
+.alerttopimg{background:url(/Content/Images/alertboxtopbg1.png) no-repeat right bottom;}
+.alerttopimg .leftbian{background: url(/Content/Images/alertboxtopbg1.png) no-repeat left top;}
+.alertminbox{border-color:#418372 ;}
+.alertbottomimg{background:url(/Content/Images/alert_botton1.png) no-repeat right bottom;}
+.alertbottomimg .leftbian{background:url(/Content/Images/alert_botton1.png) no-repeat left top;}
+
+.headtable .minthHeight {
+    height: 25px;
+    line-height: 25px;
+}
+

@@ -1,0 +1,116 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>应收管理</title>
+    <link href="~/Content/CSS/base.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/layout.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/sub.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/alert.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/listcase.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/color.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="~/Scripts/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/rxued.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/listbase.js"></script>
+    <script src="~/Scripts/My97DatePicker/WdatePicker.js"></script>
+    <script>
+        $(function () {
+            rxued.check.allCheck($("#chk1"), $("#j_scrollbox input:checkbox"), true, $("#chk2"));
+            $('#mask2').hide();
+        });
+    </script>
+    <script>
+        $(function () {
+
+            caloaddata(1);
+
+            $(".btn").click(function () {
+                caloaddata(1);
+            });
+        });
+
+        function caloaddata(page) {
+
+            var HtTime = $("#HtTime").val();
+            var txtNumber = $("#inp_search").val() == "合同编号或任务单号或合同名称" ? "" : $("#inp_search").val();
+            var selRate = $("#selRate").val();
+            $(".tb_container").load("/ProjectManager/ReceivableList", { "HtTime": HtTime, "txtNumber": txtNumber ,"rate":selRate}, function () {
+
+            });
+        }
+
+        function IFFinish(obj) {
+            $("#j_alertboxPZP .mask_layer", top.document).show();
+            var id = $(obj).attr("huikuan_id");
+            var orderID = $(obj).attr("huikuan_OrderID");
+            var billType = $(obj).attr("huikuan_billType");
+            var type = $(obj).attr("huikuan_type");
+            var period = $(obj).attr("huikuan_period");
+            var isTrue = -1;
+
+            $.ajax({
+                type: "POST",
+                data: "orderID=" + orderID + "&billType=" + billType + "&type=" + type + "&period=" + period + "&id=" + id,//注意这里的参数名称要和Action 的参数名称相同。
+                url: "/ProjectManager/GetReceivable",
+                async: false,
+                success: function (data) {
+
+                    isTrue = data;
+
+                }
+            });
+            if (isTrue == 0) {
+                alert("前期回款没有回完，不能回款");
+            } else if (isTrue == -1) {
+                alert("请刷新页面重试");
+            }
+            else {
+
+
+                $("#j_alertboxPZP,#mask0", top.document).show();
+            }
+
+        }
+    </script>
+</head>
+<body style="overflow-x:auto;">
+    <div class="mask_layer" id="mask2">
+    </div>
+    <div class="tb_main" id="tb_main">
+        <div class="breadcrumbs j_alertHeight j_outerheight" id="breadcrumbs">
+            <div class="breadcrumbs_mm">
+                <span class="home fl">项目管理</span><span class="color_1 fl arrow_sm"> > </span><span class="fl cur_page">应收管理</span>
+            </div>
+        </div>
+        <div class="tb_main" id="tb_main2">
+            <div class="Statistics fl" style="margin-left:1%;">
+                <span class="stnumber">@ViewBag.count</span>个
+            </div>
+            <div id="serchbox" style="border: none;" class="txtRight j_outerheight">
+                <div class="boxPos" style="right:14px;">
+                    <span class=" fl mr5">回款率</span>
+                    <select class="Bordercolorbox fl mr5" id="selRate">
+                        <option>全部</option>
+                        <option value="1">小于100%</option>
+                        <option value="2">100%</option>
+                    </select>
+                    <span class=" fl mr5">合同日期</span>
+                    <input class="Bordercolorbox fl mr5 Wdate" type="text" onfocus="WdatePicker()" id="HtTime" value="@ViewBag.SearchTime" />
+                    <input type="text" class="Bordercolorbox ptb0lr5 fl mr5" id="inp_search" value="@(ViewBag.SearchKey!=""?ViewBag.SearchKey:"合同编号或任务单号或合同名称")" onblur="this.value = (this.value == '') ? '合同编号或任务单号或合同名称' : this.value" onfocus="    this.value = (this.value == '合同编号或任务单号或合同名称') ? '' : this.value">
+
+                    <a class="btn"><span>GO</span></a>
+                </div>
+            </div>
+
+            <div class="tb_container" id="tablecontent" style="padding-top:0;">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

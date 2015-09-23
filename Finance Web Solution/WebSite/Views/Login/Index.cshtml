@@ -1,0 +1,66 @@
+﻿@model WebSite.Models.UserLoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/CSS/base.css" rel="stylesheet" />
+    <link href="~/Content/CSS/login.css" rel="stylesheet" />
+    <script src="~/Scripts/js/jquery-1.8.3.min.js"></script>
+    <script src="~/Scripts/validation/jquery.validate.min.js"></script>
+    <script src="~/Scripts/validation/jquery.validate.min.extend.js"></script>
+    <script src="~/Scripts/validation/jquery.validate.unobtrusive.js"></script>
+</head>
+<body style="padding: 10px">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="maindiv">
+            <h2>瑞祥财务管理系统</h2>
+            <div class="logindiv">
+                <div class="Lbg"></div>
+                <div class="Rbg"></div>
+                <div class="content clear">
+                    <div class="L_left">
+                        <img src="~/Content/Images/diqiu.png" alt="" />
+                    </div>
+                    <div class="L_right">
+                        <div class="clear lomar">
+                            <label class="label">用户名：</label>
+                            @Html.TextBoxFor(m => m.LoginCardNo, new { @class = "inp" })
+
+                        </div>
+                        <div class="clear lomar">
+
+                            <label class="label">密&nbsp;码：</label>
+                            @Html.PasswordFor(m => m.Password, new { @class = "inp" })
+
+                        </div>
+                        <div class="divtip" style="text-align: center; padding: 5px 0; color: yellow;">
+                            @Html.ValidationMessageFor(m => m.LoginCardNo)
+                            @Html.ValidationMessageFor(m => m.Password)
+                            @*@Html.ValidationSummary()*@
+                            @*@ViewData["Msg"]*@
+                        </div>
+                        <div class="clear userop">
+                            <label>
+                                <input type="checkbox" class="checkbox"><span class="checkboxtxt">记住密码</span>
+                            </label>
+
+                        </div>
+                        <input type="submit" value="登 陆" class="submit">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</body>
+</html>

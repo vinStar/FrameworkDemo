@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5C704A50-D40B-4B46-8B23-CC16A0466BC9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HyBy.Trading.FrameworkService</RootNamespace>
+    <AssemblyName>Trading.FrameworkService</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppColumnsService.svc" />
+    <Content Include="AppTablesService.svc" />
+    <Content Include="CommonModel\CM_BumenGroupService.svc" />
+    <Content Include="CommonModel\CM_CatalogInfoService.svc" />
+    <Content Include="CommonModel\CM_DataDealInfoService.svc" />
+    <Content Include="CommonModel\CM_DataInfoService.svc" />
+    <Content Include="CommonModel\CM_DepartmentInfoService.svc" />
+    <Content Include="CommonModel\CM_DictionaryCatalogService.svc" />
+    <Content Include="CommonModel\CM_DictionaryInfoService.svc" />
+    <Content Include="CommonModel\CM_DiquInfoService.svc" />
+    <Content Include="CommonModel\CM_DiquTypeService.svc" />
+    <Content Include="CommonModel\CM_ExceptionDealInfoService.svc" />
+    <Content Include="CommonModel\CM_HolidayConfigDateService.svc" />
+    <Content Include="CommonModel\CM_IconCatalogService.svc" />
+    <Content Include="CommonModel\CM_IconInfoService.svc" />
+    <Content Include="CommonModel\CM_KpiCatalogInfoService.svc" />
+    <Content Include="CommonModel\CM_KpiInfoService.svc" />
+    <Content Include="CommonModel\CM_KpiMoneyDetailService.svc" />
+    <Content Include="CommonModel\CM_KpiMoneyService.svc" />
+    <Content Include="CommonModel\CM_LogInfoService.svc" />
+    <Content Include="CommonModel\CM_LowGongZiService.svc" />
+    <Content Include="CommonModel\CM_PositionInfoService.svc" />
+    <Content Include="CommonModel\CM_UserIconPrivilegeService.svc" />
+    <Content Include="CommonModel\CM_UserKpiPrivilegeService.svc" />
+    <Content Include="CommonModel\CM_UserListService.svc" />
+    <Content Include="CommonModel\CM_UserPauseInfoService.svc" />
+    <Content Include="CommonService.svc" />
+    <Content Include="FaModel\FA_AccountRecordService.svc" />
+    <Content Include="FaModel\FA_AccountService.svc" />
+    <Content Include="FaModel\FA_BillService.svc" />
+    <Content Include="FaModel\FA_CommissionRecordService.svc" />
+    <Content Include="FaModel\FA_CommissionService.svc" />
+    <Content Include="FaModel\FA_FundAccountRecordService.svc" />
+    <Content Include="FaModel\FA_FundAccountService.svc" />
+    <Content Include="FaModel\FA_FundInvestmentService.svc" />
+    <Content Include="FaModel\FA_FundReceiveService.svc" />
+    <Content Include="FaModel\FA_FundTransferService.svc" />
+    <Content Include="FaModel\FA_InvestmentService.svc" />
+    <Content Include="FaModel\FA_OldProjectPaymentService.svc" />
+    <Content Include="FaModel\FA_OldProjectReceivableService.svc" />
+    <Content Include="FaModel\FA_OldProjectService.svc" />
+    <Content Include="FaModel\FA_ProfitDeliveringService.svc" />
+    <Content Include="FaModel\FA_ProfitToGroupService.svc" />
+    <Content Include="FaModel\FA_ReceivableDetailsService.svc" />
+    <Content Include="FaModel\FA_ReceivedRecordService.svc" />
+    <Content Include="FaModel\FA_SalaryRecordService.svc" />
+    <Content Include="FaModel\FA_SalaryService.svc" />
+    <Content Include="FaModel\FA_VoucherService.svc" />
+    <Content Include="FbModel\FB_BankCheckService.svc" />
+    <Content Include="FbModel\FB_BankRecordService.svc" />
+    <Content Include="FbModel\FB_BankService.svc" />
+    <Content Include="FbModel\FB_BaseParamService.svc" />
+    <Content Include="FbModel\FB_SubjectService.svc" />
+    <Content Include="GcModel\GC_AddItemCommissionService.svc" />
+    <Content Include="GcModel\GC_BackDelayFineService.svc" />
+    <Content Include="GcModel\GC_DeductionCommissionService.svc" />
+    <Content Include="GcModel\GC_FineCommissionService.svc" />
+    <Content Include="GcModel\GC_MiddleBackFineDaysService.svc" />
+    <Content Include="GcModel\GC_OverdueFineService.svc" />
+    <Content Include="GcModel\GC_PackCommissionService.svc" />
+    <Content Include="GcModel\GC_VisitExpiredFineService.svc" />
+    <Content Include="JtModel\JT_AccountInfoService.svc" />
+    <Content Include="JtModel\JT_AccountRadioService.svc" />
+    <Content Include="JtModel\JT_InvestDividendRatioService.svc" />
+    <Content Include="JtModel\JT_InvestTypeService.svc" />
+    <Content Include="JtModel\JT_ManageFeeService.svc" />
+    <Content Include="JtModel\JT_TzBackRadioService.svc" />
+    <Content Include="RsModel\RS_BaseWageService.svc" />
+    <Content Include="SwModel\SW_AddCustomerFineStandardService.svc" />
+    <Content Include="SwModel\SW_AddCustomerStandardNumService.svc" />
+    <Content Include="SwModel\SW_AddMessagerFineStandardService.svc" />
+    <Content Include="SwModel\SW_AddMessengerStandardNumService.svc" />
+    <Content Include="SwModel\SW_CommissionRatioService.svc" />
+    <Content Include="SwModel\SW_CommissionTypeService.svc" />
+    <Content Include="SwModel\SW_ConfirmOrderItemService.svc" />
+    <Content Include="SwModel\SW_CustomerEffectiveVisitAmountStandardService.svc" />
+    <Content Include="SwModel\SW_CustomerEffectiveVisitStandardNumService.svc" />
+    <Content Include="SwModel\SW_CustomerFalseVisitStandardNumService.svc" />
+    <Content Include="SwModel\SW_CustomerFalseVisitStandardService.svc" />
+    <Content Include="SwModel\SW_CustomerInvalidVisitStandardNumService.svc" />
+    <Content Include="SwModel\SW_CustomerInvalidVisitStandardService.svc" />
+    <Content Include="SwModel\SW_CustomerVisitExpireFineService.svc" />
+    <Content Include="SwModel\SW_CustomerVisitExpireStandardService.svc" />
+    <Content Include="SwModel\SW_EffectiveVisitAmountStandardService.svc" />
+    <Content Include="SwModel\SW_EffectiveVisitStandardNumService.svc" />
+    <Content Include="SwModel\SW_EffectiveVisitStandardService.svc" />
+    <Content Include="SwModel\SW_EstimatedPriceProportionService.svc" />
+    <Content Include="SwModel\SW_EstimatedPriceStandardService.svc" />
+    <Content Include="SwModel\SW_FalseVisitStandardNumService.svc" />
+    <Content Include="SwModel\SW_FalseVisitStandardService.svc" />
+    <Content Include="SwModel\SW_GroupRadioService.svc" />
+    <Content Include="SwModel\SW_GroupRoomCountScopeService.svc" />
+    <Content Include="SwModel\SW_InvalidVisitStandardNumService.svc" />
+    <Content Include="SwModel\SW_InvalidVisitStandardService.svc" />
+    <Content Include="SwModel\SW_NotApproveExpireFineService.svc" />
+    <Content Include="SwModel\SW_NotApproveExpireService.svc" />
+    <Content Include="SwModel\SW_RoomAmountStandardService.svc" />
+    <Content Include="SwModel\SW_RoomGroupService.svc" />
+    <Content Include="SwModel\SW_RoomPersonalService.svc" />
+    <Content Include="SwModel\SW_SellRoomAmountStandardService.svc" />
+    <Content Include="SwModel\SW_VisitExpireFineService.svc" />
+    <Content Include="SwModel\SW_VisitExpireStandardService.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="YsModel\YS_AddOrderPriceService.svc" />
+    <Content Include="YsModel\YS_BackBatchChangeInfoService.svc" />
+    <Content Include="YsModel\YS_BackBatchInfoService.svc" />
+    <Content Include="YsModel\YS_BackRecordService.svc" />
+    <Content Include="YsModel\YS_BuyOrderService.svc" />
+    <Content Include="YsModel\YS_ChangeExpectFinishTimeService.svc" />
+    <Content Include="YsModel\YS_ConfirmOrderService.svc" />
+    <Content Include="YsModel\YS_ConstructionFineService.svc" />
+    <Content Include="YsModel\YS_ConstructionFinishService.svc" />
+    <Content Include="YsModel\YS_ConstructionOtherPackService.svc" />
+    <Content Include="YsModel\YS_ConstructionPackService.svc" />
+    <Content Include="YsModel\YS_ConstructionSettlementService.svc" />
+    <Content Include="YsModel\YS_CWGiveMoneyService.svc" />
+    <Content Include="YsModel\YS_DesignBackRecordService.svc" />
+    <Content Include="YsModel\YS_DesignSigningService.svc" />
+    <Content Include="YsModel\YS_GCVisitExpireService.svc" />
+    <Content Include="YsModel\YS_GuadanService.svc" />
+    <Content Include="YsModel\YS_IncDecItemService.svc" />
+    <Content Include="YsModel\YS_NotConfirmService.svc" />
+    <Content Include="YsModel\YS_NotSigningService.svc" />
+    <Content Include="YsModel\YS_RewardPunishmentService.svc" />
+    <Content Include="YsModel\YS_RSChangeGongziService.svc" />
+    <Content Include="YsModel\YS_RSChangeStatusService.svc" />
+    <Content Include="YsModel\YS_RSProbationService.svc" />
+    <Content Include="YsModel\YS_RSTransferService.svc" />
+    <Content Include="YsModel\YS_SubmitOrderService.svc" />
+    <Content Include="YsModel\YS_SWAddCustomerService.svc" />
+    <Content Include="YsModel\YS_SWAddMessagerService.svc" />
+    <Content Include="YsModel\YS_SWChangeAllOrderInfoService.svc" />
+    <Content Include="YsModel\YS_SWChangeOrderInfoService.svc" />
+    <Content Include="YsModel\YS_SWChangeOrderSourceService.svc" />
+    <Content Include="YsModel\YS_SWCreateOrderInfoService.svc" />
+    <Content Include="YsModel\YS_SWCustomerVisitCheckService.svc" />
+    <Content Include="YsModel\YS_SWCustomerVisitExpireService.svc" />
+    <Content Include="YsModel\YS_SWCustomerVisitInfoService.svc" />
+    <Content Include="YsModel\YS_SWMessagerVisitCheckService.svc" />
+    <Content Include="YsModel\YS_SWMessengerVisitExpireService.svc" />
+    <Content Include="YsModel\YS_SWMessengerVisitInfoService.svc" />
+    <Content Include="YsModel\YS_SwRewardPunishmentService.svc" />
+    <Content Include="YsModel\YS_SWVisitApprovalExpireService.svc" />
+    <Content Include="YsModel\YS_ZAChangeDesignerService.svc" />
+    <Content Include="YsModel\YS_ZANotVisitInfoService.svc" />
+    <Content Include="YsModel\YS_ZAOpenOrderInfoService.svc" />
+    <Content Include="YsModel\YS_ZAOrderCompletenessService.svc" />
+    <Content Include="YsModel\YS_ZAReplyInfoService.svc" />
+    <Content Include="YsModel\YS_ZAVisitApproveExpireService.svc" />
+    <Content Include="YsModel\YS_ZAVisitApproveService.svc" />
+    <Content Include="YsModel\YS_ZAVisitInfoService.svc" />
+    <Content Include="YwModel\YW_ActiveDegreeService.svc" />
+    <Content Include="YwModel\YW_BackRecordService.svc" />
+    <Content Include="YwModel\YW_CheckNoticeInfoService.svc" />
+    <Content Include="YwModel\YW_ConstructionAmountDetailService.svc" />
+    <Content Include="YwModel\YW_ConstructionPackRecordService.svc" />
+    <Content Include="YwModel\YW_CwDistributionInfoService.svc" />
+    <Content Include="YwModel\YW_DesignCwDistributionInfoService.svc" />
+    <Content Include="YwModel\YW_DesignerDataService.svc" />
+    <Content Include="YwModel\YW_GcPerformanceService.svc" />
+    <Content Include="YwModel\YW_OldOrderNoService.svc" />
+    <Content Include="YwModel\YW_OrderBackBatchService.svc" />
+    <Content Include="YwModel\YW_OrderCommissionGiveService.svc" />
+    <Content Include="YwModel\YW_OrderCommissionService.svc" />
+    <Content Include="YwModel\YW_OrderDealInfoService.svc" />
+    <Content Include="YwModel\YW_OrderFineInfoService.svc" />
+    <Content Include="YwModel\YW_OrderIncDecInfoService.svc" />
+    <Content Include="YwModel\YW_OrderInfoService.svc" />
+    <Content Include="YwModel\YW_OrderPerformanceDetailService.svc" />
+    <Content Include="YwModel\YW_OtherOrderInfoService.svc" />
+    <Content Include="YwModel\YW_SwPerformanceService.svc" />
+    <Content Include="YwModel\YW_SwTeamPerformanceDetailService.svc" />
+    <Content Include="YwModel\YW_SwTeamPerformanceService.svc" />
+    <Content Include="YwModel\YW_ZAOrderCompletenessCountService.svc" />
+    <Content Include="YwModel\YW_ZaPerformanceService.svc" />
+    <Content Include="YwModel\YW_ZaReplyService.svc" />
+    <Content Include="YwModel\YW_ZaTeamPerformanceDetailService.svc" />
+    <Content Include="YwModel\YW_ZaTeamPerformanceService.svc" />
+    <Content Include="ZaModel\ZA_ConfirmOrderFineStandardService.svc" />
+    <Content Include="ZaModel\ZA_ConfirmOrderStandardNumService.svc" />
+    <Content Include="ZaModel\ZA_ConstructionGroupSigningService.svc" />
+    <Content Include="ZaModel\ZA_ConstructionSigningService.svc" />
+    <Content Include="ZaModel\ZA_CSAmountScopeService.svc" />
+    <Content Include="ZaModel\ZA_CSCommissionRatioService.svc" />
+    <Content Include="ZaModel\ZA_CSCommissionTypeService.svc" />
+    <Content Include="ZaModel\ZA_CSComprehensiveFeeService.svc" />
+    <Content Include="ZaModel\ZA_CSGrossProfitRateService.svc" />
+    <Content Include="ZaModel\ZA_CSGroupAmountScopeService.svc" />
+    <Content Include="ZaModel\ZA_CSPerformanceCheckTypeService.svc" />
+    <Content Include="ZaModel\ZA_DesignAmountScopeService.svc" />
+    <Content Include="ZaModel\ZA_DesignCommissionTypeService.svc" />
+    <Content Include="ZaModel\ZA_DesignPerformanceCheckTypeService.svc" />
+    <Content Include="ZaModel\ZA_DesignPerformanceRadioService.svc" />
+    <Content Include="ZaModel\ZA_FloatCommissionRatioService.svc" />
+    <Content Include="ZaModel\ZA_GroupManagerAssessService.svc" />
+    <Content Include="ZaModel\ZA_NotApproveExpireService.svc" />
+    <Content Include="ZaModel\ZA_NotApproveVisitFinesService.svc" />
+    <Content Include="ZaModel\ZA_NotSignFinesService.svc" />
+    <Content Include="ZaModel\ZA_NotVisitFinesService.svc" />
+    <Content Include="ZaModel\ZA_OrderExpireService.svc" />
+    <Content Include="ZaModel\ZA_OverRebateRadioService.svc" />
+    <Content Include="ZaModel\ZA_PerformanceCheckService.svc" />
+    <Content Include="ZaModel\ZA_PerformanceCoefficientService.svc" />
+    <Content Include="ZaModel\ZA_SignCountBonusService.svc" />
+    <Content Include="ZaModel\ZA_SignCountFormulaService.svc" />
+    <Content Include="ZaModel\ZA_SignThresholdService.svc" />
+    <Content Include="ZaModel\ZA_VisitApproveService.svc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CommonSystem.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\PublishProfiles\chaiyl.pubxml" />
+    <None Include="Properties\PublishProfiles\Release.pubxml" />
+    <None Include="Properties\PublishProfiles\yanl.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessEntity\Trading.BusinessEntity.csproj">
+      <Project>{8de309ac-7659-4d81-bff0-253795d95ac5}</Project>
+      <Name>Trading.BusinessEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessFramework\Trading.BusinessFramework.csproj">
+      <Project>{c5a3583f-ae14-407c-912b-47dcc84d2745}</Project>
+      <Name>Trading.BusinessFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessImplement\Trading.BusinessImplement.csproj">
+      <Project>{a187c07a-749b-4ee9-b879-7d43c5135e05}</Project>
+      <Name>Trading.BusinessImplement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessInterface\Trading.BusinessInterface.csproj">
+      <Project>{7e0b1c14-9173-4433-92b8-5417521b7465}</Project>
+      <Name>Trading.BusinessInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtendedEntity\Trading.ExtendedEntity.csproj">
+      <Project>{c5e9d62a-9957-4703-9a07-bb67742f3303}</Project>
+      <Name>Trading.ExtendedEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtendedImplement\Trading.ExtendedImplement.csproj">
+      <Project>{f6b219b8-e9ec-4313-adc5-0ca9883ba215}</Project>
+      <Name>Trading.ExtendedImplement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtendedInterface\Trading.ExtendedInterface.csproj">
+      <Project>{ebcc2317-33b0-4ed9-b910-028b367198f6}</Project>
+      <Name>Trading.ExtendedInterface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1152</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

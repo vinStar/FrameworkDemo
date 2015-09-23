@@ -1,0 +1,296 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>瑞祥资金平台</title>
+    <link href="../Content/CSS/base.css" rel="stylesheet" />
+    <link href="../Content/CSS/layout.css" rel="stylesheet" />
+    <link href="../Content/CSS/mend.css" rel="stylesheet" />
+    <link href="../Content/CSS/lvse/Outer_color.css" rel="stylesheet" />
+    <script src="../Scripts/js/jquery-1.8.3.min.js"></script>
+    <script src="../Scripts/js/scrollBar.js"></script>
+</head>
+
+<body>
+    <div class="navbar navbar-default " id="navbar">
+        <div class="navbar-header pull-left">
+            <a href="#" class="navbar-brand clear">
+                <span class="logo fl"></span><span class="version fl">5.0.0</span>
+            </a>
+        </div>
+    </div>
+    <div class="main-container" id="main-container">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+                <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+                    <a class="short1" title="待办">
+                    </a>
+                    <a class="short3" title="待办">
+                    </a>
+
+                    <a class="short2" title="待办">
+                    </a>
+                    <a class="short4" title="待办">
+                    </a>
+                </div>
+                <div class="sidebar-shortcuts-mini clear" id="sidebar-shortcuts-mini">
+                    <span class="btn btn-success"></span>
+                    <span class="btn btn-warning"></span>
+                    <span class="btn btn-danger"></span>
+                    <span class="btn btn-success"></span>
+                </div>
+
+            </div>
+            <div class="bd" id="scroll_bd">
+                <div class="top" id="bd">
+                    <ul class="nav nav-list" id="nav-list">
+                        <li class="parent_li">
+                            <a href="sub.html" target="mainframe">
+                                <i class="icon-all"></i>
+                                <span class="menu-text">首页</span>
+                            </a>
+                            <div class="line"></div>
+                        </li>
+                        <li class="parent_li">
+                            <a href="chgl.html" target="mainframe" class="parent_a">
+                                <i class="icon-first"></i>
+                                <span class="menu-text">储户管理</span>
+                            </a>
+                            <div class="line"></div>
+                        </li>
+                        <li class="parent_li">
+                            <a href="zjptyz.html" target="mainframe" class="parent_a">
+                                <i class="icon-second"></i>
+                                <span class="menu-text">资金平台运作</span>
+                            </a>
+                            <div class="line"></div>
+                        </li>
+                        <li class="parent_li">
+                            <a href="tzgl.html" target="mainframe" class="parent_a">
+                                <i class="icon-third"></i>
+                                <span class="menu-text">投资管理</span>
+                            </a>
+                            <div class="line"></div>
+                        </li>
+                        <li class="parent_li">
+                            <a href="Capital.html" target="mainframe" class="parent_a">
+                                <i class="icon-third"></i>
+                                <span class="menu-text">资金平台</span>
+                            </a>
+                            <div class="line"></div>
+                        </li>
+                        <li class="parent_li">
+                            <a href="KQGL/tb_sykq.html" target="mainframe" class="parent_a">
+                                <i class="icon-fourth"></i>
+                                <span class="menu-text">统计分析</span>
+                            </a>
+                            <div class="line"></div>
+                        </li>
+
+                        <li class="parent_li">
+                            <a href="PXKH/tb_pxkh.html" target="mainframe" class="parent_a">
+                                <i class="icon-fifth"></i>
+                                <span class="menu-text">系统报表</span>
+                            </a>
+                            <div class="line"></div>
+                        </li>
+                        <li class="parent_li">
+                            <a href="htsd.html" target="mainframe" class="parent_a">
+                                <i class="icon-six"></i>
+                                <span class="menu-text">后台设定</span>
+                            </a>
+                            <div class="line"></div>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="scroll" id="scroll">
+                    <p id="p"></p>
+                </div>
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <span class="bg_bd"></span>
+                    <a class="icon_left"></a>
+                </div>
+            </div>
+            <div class="mask_layer" id="mask">
+            </div>
+        </div>
+        <div class="main-content" id="main-content" style="margin-right:0">
+            <iframe id="ifrma1" src="chgl.html" name="mainframe" frameborder="no"
+                    scrolling="yes" style="width:100%;height:100%;"></iframe>
+        </div>
+    </div>
+    <!-- 放大图片 -->
+    <div class="mask_layer" style="z-index: 999;display:none; opacity: 0.7;" id="mask0"></div>
+    <div class="index_pic" id="targetPic" style="display:none;" data-msg="" data-count=''>
+        <a id="cp_left" class="abtn aleft" href="javascript:void(0);" title="左移"></a>
+        <a id="cp_right" class="abtn aright" href="javascript:void(0);" title="右移"></a>
+        <div class="layer_remark">
+            <div class="content_sm">
+                <span id="MSInfo"></span> <a href="javascript:void(0);"  data-msg="" id="allContent" class="content_lg" style="display:none;">详细查看</a>
+            </div>
+        </div>
+        <div class="btnCont">
+            <input id="idRight" type="button" title="向右旋转" />
+            <input id="idDel" type="button" title="关闭" />
+        </div>
+        
+    </div>
+    
+    <script src="../Scripts/js/CJL.0.1.min.js"></script>
+    <script src="../Scripts/js/ImageTrans.js"></script>
+    <script>
+        $(function () {
+
+            //导航收缩功能
+            /*begin*/
+            $("#sidebar-collapse a").click(function () {
+
+                if ($(this).hasClass("icon_left")) {
+                    $(this).removeClass("icon_left").addClass("icon_right");
+                    $("#sidebar").addClass("menu-min");
+                    $("#sidebar .parent_li").find(".menu-text").hide();
+                    $("#sidebar .parent_li").find(".submenu").css("position", "relative").hide();
+                    $("#sidebar-shortcuts-large").hide();
+                    $("#main-content").css("marginLeft", $("#sidebar").width());
+                    //$("#sidebar").find(".line").hide();
+                    $("#scroll").hide();
+                }
+                else {
+                    $(this).removeClass("icon_right").addClass("icon_left");
+                    $("#sidebar").removeClass("menu-min");
+                    $("#sidebar .parent_li").find(".menu-text").show();
+                    $("#sidebar .parent_li.active").find(".submenu").css("position", "relative").show();
+                    $("#sidebar-shortcuts-large").show();
+                    $("#main-content").css("marginLeft", $("#sidebar").width());
+
+                    //location.reload();
+                }
+            });
+
+            $("#sidebar .parent_li").each(function (i) {
+                $(this).hover(function () {
+                    if ($("#sidebar").hasClass("menu-min")) {
+                        $("#sidebar .parent_li").find(".menu-text").hide();
+                        $("#sidebar .parent_li").find(".submenu").css("position", "relative").hide();
+                        $(this).find(".menu-text").show();
+                        $(this).find(".submenu").css("position", "absolute").show();
+                    }
+                }, function () {
+                    if ($("#sidebar").hasClass("menu-min")) {
+                        $("#sidebar .parent_li").find(".menu-text").hide();
+                        $("#sidebar .parent_li").find(".submenu").css("position", "relative").hide();
+
+                    }
+                });
+
+            })
+
+            $("#sidebar-shortcuts").hover(function () {
+                if ($(this).parent().hasClass("menu-min")) {
+                    $("#sidebar-shortcuts-large").show();
+                }
+            }, function () {
+                if ($(this).parent().hasClass("menu-min")) {
+                    $("#sidebar-shortcuts-large").hide();
+                }
+            })
+
+
+
+
+
+        })
+    </script>
+    <script type="text/javascript">
+        //投资管理页面弹出层，点击资料 放大图片左右切换
+        $("#cp_right").click(function () {
+            var i = $(".index_pic img").attr('data-index');
+            var length = $("#targetPic").attr('data-count');
+            if (i == length - 1) i = 0;
+            else i++;
+            var urls = $("#targetPic").attr('data-msg');
+            var aUrl = urls.split(';');
+            /*绑定图片*/
+            $("#targetPic img").attr({ 'src': aUrl[i], 'data-index': i });
+            //$("#targetPic .imgA").attr('href', aUrl[i]);
+            /*绑定文本内容*/
+            if ($("#targetPic").attr('data-type') && $("#targetPic").attr('data-type') != "") {
+                $(".content_sm").find("a").attr("data-msg", $("#targetPic").attr('data-Description').split('♠')[i]);
+                $(".content_sm").find("a").show();
+            }
+            else if ($("#targetPic").attr('data-Description') && $("#targetPic").attr('data-Description') != "") {
+                $("#MSInfo").text($("#targetPic").attr('data-Description').split('♠')[i]);
+            }
+        });
+
+        $("#cp_left").click(function () {
+            var i = $(".index_pic img").attr('data-index');
+            var length = $("#targetPic").attr('data-count');
+            if (i == 0) i = length - 1;
+            else i--;
+            var urls = $("#targetPic").attr('data-msg');
+            var aUrl = urls.split(';');
+            /*绑定图片*/
+            $("#targetPic img").attr({ 'src': aUrl[i], 'data-index': i });
+            //$("#targetPic .imgA").attr('href', aUrl[i]);
+            /*绑定文本内容*/
+            if ($("#targetPic").attr('data-type') && $("#targetPic").attr('data-type') != "") {
+                $(".content_sm").find("a").attr("data-msg", $("#targetPic").attr('data-Description').split('♠')[i]);
+                $(".content_sm").find("a").show();
+            }
+            else if ($("#targetPic").attr('data-Description') && $("#targetPic").attr('data-Description') != "") {
+                $("#MSInfo").text($("#targetPic").attr('data-Description').split('♠')[i]);
+            }
+        });
+        $(function () {
+            $("li:first").addClass("active");
+            $("#ifrma1").attr("src", $(".active").find("a").attr("zz-href"));
+            var container = $$("targetPic"), src = "",
+                options = {
+
+                },
+                it = new ImageTrans(container, options);
+            it.load(src);
+
+
+
+            function initImg(ImageH, obj1, obj2) {
+                var imgobj = obj1;
+                var topwin = obj2;
+
+                imgobj.css({ 'max-width': topwin.width() - 40 });
+                if (ImageH > 0 && ImageH < topwin.height()) {
+                    //alert(1);
+                    imgobj.css('margin-top', (topwin.height() - ImageH) / 2 + 'px');
+                } else if (ImageH >= topwin.height()) {
+                    // alert(2);
+                    imgobj.css('margin-top', '10px');
+                }
+            }
+
+            //右旋转
+            $$("idRight").onclick = function () { it.right(); }
+            $(".index_pic img").css({ 'max-width': $(window).width() - 650 });
+            initImg($(".index_pic img").height(), $(".index_pic img"), $(window));
+            //   var imgobj = $(".index_pic img");
+            $(".index_pic img").css({ 'max-width': $(window).width() - 650 });
+
+
+            $(window).resize(function () {
+                $(".index_pic img").css({ 'max-width': $(window).width() - 650 });
+                initImg($(".index_pic img").height(), $(".index_pic img"), $(window));
+            })
+
+           //关闭
+            $("#idDel").click(function () {
+                $("#mask0,#targetPic").hide();
+                $(".index_pic img").attr('data-index', '0');
+            })
+        });
+        
+
+    </script>
+</body>
+
+</html>

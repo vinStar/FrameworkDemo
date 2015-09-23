@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="../Content/CSS/base.css" rel="stylesheet" />
+    <link href="../Content/CSS/layout.css" rel="stylesheet" />
+    <link href="../Content/CSS/lvse/Inside_color.css" rel="stylesheet" />
+    <link href="../Content/CSS/sub.css" rel="stylesheet" />
+    <link href="../Content/CSS/alert.css" rel="stylesheet" />
+    <style type="text/css">
+        html, body {
+            height: auto;
+        }
+
+        .content {
+            width: 860px;
+            margin: 0 auto;
+        }
+
+        .left_c_block, .right_c_block {
+            width: 400px;
+            float: left;
+            padding: 0 10px;
+        }
+
+        .left_c_block {
+            border-right: 1px solid #ccc;
+        }
+
+            .left_c_block p {
+                height: 30px;
+                line-height: 30px;
+                margin-bottom: 5px;
+            }
+
+            .left_c_block input[type="text"] {
+                padding: 0 2px;
+            }
+
+            .left_c_block .spantit {
+                width: 70px;
+                display: inline-block;
+                text-align: right;
+            }
+        
+        .big_input {
+            width: 320px;
+        }
+
+        .tzje_input {
+            width: 170px;
+        }
+
+        .tzzq_input {
+            width: 140px;
+        }
+
+        .small_input {
+            width: 80px;
+        }
+
+        .left_c_block input[type="radio"] {
+            vertical-align: middle;
+            margin-right: 0px;
+        }
+
+        .left_c_block .hb_input {
+            width: 120px;
+            margin-right: 5px;
+        }
+        .middle_c_block {
+            border-top: 1px solid #ccc;
+            padding: 10px 10px 0;
+        }
+        .middle_c_block p{
+            margin-bottom:10px;
+        }
+        .middle_c_block  p input[type="text"]{
+            width:60%;
+        }
+            
+        .padding {
+            padding: 0 6px;
+        }
+
+        .right_c_block p {
+            line-height: 25px;
+        }
+        .right_c_block select {
+            border: 1px solid #ccc;
+        } 
+        .right_c_block textarea {
+            width: 98%;
+            height: 160px;
+            border: 1px solid #ccc;
+        }
+
+        .ziliao li {
+            float: left;
+            width: 60px;
+            margin-right: 10px;
+            display: inline;
+            cursor: pointer;
+        }
+
+            .ziliao li p {
+                line-height: 20px;
+            }
+
+            .ziliao li .imgdiv img {
+                max-width: 60px;
+            }
+
+        .bottom_c_block p {
+            padding: 10px 0;
+            border-top: 1px solid #ccc;
+        }
+
+        .bottom_c_block select {
+            border-color: #ccc;
+        }
+
+        .btndivs {
+            padding: 10px 0;
+            text-align: center;
+        }
+
+            .btndivs input {
+                margin: 0 5px;
+            }
+        .chosezl li {
+            position:relative;
+            float: left;
+            width: 60px;
+            margin-right: 10px;
+            display: inline;
+            cursor: pointer;
+        }
+            .chosezl li img {
+                max-width: 60px;
+            }
+            .chosezl li .close_link {
+                background: url(../Content/Images/close_aa_l.jpg) no-repeat left center;
+                width: 13px;
+                height: 13px;
+                margin-left: 5px;
+                overflow: hidden;
+                position: absolute;
+                right:0px;
+                top:0px;
+            }
+    </style>
+</head>
+<body>
+    <div class="mask_layer" id="mask3" style="display:none;"></div>
+    <div class="content">
+        <div class="clear">
+            <div class="left_c_block">
+                <p>
+                    <span class="spantit">投资名称：</span>
+                    <input type="text" class="big_input" />
+                </p>
+                <p>
+                    <span class="spantit">投资金额：</span>
+                    <input type="text" class="tzje_input" />
+                    元
+                    <span class="Grey_color" style="padding-left:5px;">一百贰拾万零伍仟元整</span>
+                </p>
+                <p>
+                    <span class="spantit">投资周期：</span>
+                    <input type="text" class="tzzq_input" />
+                    <span class="padding">至</span>
+                    <input type="text" class="tzzq_input" />
+
+                </p>
+                <p>
+                    <span class="spantit">共计：</span>
+                    <input type="text" class="small_input" />
+                    年
+                    <input type="text" class="small_input" />
+                    个月
+                    <input type="text" class="small_input" />
+                    天
+                </p>
+                <p>
+                    <span class="spantit">回报周期：</span>
+                    <label>
+                        <input type="radio" name="radio" />到期一次回报
+                    </label>
+                    <label>
+                        <input type="radio" name="radio" />每年
+                    </label>
+                    <label>
+                        <input type="radio" name="radio" />每月
+                    </label>
+                    <label>
+                        <input type="radio" name="radio" />自定义
+                    </label>
+                </p>
+                <p>
+                    <span class="spantit">年回报率：</span>
+                    <input type="text" class="hb_input" />%
+                    <span class="padding">至</span>
+                    <input type="text" class="hb_input" />%
+                </p>
+                <p>
+                    <span class="spantit">回报金额：</span>
+                    <input type="text" class="hb_input" />元
+                    <span class="padding">至</span>
+                    <input type="text" class="hb_input" />元
+                </p>
+            </div>
+            <div class="right_c_block">
+                <p>理财账户：</p>
+                <div>
+                    <select>
+                        <option>请选择</option>
+                        <option>工商银行 6222 3702 2541 8424 254&nbsp; 李某某</option>
+                        <option>建设银行 6222 3702 2541 8424 254&nbsp; 张某某</option>
+                    </select>
+                </div>
+                <p>详细描述：</p>
+                <div>
+                    <textarea></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="middle_c_block">
+            <p class="clear">
+                <label>资料选择：</label>
+                <input type="file" value="浏览" />
+            </p>
+            <ul class="chosezl clear">
+                <li>
+                    <a href="javascript:;" class="close_link"></a>
+                    <a href="javascript:;"><img src="../Content/Images/u569.png" zz-url='../Content/Images/u569.png' zz-minurl='../Content/Images/u569.png' /></a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="close_link"></a>
+                    <a href="javascript:;"><img src="../Content/Images/u569.png" zz-url='../Content/Images/u569.png' zz-minurl='../Content/Images/u569.png' /></a>
+                </li>
+            </ul>
+        </div>
+            
+            <div class="btndivs">
+                <input class="cssbtnv1 ylpzbtn" type="button" value="预览凭证" />
+                <input class="cssbtnv4 clickbtn" type="button" value="取消" />
+                <input class="cssbtnv1 clickbtn" type="button" value="提交" />
+            </div>
+
+    </div>
+    
+    <script src="../Scripts/js/jquery-1.8.3.min.js"></script>
+    <script src="../Scripts/js/publicMethod.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+
+            $(".chosezl li .close_link").click(function () {
+                $(this).parent().hide();
+                return false;
+            });
+            //点击资料放大图片
+            $(document).on("click", "img[zz-url]", function () {
+                var url = "";
+                $(this).parent().parent().parent().find("img[zz-url]").each(function (i) {
+                    url += $(this).attr("zz-url") + ";";
+                    $(this).attr('data-i', i);
+                });
+                if (url != "") {
+                    var index = $(this).attr('data-i');
+                    //alert(index);
+                    url = url.substring(0, url.length - 1);
+                    var aUrl = url.split(';');
+                    $("#targetPic", top.document).attr({ 'data-msg': url, 'data-count': aUrl.length }).show();
+                    $("#targetPic img", top.document).attr({ 'src': aUrl[index], 'data-index': index });
+                    $("#mask0", top.document).show();
+                }
+            });
+
+            //点击资料放大图片end
+            //点击退出按钮
+            $(".btndivs .clickbtn").click(function () {
+                alertThreeHide($(".new_tzbox",parent.document));
+            });            //点击弹出层上面的x按钮            $(".new_tzbox .del",parent.document).click(function () {
+                alertThreeHide($(".new_tzbox", parent.document));            });
+            //点击预览凭证按钮
+            $(".ylpzbtn").click(function () {
+                alertThreeShow($(".new_ylpzbox", parent.document));
+            });
+            //隐藏预览凭证弹出层
+            $(".new_ylpzbox .del", parent.document).click(function () {
+                $(".new_ylpzbox", parent.document).fadeOut();
+                $("#mask3").hide();
+
+            });
+        })
+
+    </script>
+</body>
+</html>

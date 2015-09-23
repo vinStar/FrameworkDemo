@@ -1,0 +1,64 @@
+﻿@model WebSite.Models.Fa_Cashier.FA_OldProjectReceivableViewModel
+@using HyBy.Trading.BusinessEntity
+
+<div class="ui_toptable  j_outerheight">
+    <table cellpadding="0" cellspacing="0" class="headtable wb100" id="headtable">
+        <thead>
+            <tr>
+                <th width="8%">序号</th>
+                <th width="10%">合同日期</th>
+                <th width="10%">剩余天数</th>
+                <th width="10%">应收金额</th>
+                <th width="10%">已收金额</th>
+                <th width="10%">回款率</th>
+                <th width="10%">项目名称</th>
+                <th width="10%">任务单号</th>
+                <th width="10%">合同编号</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<div class="tableshow" style="overflow:auto;" id="j_scrollbox">
+    <table cellpadding="0" cellspacing="0" class="wb100 txtCenter ui_bottomtab" id="minshowtable">
+        <tbody>
+            @if (Model.ReceivableList == null || Model.ReceivableList.Count <= 0)
+            {
+                <tr class="target_tr">
+                    <td colspan="9">暂无数据</td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model.ReceivableList)
+                {
+                    <tr class="target_tr">
+                        <td width="8%">@item.RN</td>
+                        <td width="10%">@Convert.ToDateTime(item.HeTongTime).ToString("yyyy-MM-dd")</td>
+                        <td width="10%">@item.surplusDay</td>
+                        @if (Convert.ToDecimal(item.Receivable) == Convert.ToDecimal(item.Received))
+                        {
+                            <td width="10%"><a class="color_b" onclick="alert('回款已收完')">@item.Receivable</a></td>
+                        }
+                        else
+                        {
+                            <td width="10%"><a class="ReceivableBtn color_b" href="/OldVoucher/Index?OrderID=@item.OrderID" target="framepz" onclick="IFFinish(this)">@item.Receivable</a></td>
+                        }
+
+                        <td width="10%">@item.Received</td>
+                        @if (item.Receivable == 0)
+                        {
+                            <td width="10%">0.00%</td>
+                        }
+                        else
+                        {
+                            <td width="10%">@Math.Round(Convert.ToDecimal(item.Received / item.Receivable * 100), 2)%</td>
+                        }
+                        <td width="10%">@item.Name</td>
+                        <td width="10%">@item.OrderID</td>
+                        <td width="10%">@item.Number</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

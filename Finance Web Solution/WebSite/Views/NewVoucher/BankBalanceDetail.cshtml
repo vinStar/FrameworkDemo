@@ -1,0 +1,111 @@
+﻿@model WebSite.Models.Fa_Cashier.AccountViewModel
+@using HyBy.Trading.BusinessEntity
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>银行账户收支明细</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/base.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/layout.css" />
+    <link href="~/Content/CSS/lvse/Outer_color.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/listcase.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/color.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/sub.css" />
+
+    <script type="text/javascript" src="~/Scripts/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/rxued.js"></script>
+    <script src="~/Scripts/My97DatePicker/WdatePicker.js"></script>
+    <script>
+        $(function () {
+            caloaddata();
+
+            $("#btn_go").click(function () {
+                caloaddata();
+            });
+        });
+
+        function caloaddata() {
+
+            var bankNo = $("#hid_bankNo").val();
+            var accountType = $("#hid_accountType").val();
+            var starTime = $("#startTime").val();
+            var endTime = $("#endTime").val();
+
+            $(".tb_container").load("/NewVoucher/_BankBalanceList", { "bankNo": bankNo, "accountType": accountType, "starTime": starTime, "endTime": endTime }, function () {
+
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="tb_main2" class="tb_main2">
+        <div class="navbar navbar-default j_outerheight " id="navbar">
+            <div class="navbar-header pull-left">
+                <a href="#" class="navbar-brand clear">
+                    <span class="logo fl"></span><span class="version fl">5.3.1</span>
+                </a>
+            </div>
+        </div>
+        <div id="serchbox" class="txtRight j_outerheight">
+            <div class="boxPos" style="right: 15px;">
+                @*<a href="/Home/CashierIndex" class="btn">
+                        <span>返回主页</span>
+                    </a>*@
+                <label class="fl fz14 mr5">时间范围：</label>
+                <input class="Bordercolorbox fl mr5" type="text" onfocus="WdatePicker({ dateFmt: 'yyyy-MM-dd' })" id="startTime" />
+                <label class="fl fz14 mr5">至</label>
+                <input class="Bordercolorbox fl mr5" type="text" onfocus="WdatePicker({ dateFmt: 'yyyy-MM-dd', })" id="endTime" />
+                <a class="btn" id="btn_go">
+                    <span>GO</span>
+                </a>
+            </div>
+            <input type="hidden" value="@ViewBag.bankNo" id="hid_bankNo" />
+            <input type="hidden" value="@ViewBag.accountType" id="hid_accountType" />
+        </div>
+        <div class="tb_container" id="tablecontent" style="padding-top:0;">
+
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+<script type="text/javascript">
+
+    //获取当前日期
+    function GetNewDate() {
+        var dd = new Date();
+        var month = dd.getMonth() + 1;
+        if (month.toString().length == 1) {
+            month = "0" + month;
+        }
+        dd = dd.getFullYear() + "-" + month + "-" + dd.getDate();
+        $("#startTime").val(dd);
+        $("#endTime").val(dd);
+    }
+
+    //含多个iframe的页面的计算高度
+    function init() {
+        rxued.table.countTB($('#headtable'), $('#minshowtable'), $(".tableshow"));
+    }
+
+    $(function () {
+        GetNewDate();
+        //计算高度和宽度
+        $(window).load(function () {
+            init();
+        });
+        $(window).resize(function () {
+            init();
+        })
+    })
+
+</script>

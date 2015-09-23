@@ -1,0 +1,363 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>凭证操作</title>
+    <link href="~/Content/CSS/common.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/CSS/ui.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/CSS/pz.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/CSS/voucher.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/Scripts/js/jquery-1.8.3.min.js"></script>
+    <script src="~/Scripts/js/spinbox.js"></script>
+    <script src="~/Scripts/js/jquery.combo.js"></script>
+    <script src="~/Scripts/js/radixPoint.js"></script>
+</head>
+<body class="page-voucher">
+    <input type="hidden" id="hid_OrderID" value="@ViewBag.OrderID" />
+    <input type="hidden" id="hid_Chae" />
+    <div class="wrapper" id="option_1">
+        <div class="voucher_wrap">
+            <div class="pzContent clear">
+                <div class="fl">
+                    <span>方式：</span>
+                    <select class="select" id="ddlPaymentType">
+                        <option value="1" selected="selected">银行</option>
+                    </select>
+                    <input type="text" id="txtCheckNo" style="display:none;">
+                    @Html.DropDownList("select_bank", ViewData["bank"] as IEnumerable<SelectListItem>, "-请选择-", new { @class = "select" })
+                </div>
+                <div class="fr" style="margin-right: 140px;">日期：<span id="sp_time">@ViewBag.voucherTime</span> <span style="display:none;">ID：<span id="sp_Code">@ViewBag.voucherCode</span></span></div>
+            </div>
+            <table class="voucher" id="voucher" style="width:100%">
+                <thead>
+                    <tr>
+                        <th class="col_summary" colspan="2">摘要</th>
+                        <th class="col_subject" colspan="2">会计科目</th>
+                        <th class="col_quantity">数量</th>
+                        <th class="col_currency">币别</th>
+                        <th class="col_money">
+                            <strong class="tit">借方金额</strong>
+                            <div class="money_unit"> <span>亿</span> <span>千</span> <span>百</span> <span>十</span> <span>万</span> <span>千</span> <span>百</span> <span>十</span> <span>元</span> <span>角</span> <span class="last">分</span> </div>
+                        </th>
+                        <th class="col_money">
+                            <strong class="tit">贷方金额</strong>
+                            <div class="money_unit"> <span>亿</span> <span>千</span> <span>百</span> <span>十</span> <span>万</span> <span>千</span> <span>百</span> <span>十</span> <span>元</span> <span>角</span> <span class="last">分</span> </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="entry_item">
+                        <td class="col_summary" data-edit="summary"><div class="cell_val summary_val" id="div_Summary1"></div></td>
+                        <td class="col_option"><div class="option"><a class="selSummary">摘要</a></div></td>
+                        <td class="col_subject" data-edit="subject"><div class="cell_val subject_val" id="div_subject1"></div></td>
+                        <td class="col_option"><div class="option"></div></td>
+                        <td class="col_quantity"><div class="cell_val quantity_val"></div></td>
+                        <td class="col_currency"><div class="cell_val curr_val"></div></td>
+                        <td class="col_debite" data-edit="money"><div class="cell_val debit_val" id="div_debit_money1"></div></td>
+                        <td class="col_credit" data-edit="money"><div class="cell_val credit_val" id="div_credit_money1"></div></td>
+                    </tr>
+                    <tr class="entry_item">
+                        <td class="col_summary" data-edit="summary"><div class="cell_val summary_val" id="div_Summary2"></div></td>
+                        <td class="col_option"><div class="option"><a class="selSummary">摘要</a></div></td>
+                        <td class="col_subject" data-edit="subject"><div class="cell_val subject_val" id="div_subject2"></div></td>
+                        <td class="col_option"><div class="option"><a class="selSub">科目</a></div></td>
+                        <td class="col_quantity"><div class="cell_val quantity_val"></div></td>
+                        <td class="col_currency"><div class="cell_val curr_val"></div></td>
+                        <td class="col_debite" data-edit="money"><div class="cell_val debit_val" id="div_debit_money2"></div></td>
+                        <td class="col_credit" data-edit="money"><div class="cell_val credit_val" id="div_credit_money2"></div></td>
+                    </tr>
+                    <tr class="entry_item">
+                        <td class="col_summary" data-edit="summary"><div class="cell_val summary_val" id="div_Summary3"></div></td>
+                        <td class="col_option"><div class="option"><a class="selSummary">摘要</a></div></td>
+                        <td class="col_subject" data-edit="subject"><div class="cell_val subject_val" id="div_subject3"></div></td>
+                        <td class="col_option"><div class="option"><a class="selSub">科目</a></div></td>
+                        <td class="col_quantity"><div class="cell_val quantity_val"></div></td>
+                        <td class="col_currency"><div class="cell_val curr_val"></div></td>
+                        <td class="col_debite" data-edit="money"><div class="cell_val debit_val" id="div_debit_money3"></div></td>
+                        <td class="col_credit" data-edit="money"><div class="cell_val credit_val" id="div_credit_money3"></div></td>
+                    </tr>
+                    <tr class="entry_item">
+                        <td class="col_summary" data-edit="summary"><div class="cell_val summary_val" id="div_Summary4"></div></td>
+                        <td class="col_option"><div class="option"><a class="selSummary">摘要</a></div></td>
+                        <td class="col_subject" data-edit="subject"><div class="cell_val subject_val" id="div_subject4"></div></td>
+                        <td class="col_option"><div class="option"><a class="selSub">科目</a></div></td>
+                        <td class="col_quantity"><div class="cell_val quantity_val"></div></td>
+                        <td class="col_currency"><div class="cell_val curr_val"></div></td>
+                        <td class="col_debite" data-edit="money"><div class="cell_val debit_val" id="div_debit_money4"></div></td>
+                        <td class="col_credit" data-edit="money"><div class="cell_val credit_val" id="div_credit_money4"></div></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="col_total">合计：<span id="capAmount"></span></td>
+                        <td class="col_debite"><div class="cell_val debit_total" id="debit_total"></div></td>
+                        <td class="col_credit"><div class="cell_val credit_total" id="credit_total"></div></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="cont_skr clear">
+                <span class="color_o fl">提示：50张就可以装订为一册哦~点击查看</span>
+                <a href="javacript:void(0);" class="under_line mr5 fl ml15" id="btn_zdgf">装订规范</a>
+                <input type='button' class='btnMend4' id="btn_Save" value='保 存' onclick='Save(this)'>
+                <a class="btn" id="btn_Print" style="display:none;"><span>打印</span></a>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="~/Scripts/js/v1.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/rxued.js"></script>
+    <script>
+        window.onload = function () {
+            rxued.iframe.autoHeight2('ifmPz', 20);
+
+            var OrderID = $("#hid_OrderID").val();
+            var str = "";
+            $.ajax({
+                type: "POST",
+                data: "OrderID=" + OrderID,//注意这里的参数名称要和Action 的参数名称相同。
+                url: "/OldVoucher/GetVoucherStr",
+                async: false,
+                success: function (data) {
+                    str = data;
+                }
+            });
+            if (str != "") {
+                var str1 = str.split(',');
+                if (str1[0] == null || str1[0] == "") {
+                    str1[0] = "0";
+                }
+                if (str1[1] == null || str1[1] == "") {
+                    str1[1] = "0";
+                }
+                var Receivable = str1[0];
+                var Received = str1[1];
+                var chae = (Receivable - Received).toFixed(2);
+                $("#hid_Chae").val(chae);
+                //借方金额
+                $("#div_debit_money1").html(accMul(chae, 100));
+                $("#div_debit_money1").attr("data-val", chae);
+                //贷方金额
+                $("#div_credit_money2").html(accMul(chae, 100));
+                $("#div_credit_money2").attr("data-val", chae);
+
+                $("#debit_total").html(accMul(chae, 100));
+                $("#debit_total").attr("data-val", chae);
+                $("#credit_total").html(accMul(chae, 100));
+                $("#credit_total").attr("data-val", chae);
+            }
+        }
+    </script>
+    <script>
+        $("#btnDyf").click(function () {
+            $("#option_2").show().parent().find("#option_1").hide();
+        })
+
+        function Save(obj) {
+            var _this = $(obj);
+            var txt = _this.val();
+            _this.val("保存中...").addClass("disabled").css("cursor", "wait").attr("disabled", true);
+
+            var ID = $("#hid_ID").val();
+            var PaymentType = $("#ddlPaymentType").val();   //1银行 2现金 3支票
+            var CheckNo = $("#txtCheckNo").val();  //支票号
+            var select_bank = $("#select_bank").val();  //银行卡ID
+            var sp_time = $("#sp_time").html();  //凭证时间
+            var sp_Code = "";// $("#sp_Code").html();  //财务凭证编号
+            if (PaymentType == "1") {
+                if (select_bank == "") {
+                    alert("请选择银行卡");  _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                    return false;
+                }
+            } else if (PaymentType == "3") {
+                if (CheckNo == "") {
+                    alert("请填写支票号"); _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                    return false;
+                }
+            }
+            var summary1 = $("#div_Summary1").html();
+            var summary2 = $("#div_Summary2").html();
+            var summary3 = $("#div_Summary3").html();
+            var summary4 = $("#div_Summary4").html();
+
+            var subjectA1 = "", subjectB1 = "";
+            var subjectA2 = "", subjectB2 = "";
+            var subjectA3 = "", subjectB3 = "";
+            var subjectA4 = "", subjectB4 = "";
+            var subject1 = $("#div_subject1").html();
+            if (subject1 != null && subject1 != "") {
+                if (subject1.indexOf('_') > 0) {
+                    //包含二级科目
+                    var strsub = subject1.split(' ');
+                    subjectA1 = strsub[0].split('_')[0]; ////一级科目ID
+                    subjectB1 = strsub[0].split('_')[1]; ////二级科目ID
+                } else {
+                    subjectA1 = subject1.split(' ')[0];  //一级科目ID
+                }
+            }
+            var subject2 = $("#div_subject2").html();
+            if (subject2 != null && subject2 != "") {
+                if (subject2.indexOf('_') > 0) {
+                    //包含二级科目
+                    subjectA2 = subject2.split(' ')[0].split('_')[0]; ////一级科目ID
+                    subjectB2 = subject2.split(' ')[0].split('_')[1]; ////二级科目ID
+                } else {
+                    subjectA2 = subject2.split(' ')[0];  //一级科目ID
+                }
+            }
+            var subject3 = $("#div_subject3").html();
+            if (subject3 != null && subject3 != "") {
+                if (subject3.indexOf('_') > 0) {
+                    //包含二级科目
+                    subjectA3 = subject3.split(' ')[0].split('_')[0]; ////一级科目ID
+                    subjectB3 = subject3.split(' ')[0].split('_')[1]; ////二级科目ID
+                } else {
+                    subjectA3 = subject3.split(' ')[0];  //一级科目ID
+                }
+            }
+            var subject4 = $("#div_subject4").html();
+            if (subject4 != null && subject4 != "") {
+                if (subject4.indexOf('_') > 0) {
+                    //包含二级科目
+                    subjectA4 = subject4.split(' ')[0].split('_')[0]; ////一级科目ID
+                    subjectB4 = subject4.split(' ')[0].split('_')[1]; ////二级科目ID
+                } else {
+                    subjectA4 = subject4.split(' ')[0];  //一级科目ID
+                }
+            }
+
+            var debit_money1 = $("#div_debit_money1").attr("data-val");
+            var debit_money2 = $("#div_debit_money2").attr("data-val");
+            var debit_money3 = $("#div_debit_money3").attr("data-val");
+            var debit_money4 = $("#div_debit_money4").attr("data-val");
+
+            var credit_money1 = $("#div_credit_money1").attr("data-val");
+            var credit_money2 = $("#div_credit_money2").attr("data-val");
+            var credit_money3 = $("#div_credit_money3").attr("data-val");
+            var credit_money4 = $("#div_credit_money4").attr("data-val");
+
+            if ((debit_money1 != "" && debit_money1 != undefined && parseFloat(debit_money1) != 0) || (credit_money1 != "" && credit_money1 != undefined && parseFloat(credit_money1) != 0)) {
+                if (summary1 == "" || subjectA1 == "") {
+                    alert("摘要和科目不能为空");_this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                    return false;
+                }
+            } if ((debit_money2 != "" && debit_money2 != undefined && parseFloat(debit_money2) != 0) || (credit_money2 != "" && credit_money2 != undefined && parseFloat(credit_money2) != 0)) {
+                if (summary2 == "" || subjectA2 == "") {
+                    alert("摘要和科目不能为空");  _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                    return false;
+                }
+            } if ((debit_money3 != "" && debit_money3 != undefined && parseFloat(debit_money3) != 0) || (credit_money3 != "" && credit_money3 != undefined && parseFloat(credit_money3) != 0)) {
+                if (summary3 == "" || subjectA3 == "") {
+                    alert("摘要和科目不能为空"); _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                    return false;
+                }
+            } if ((debit_money4 != "" && debit_money4 != undefined && parseFloat(debit_money4) != 0) || (credit_money4 != "" && credit_money4 != undefined && parseFloat(credit_money4) != 0)) {
+                if (summary4 == "" || subjectA4 == "") {
+                    alert("摘要和科目不能为空"); _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                    return false;
+                }
+            }
+            if (subjectB1 == 149 || subjectB2 == 149 || subjectB3 == 149 || subjectB4 == 149) {
+
+            } else {
+                if (subjectA1 == 5 || subjectA1 == 4 || subjectA2 == 5 || subjectA2 == 4 || subjectA3 == 5 || subjectA3 == 4 || subjectA4 == 5 || subjectA4 == 4) {
+
+                } else {
+                    alert("科目录入不正确,没有选择银行");  _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                    return false;
+                }
+                if (subjectA1 == 5 || subjectA1 == 4) {
+                    if (debit_money1 == "" || debit_money1 == undefined || parseFloat(debit_money1) == 0) {
+                        alert("科目录入不正确或相反"); _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                        return false;
+                    }
+                }
+                if (subjectA2 == 5 || subjectA2 == 4) {
+                    if (debit_money2 == "" || debit_money2 == undefined || parseFloat(debit_money2) == 0) {
+                        alert("科目录入不正确或相反");  _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                        return false;
+                    }
+                }
+                if (subjectA3 == 5 || subjectA3 == 4) {
+                    if (debit_money3 == "" || debit_money3 == undefined || parseFloat(debit_money3) == 0) {
+                        alert("科目录入不正确或相反"); _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                        return false;
+                    }
+                }
+                if (subjectA4 == 5 || subjectA4 == 4) {
+                    if (debit_money4 == "" || debit_money4 == undefined || parseFloat(debit_money4) == 0) {
+                        alert("科目录入不正确或相反"); _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                        return false;
+                    }
+                }
+            }
+
+            var debit_total = $("#debit_total").attr("data-val");  //借方
+            var credit_total = $("#credit_total").attr("data-val");  //贷方
+            if (parseFloat(debit_total) != parseFloat(credit_total)) {
+                alert("借方和贷方金额不一致"); _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                return false;
+            }
+            if (parseFloat($("#hid_Chae").val()) < parseFloat(debit_total)) {
+                alert("收款金额不能大于本期收款差额"); _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                return false;
+            }
+            var str = ID + '☆' + PaymentType + '☆'
+            + CheckNo + '☆'
+            + select_bank + '☆'
+            + sp_time + '☆'
+            + sp_Code + '☆'
+            + '' + '☆'
+            + '' + '☆'
+            + '' + '☆'
+            + summary1 + '☆' + summary2 + '☆' + summary3 + '☆' + summary4 + '☆'
+            + subjectA1 + '☆' + subjectA2 + '☆' + subjectA3 + '☆' + subjectA4 + '☆'
+            + subjectB1 + '☆' + subjectB2 + '☆' + subjectB3 + '☆' + subjectB4 + '☆'
+            + debit_money1 + '☆' + debit_money2 + '☆' + debit_money3 + '☆' + debit_money4 + '☆' + debit_total + '☆'
+            + credit_money1 + '☆' + credit_money2 + '☆' + credit_money3 + '☆' + credit_money4 + '☆' + credit_total + '☆' + $("#hid_OrderID").val();
+
+            $.ajax({
+                type: "POST",
+                data: { "str": str,"Uncollected": $("#hid_Chae").val() },//注意这里的参数名称要和Action 的参数名称相同。
+                url: "/OldVoucher/AddVoucher",
+                async: false,
+                success: function (data) {
+                    if (data == "ok") {
+                        alert("添加成功");
+                        $("#ifmPz", parent.document).attr("src", $("#ifmPz", parent.document).attr("src"));
+                        $("#ifrma1", parent.document).attr("src", $("#ifrma1", parent.document).attr("src"));
+
+                    } else if (data == "noaccount") {
+                        alert("添加失败，本期未收款不正确");
+                        $("#ifmPz", parent.document).attr("src", $("#ifmPz", parent.document).attr("src"));
+                        $("#ifrma1", parent.document).attr("src", $("#ifrma1", parent.document).attr("src"));
+                    } else if (data == "no") {
+                        alert("添加失败");
+                        $("#ifmPz", parent.document).attr("src", $("#ifmPz", parent.document).attr("src"));
+                        $("#ifrma1", parent.document).attr("src", $("#ifrma1", parent.document).attr("src"));
+                    } else {
+                        alert(data);
+                        $("#ifmPz", parent.document).attr("src", $("#ifmPz", parent.document).attr("src"));
+                        $("#ifrma1", parent.document).attr("src", $("#ifrma1", parent.document).attr("src"));
+                    }
+                    $("#j_alertboxPZP", parent.document).hide();
+                    $("#mask0", parent.document).hide();
+                    _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                }
+            });
+        }
+        $("#btn_zdgf").click(function () {
+            $("#j_alertboxPZP,#j_alertboxpz2", top.document).hide();
+            $("#j_alertboxpz,#mask0", top.document).show();
+        })
+
+    </script>
+</body>
+
+</html>

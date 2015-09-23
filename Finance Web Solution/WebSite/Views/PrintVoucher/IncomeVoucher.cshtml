@@ -1,0 +1,256 @@
+﻿@model WebSite.Models.Fa_Cashier.AddFAvoucherViewModel
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>收款凭证</title>
+    <link href="~/Content/CSS/css/pz.css" rel="stylesheet" />
+    <link href="~/Content/CSS/css/base.css" rel="stylesheet" />
+    <link href="~/Content/CSS/css/skpz.css" rel="stylesheet" />
+</head>
+<body style="text-align:center">
+    <div style="text-align:center;margin-top:10px;">
+        <div class="dis_il_block">
+            <a class="btn" id="btnPrint" style="float:none;display:inline-block;"><span>打印</span></a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="logo">
+            <p>ID:@Model.Code</p>
+        </div>
+        <div class="header">
+            <div class="head">
+                <h3>收 款 凭 证</h3>
+            </div>
+            <div class="tips">
+                <div class="fl">
+                    借方科目
+                    @if (Model.Debit1 > 0)
+                    {
+
+                        <label class="txt">@Model.SubjectA1Name—@Model.SubjectB1Name</label>
+
+                    }
+                    @if (Model.Debit2 > 0)
+                    {
+                        <label class="txt">@Model.SubjectA2Name—@Model.SubjectB2Name</label>
+
+                    }
+                    @if (Model.Debit3 > 0)
+                    {
+                        <label class="txt">@Model.SubjectA3Name—@Model.SubjectB3Name</label>
+
+                    }
+                    @if (Model.Debit4 > 0)
+                    {
+                        <label class="txt">@Model.SubjectA4Name—@Model.SubjectB4Name</label>
+
+                    }
+                </div>
+                <div class="fr">Date：@Model.Time.ToString("yyyy-MM-dd") </div>
+            </div>
+        </div>
+        <div class="main">
+            <table class="voucher ml10 tb" cellpadding="0" cellspacing="0" id="voucher">
+                <thead>
+                    <tr>
+                        <th class="col_summary" width="201" rowspan="2">摘　　　　　　要</th>
+                        <th class="col_subject" width="142" rowspan="2">贷方总账科目</th>
+                        <th width="134" rowspan="2">明　细　科　目</th>
+                        <th class="col_money" width="122">金　　　　　额</th>
+                    </tr>
+                    <tr>
+                        <td class="unit">
+                            <div class="money_unit"><span class="first">千</span> <span>百</span> <span>十</span> <span>万</span> <span>千</span> <span>百</span> <span>十</span> <span>元</span> <span>角</span> <span class="last">分</span> </div>
+                        </td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @{int i = 0;}
+                    @if (Model.Credit1 > 0)
+                    {
+                        <tr class="entry_item">
+                            <td class="col_summary" data-edit="summary"><span style="display:none;">@(i++)</span><div class="cell_val summary_val">@Model.Summary1</div></td>
+                            <td class="col_subject" data-edit="subject">
+                                <div class="cell_val subject_val">
+                                    @Model.SubjectA1Name
+                                </div>
+                            </td>
+                            <td>@Model.SubjectB1Name</td>
+                            <td class="col_credit" data-edit="money"><div class="cell_val credit_val">@Convert.ToString(Math.Round(Model.Credit1 * 100, 0))</div></td>
+                        </tr>
+                    }
+
+                    @if (Model.Credit2 > 0)
+                    {
+                        <tr class="entry_item">
+                            <td class="col_summary" data-edit="summary"><span style="display:none;">@(i++)</span><div class="cell_val summary_val">@Model.Summary2</div></td>
+                            <td class="col_subject" data-edit="subject">
+                                <div class="cell_val subject_val">
+                                    @Model.SubjectA2Name
+                                </div>
+                            </td>
+                            <td>@Model.SubjectB2Name</td>
+                            <td class="col_credit" data-edit="money"><div class="cell_val credit_val">@Convert.ToString(Math.Round(Model.Credit2 * 100, 0))</div></td>
+                        </tr>
+                    }
+
+                    @if (Model.Credit3 > 0)
+                    {
+                        <tr class="entry_item">
+                            <td class="col_summary" data-edit="summary"><span style="display:none;">@(i++)</span><div class="cell_val summary_val">@Model.Summary3</div></td>
+                            <td class="col_subject" data-edit="subject">
+                                <div class="cell_val subject_val">
+                                    @Model.SubjectA3Name
+                                </div>
+                            </td>
+                            <td>@Model.SubjectB3Name</td>
+                            <td class="col_credit" data-edit="money"><div class="cell_val credit_val">@Convert.ToString(Math.Round(Model.Credit3 * 100, 0))</div></td>
+                        </tr>
+                    }
+
+
+                    @if (Model.Credit4 > 0)
+                    {
+                        <tr class="entry_item">
+                            <td class="col_summary" data-edit="summary"><span style="display:none;">@(i++)</span><div class="cell_val summary_val">@Model.Summary4</div></td>
+                            <td class="col_subject" data-edit="subject">
+                                <div class="cell_val subject_val">
+                                    @Model.SubjectA4Name
+                                </div>
+                            </td>
+                            <td>@Model.SubjectB4Name</td>
+                            <td class="col_credit" data-edit="money"><div class="cell_val credit_val">@Convert.ToString(Math.Round(Model.Credit4 * 100, 0))</div></td>
+                        </tr>
+                    }
+
+                    @if (i < 4)
+                    {
+                        for (var j = 0; j < 4 - i; j++)
+                        {
+                            <tr class="entry_item">
+                                <td class="col_summary" data-edit="summary"><div class="cell_val summary_val"></div></td>
+                                <td class="col_subject" data-edit="subject">
+                                    <div class="cell_val subject_val">
+                                    </div>
+                                </td>
+                                <td></td>
+                                <td class="col_credit" data-edit="money"><div class="cell_val credit_val"></div></td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td><span class="txtHJ">合　　　　　　计</span></td>
+                        <td class="col_total" colspan="2"><span id="capAmount">@Model.Sum</span></td>
+                        <td class="col_credit"><div class="cell_val credit_total" id="credit_total">@Convert.ToString(Math.Round(Model.CreditAll * 100, 0))</div></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <p class="fdj" style="top:47px;">附单据 @Model.ImageURL 张</p>
+        </div>
+        <div class="foot">
+            <label class="lbl1">会计 @Model.SourceBy</label>
+            <label class="lbl2" style="margin-left:65px;">出纳 @Model.CreateBy</label>
+            <label class="lbl3" style="margin-left:65px;">审核 @Model.CreateBy</label>
+            <label class="lbl4" style="margin-left:65px;">制单　@Model.SourceTypeName</label>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="~/Scripts/js/jquery-1.8.3.min.js"></script>
+<script src="~/Scripts/js/rxued.js"></script>
+<script src="~/Scripts/js/numberField.js"></script>
+<script>
+    window.onload = function () {
+        rxued.iframe.autoHeight2('j_framepz2', 40);
+
+        //把数字转换为大写
+        $("#capAmount").html(atoc(parseFloat($("#capAmount").html())));
+    }
+
+    function atoc(numberValue) {
+        var numberValue = new String(Math.round(numberValue * 100)); // 数字金额
+        var chineseValue = ""; // 转换后的汉字金额
+        var String1 = "零壹贰叁肆伍陆柒捌玖"; // 汉字数字
+        var String2 = "万仟佰拾亿仟佰拾万仟佰拾元角分"; // 对应单位
+        var len = numberValue.length; // numberValue 的字符串长度
+        var Ch1; // 数字的汉语读法
+        var Ch2; // 数字位的汉字读法
+        var nZero = 0; // 用来计算连续的零值的个数
+        var String3; // 指定位置的数值
+        if (len > 15) {
+            alert("超出计算范围");
+            return "";
+        }
+        if (numberValue == 0) {
+            chineseValue = "零元整";
+            return chineseValue;
+        }
+        String2 = String2.substr(String2.length - len, len); // 取出对应位数的STRING2的值
+        for (var i = 0; i < len; i++) {
+            String3 = parseInt(numberValue.substr(i, 1), 10); // 取出需转换的某一位的值
+            if (i != (len - 3) && i != (len - 7) && i != (len - 11) && i != (len - 15)) {
+                if (String3 == 0) {
+                    Ch1 = "";
+                    Ch2 = "";
+                    nZero = nZero + 1;
+                }
+                else if (String3 != 0 && nZero != 0) {
+                    Ch1 = "零" + String1.substr(String3, 1);
+                    Ch2 = String2.substr(i, 1);
+                    nZero = 0;
+                }
+                else {
+                    Ch1 = String1.substr(String3, 1);
+                    Ch2 = String2.substr(i, 1);
+                    nZero = 0;
+                }
+            }
+            else { // 该位是万亿，亿，万，元位等关键位
+                if (String3 != 0 && nZero != 0) {
+                    Ch1 = "零" + String1.substr(String3, 1);
+                    Ch2 = String2.substr(i, 1);
+                    nZero = 0;
+                }
+                else if (String3 != 0 && nZero == 0) {
+                    Ch1 = String1.substr(String3, 1);
+                    Ch2 = String2.substr(i, 1);
+                    nZero = 0;
+                }
+                else if (String3 == 0 && nZero >= 3) {
+                    Ch1 = "";
+                    Ch2 = "";
+                    nZero = nZero + 1;
+                }
+                else {
+                    Ch1 = "";
+                    Ch2 = String2.substr(i, 1);
+                    nZero = nZero + 1;
+                }
+                if (i == (len - 11) || i == (len - 3)) { // 如果该位是亿位或元位，则必须写上
+                    Ch2 = String2.substr(i, 1);
+                }
+            }
+            chineseValue = chineseValue + Ch1 + Ch2;
+        }
+        if (String3 == 0) { // 最后一位（分）为0时，加上“整”
+            chineseValue = chineseValue + "整";
+        }
+        return chineseValue;
+    }
+
+</script>
+<script type="text/javascript">
+    $("#btnPrint").click(function () {
+        $("#btnPrint").css("display", "none");
+        window.print();
+        window.location.href = window.location.href;
+    });
+</script>

@@ -1,0 +1,374 @@
+﻿@model   WebSite.Models.ToDoViewModel
+@using HyBy.Trading.BusinessEntity
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" />
+    <title>出纳待办</title>
+    <link href="~/Content/CSS/base.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/alert.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/mend.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/color.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/pz.css" rel="stylesheet" type="text/css">
+    <link href="~/Scripts/uploadify/uploadify.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/rxued.js"></script>
+    <script src="~/Scripts/uploadify/jquery.uploadify.min.js?@(new Random().Next())=@(new Random().Next())"></script>
+    @*<script language="JavaScript" type="text/javascript">
+            function getUrl(param) {
+                alert(param);
+
+            }
+        </script>*@
+</head>
+
+
+
+
+<body>
+
+    <h3 class="titleH3"><span style="width:150px;">凭证编号</span><span style="width:234px;">附件添加</span><span style="width:592px;">附件预览</span></h3>
+    <div class=" clear">
+
+        <div class="fl option_bh" style="width:200px;text-align:left;" id="option_bh">
+            @foreach (FA_VoucherEntity entity in Model.listFA_VoucherEntity)
+            {
+                <a id="@entity.ID" href="#" class=""><span class="contenttxt">@entity.Code</span><span class="seek" style="margin: 3px 0 0 6px;" href="/ToDoList/GetVoucherDetailed?Code=@entity.Code"></span></a>
+            }
+
+        </div>
+        <div class="fl ml5" style="width:234px;">
+            <div class="degreeCont" id="degreeCont">
+                @if (!string.IsNullOrEmpty(Model.id) && !string.IsNullOrEmpty(Model.listFA_VoucherEntity[0].ImageURL))
+                {
+                    string[] strs = Model.listFA_VoucherEntity[0].ImageURL.Trim(';').Split(';');
+                    for (int i = 0; i < strs.Length; i++)
+                    {
+                        string data = strs[i];
+                        <a class='degreeUp' data-s='@data'><span class='deladd' onclick='removeObj(this);'></span><span class='degreeImg dig1'><span class='deNum'>@(i + 1)</span></span></a>
+                    }
+                }
+
+                @* <a class="degreeUp"><span class="deladd"></span><span class="degreeImg dig1"><span class="deAdd">+</span></span></a>*@
+                    @*之后添加上传按钮<a class="degreeUp"><span class="degreeImg dig1"><span class="deAdd">+</span></span></a>*@
+                </div>
+                <div>
+
+                    <input type="file" name="uploadify" id="uploadify" />
+                </div>
+                <p>
+                    @if (!string.IsNullOrEmpty(Model.id) && !string.IsNullOrEmpty(Model.listFA_VoucherEntity[0].ImageURL))
+                    {
+                        <span class="fl ml10 color_b" id="spNum">@Model.listFA_VoucherEntity[0].ImageURL.Trim(';').Split(';').Length</span>
+                    }
+                    else
+                    {
+                        <span class="fl ml10 color_b" id="spNum">0</span>
+                    }
+                    <span class="fl" style="margin-right: 100px;">个附件</span>
+                    <input type="button" id="btnSavePic" value="保 存" class="btnMend4" onclick="picSave(this)" />@*<a id="btnSavePic" class="btn"><span>保存</span>*@</a>
+                    <a class="btn" id="btn_Print" style="display:none;"><span>打印</span></a>
+                </p>
+            </div>
+            <div class="fl imgBox">
+                <p>银行回执单</p>
+                <div id="boxPic" data-url="/Content/Images/zwtp.png" style="border: 1px solid #288068;">
+                    <a rel="example_group" title="银行回执单"><img alt="" src="/Content/Images/zwtp.png" id="imgzwtp"></a>
+                </div>
+                <div class="txtCenter"><div class="dis_il_block clear"><a class="btn"><span onclick="reset()">撤销</span></a><a id="btnPic" class="btn"><span>拍照</span></a></div></div>
+            </div>
+            <input type="hidden" id="hidUrl" value="" />
+            <input type="hidden" id="hidVoucherID" value="" />
+        </div>
+
+        <div id="divPic" style="display: none;width:750px;height:990px;margin:0 auto;padding-top:10px;border-top:3px solid #ccc;">
+            <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+                    codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,79,0"
+                    width="750"
+                    height="990"
+                    id="FlashMovie"
+                    align="left">
+                <param name="allowScriptAccess" value="sameDomain" />
+                <param name="FlashVars" value="myName=@ViewData["url"]" />
+                <param name="movie" value="/Scripts/pic/TestPZRsPNoSave.swf" />
+                <param name="quality" value="high" />
+                <param name="wmode" value="opaque" />
+                <param name="bgcolor" value="#ffffff" />
+                <embed src="/Scripts/pic/TestPZRsPNoSave.swf" flashvars="myName=@ViewData["url"]" quality="high" bgcolor="#ffffff" width="750" height="990" name="FlashMovie" align="left" allowscriptaccess="never" allownetworking="internal" autostart="0" type="application/x-shockwave-flash" swliveconnect="true" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+            </object>
+        </div>
+
+        <div id="j_alertbox" class="w884box alertbox" style="display:none;">
+            <div class="alerttopimg j_alertHeight">
+                <span class="leftbian"></span>
+                <h3>凭证详细信息</h3>
+                <a href="javascript:" class="del"></a>
+            </div>
+            <div class="alertminbox" style="max-height:420px;overflow-y:auto;">
+                <iframe id="j_autoheightiframe2" name="mainframe2" frameborder="no" scrolling="no" style="width: 100%; height: 100%;"></iframe>
+            </div>
+            <div class="alertbottomimg">
+                <span class="leftbian"></span>
+            </div>
+        </div>
+
+
+        <script>
+            //附件数量
+            var NUM = $.trim($("#spNum").text());
+            //获取拍摄照片的url
+            function getUrl(url) {
+                //临时保存url串儿，分号分隔
+                $("#hidUrl").val($("#hidUrl").val() + ";" + url);
+                NUM++;
+                //图片模板
+                var template = "<a class='degreeUp' data-s='" + url + "'><span class='deladd' onclick='removeObj(this);'></span><span class='degreeImg dig1'><span class='deNum'>" + NUM + "</span></span></a>";
+                //追加到div
+                $(".degreeCont").append(template);
+                //附件数量
+                $(".ml10").text(NUM);
+                //重新绑定click事件--begin
+                $(document).on("click", ".degreeUp", function () {
+                    var url = "";
+                    $(this).parent().find(".degreeUp").each(function (i) {
+                        url += $(this).attr("data-s") + "|";
+                        $(this).attr('data-i', i);
+                    });
+                    $("#boxPic").attr('data-url', url);
+                    $("#boxPic img").attr('src', $(this).attr('data-s'));
+                    $(this).addClass('active').siblings().removeClass('active');
+                    if (url != "") {
+                        var index = $(this).attr('data-i');
+                        url = url.substring(0, url.length - 1);
+                        $("#boxPic a").click(function () {
+                            $("#j_alertbox_db", top.document).css('z-index', 100);
+                            var aUrl = url.split('|');
+                            $("#targetPic", top.document).attr({ 'data-msg': url, 'data-count': aUrl.length }).show();
+                            $("#targetPic img", top.document).attr({ 'src': aUrl[index], 'data-index': index });
+                            $("#mask0", top.document).show();
+                        });
+                    }
+                });
+                //重新绑定click事件--end
+            }
+
+            window.onload = function () {
+                rxued.iframe.autoHeight2('j_autoheightiframe2', 20);
+            }
+
+            //保存拍照url
+            function picSave(obj) {
+                var _this = $(obj);
+                var txt = _this.val();
+                _this.val("保存中...").addClass("disabled").css("cursor", "wait").attr("disabled", true);
+
+                var url = "";
+                $(".degreeUp").each(function () {
+                    url = url + ";" + $(this).attr("data-s");
+                });
+                $("#hidUrl").val(url);
+                if ($("#hidVoucherID").val() == "" || $("#hidVoucherID").val().length <= 0) {
+                    alert("请选择凭证编号！");
+                    _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                    return false;
+                }
+                if ($("#hidUrl").val().length < 10) {
+                    alert("附件数量为0，请进行拍照！");
+                    _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                    return false;
+                }
+                $.ajax({
+                    url: '/ToDoList/SaveUrl',
+                    data: { url: $("#hidUrl").val(), id: $("#hidVoucherID").val() },
+                    dataType: "json",
+                    type: "post",
+                    //beforeSend: function () {
+                    //    $("#btnSavePic").val("保存中...");
+                    //    $("#btnSavePic").attr("disabled", false);
+                    //},
+                    success: function (data) {
+                        if (data == "1") {
+                            alert("保存成功");
+                            //打印凭证
+                            $("#btn_Print").click();
+                            reset()
+                            //移除项
+                            $("#" + $("#hidVoucherID").val()).remove();
+                            $("#hidVoucherID").val("");
+
+                        } else {
+                            alert("保存失败");
+                        }
+                        //$("#btnSavePic").attr("disabled", true);
+                        _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                    },
+                    complete: function () {
+
+                    },
+                    error: function (e) {
+                        //$("#btnSavePic").attr("disabled", true);
+                        _this.val(txt).removeClass("disabled").attr("disabled", false).css("cursor", "pointer");
+                        alert("保存发生错误！");
+                    }
+                });
+            }
+
+            //重置
+            function reset() {
+                NUM = 0;
+                //移除 添加的照片
+                $(".degreeUp").remove();
+                //附件数量重置
+                $(".ml10").text(0);
+                //url重置
+                $("#hidUrl").val("");
+            }
+
+
+            //
+            function removeObj(obj) {
+                if (confirm("确认删除吗")) {
+
+                    //obj.parent().remove();
+                    var degreeCont = document.getElementById('degreeCont');
+                    degreeCont.removeChild(obj.parentNode);
+                    var url = "";
+                    var count = $("#degreeCont").find(".degreeUp").length;
+                    $("#degreeCont").find(".degreeUp").each(function () {
+                        url += ";" + $(this).attr("data-s");
+                    });
+                    $(".ml10").text(count);
+                    $("#hidUrl").val(url);
+                    //alert($("#imgzwtp").attr('src'));
+                    $("#imgzwtp").attr('src', '/Content/Images/zwtp.png');
+                    NUM--;
+                }
+            }
+
+
+
+
+            //拍照+list样式
+            $(function () {
+                //显示拍照
+                $("#btnPic").click(function () {
+                    $("#divPic").show();
+                    rxued.iframe.autoHeight2('j_autoheightiframe2', 20);
+                });
+                //拍照保存
+
+                //$("#btnSavePic").click(function () {
+                //    picSave();
+                //});
+
+
+
+                //为每张凭证添加click事件
+                $(".option_bh a").each(function () {
+                    $(this).click(function () {
+                        //移除
+                        $(".active").removeClass("active");
+                        //添加
+                        $(this).addClass("active");
+                        //reset();
+                        //设置选中的 凭证ID
+                        $("#hidVoucherID").val(this.id);
+
+                    });
+                });
+                $("#option_bh .seek").click(function () {
+                    $("#j_alertbox").show();
+                    $("#j_autoheightiframe2").attr("src", $(this).attr("href"));
+                })
+                $("#j_alertbox .del").click(function () { $("#j_alertbox").hide(); })
+
+                //单击
+                //list样式默认选中第一张凭证
+                $(".option_bh a").eq(0).click() && $("#j_alertbox").hide();;
+
+                $(".degreeUp").click(function () {
+                    var url = $(this).attr('data-s');
+                    $("#boxPic").attr('data-url', url);
+                    $("#boxPic img").attr('src', url);
+                }
+
+                    );
+
+            });
+            //打印凭证
+            $("#btn_Print").click(function () {
+                if ($("#hidVoucherID").val() == "" || $("#hidVoucherID").val().length <= 0) {
+                    alert("请选择凭证编号！");
+                    return false;
+                }
+                var str = "";
+                $.ajax({
+                    type: "POST",
+                    data: "voucherID=" + $("#hidVoucherID").val(),//注意这里的参数名称要和Action 的参数名称相同。
+                    url: "/ToDoList/GetType",
+                    async: false,
+                    success: function (data) {
+                        str = data;
+                    }
+                });
+                if (str != "") {
+                    var str1 = str.split(';');
+                    var code = str1[0];
+                    var type = str1[1];
+                    if (type == "0") {
+                        $("#j_alertboxpz2,#mask0", top.document).find("#j_framepz2").attr("src", "../PrintVoucher/IncomeVoucher?Code=" + code);
+                        $("#j_alertboxpz2,#mask0", top.document).show();
+                    }
+                    else if (type == "1" || type == "2") {
+                        $("#j_alertboxpz2,#mask0", top.document).find("#j_framepz2").attr("src", "../PrintVoucher/DisbursementVoucher?Code=" + code);
+                        $("#j_alertboxpz2,#mask0", top.document).show();
+                    }
+                }
+
+            })
+
+            function ShowPic(obj) {
+                var url = $(obj).attr('data-s');
+                $("#boxPic").attr('data-url', url);
+                $("#boxPic img").attr('src', url);
+            }
+
+            //上传文件
+            $(function () {
+                $("#uploadify").uploadify({
+                    swf: '../Scripts/uploadify/uploadify.swf',//[必须设置]swf的路径
+                    uploader: '@ViewData["UploadImageURL"]',//[必须设置]上传文件触发的url
+                    formData: { 'folder': 'Photo' },
+                    queueID: false,
+                    auto: true,  //文件选择完成后，是否自动上传
+                    multi: true,
+                    buttonText: '浏 览',//上传按钮的文字
+                    fileSizeLimit: 0,//文件的极限大小，以字节为单位，0为不限制。1MB:1*1024*1024
+                    fileTypeDesc: '*.jpg; *.png; *.gif;*.jpeg',//允许上传的文件类型的描述，在弹出的文件选择框里会显示
+                    fileTypeExts: '*.jpg; *.png; *.gif;*.jpeg',//上传的文件类型
+                    removeCompleted: true,//文件上传完成后，是否自动移除队列中的文件
+                    onUploadSuccess: function (file, data, response) {
+                        //附件数量
+                        var url = "@ViewData["SaveImageURL"]" + data.substr(data.indexOf('Photo') + 8, data.length);
+                        var NUM = $.trim($("#spNum").text());
+                        NUM++;
+                        //图片模板
+                        var template = "<a class='degreeUp' data-s='" + url + "' onclick='ShowPic(this);'><span class='deladd' onclick='removeObj(this);'></span><span class='degreeImg dig1'><span class='deNum'>" + NUM + "</span></span></a>";
+                        //追加到div
+                        $(".degreeCont").append(template);
+                        //附件数量
+                        $(".ml10").text(NUM);
+                    }
+
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,130 @@
+﻿@model WebSite.Models.Fa_Cashier.FA_ProfitDeliveringListViewModel
+@using HyBy.Trading.BusinessEntity
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>分红明细</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/base.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/layout.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/lvse/Outer_color.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/listcase.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/color.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS/sub.css" />
+</head>
+<body>
+    <div id="tb_main2" class="tb_main2">
+        <div class="navbar navbar-default j_outerheight" id="navbar">
+            <div class="navbar-header pull-left">
+                <a href="#" class="navbar-brand clear">
+                    <span class="logo fl"></span><span class="version fl">7.0</span>
+                </a>
+            </div>
+        </div>
+        <div id="serchbox" class="txtRight j_outerheight" style="border: none;">
+            <div class="boxPos">
+                <a class="btn" onclick="fun()">
+                    <span>返回主页</span>
+                </a>
+            </div>
+        </div>
+        <h3 class="txtCenter lh30 j_outerheight">@ViewBag.TypeMonth<span>月分红清单</span></h3>
+        <div class="tb_container" id="tablecontent" style="padding-top:0;">
+            <div class="ui_toptable j_outerheight">
+                <table class="headtable wb100" id="headtable" cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th width="5%">序号</th>
+                            <th width="10%">姓名</th>
+                            <th width="10%">所属部门</th>
+                            <th width="10%">职务</th>
+                            <th width="10%">本月结余</th>
+                            <th width="10%">留底基数</th>
+                            <th width="10%">上缴金额</th>
+                            <th width="10%">返点金额</th>
+                            <th width="10%">占比</th>
+                            <th width="10%">分红金额</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="tableshow" id="j_scrollbox">
+                <table id="minshowtable" class="wb100 txtCenter ui_bottomtab" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        @{int i = 1;}
+                        @foreach (var item in Model.ProfitDeliveringList)
+                        {
+                            <tr class="target_tr">
+                                <td width="5%">@(i++)</td>
+                                <td width="10%">@item.Name</td>
+                                <td width="10%">@item.DepartmentName</td>
+                                <td width="10%">@item.PositionName</td>
+                                <td width="10%">@item.Surplus</td>
+                                <td width="10%">@item.Remain</td>
+                                <td width="10%">@item.ProfitDelivering</td>
+                                <td width="10%">@item.Rebate</td>
+                                <td width="10%">@item.Ratio</td>
+                                <td width="10%">@item.Bonus </td>
+                            </tr>
+                        }
+                        @if (Model.ProfitDeliveringList == null || Model.ProfitDeliveringList.Count <= 0)
+                        {
+                            <tr class="target_tr">
+                                <td colspan="18">暂无数据</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="tbDiv3 j_outerheight">
+                <table id="tb_3" class="tb_all txtCenter">
+                    <tbody>
+                        <tr>
+                            <td width="5%">总</td>
+                            <td width="10%"></td>
+                            <td width="10%"></td>
+                            <td width="10%"></td>
+                            <td width="10%"></td>
+                            <td width="10%"></td>
+                            <td width="10%"></td>
+                            <td width="10%"></td>
+                            <td width="10%"></td>
+                            <td width="10%">@ViewBag.allBonus</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="~/Scripts/js/jquery-1.8.3.min.js"></script>
+@*<script type="text/javascript" src="~/Scripts/js/rxued.js"></script>
+<script type="text/javascript" src="~/Scripts/js/listbase.js"></script>*@
+
+<script type="text/javascript">
+    function fun() {
+        window.location.href = "/Home/CashierIndex?type=1";
+    }
+    //含多个iframe的页面的计算高度
+    //function init() {
+    //    rxued.table.countTB($('#headtable'), $('#minshowtable'), $(".tableshow"));
+    //}
+
+    //$(function () {
+
+    //    //计算高度和宽度
+    //    $(window).load(function () {
+    //        init();
+    //    });
+    //    $(window).resize(function () {
+    //        init();
+    //    })
+    //})
+
+</script>

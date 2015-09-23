@@ -1,0 +1,187 @@
+/* CSS Document */
+
+/*ÂÌÉ«»ùµ÷*/
+.darkB{
+	color:#276884;
+}
+.darkO{
+	color:#ff6633;
+}
+.lightB{
+	color:#1790d2;
+}
+.darkR{
+	color:#99006c;
+}
+	
+.navbar{background: #1B4B3B;}
+.navbar-brand .logo {background: url(/Content/Images/logo.png) no-repeat 0 0;}
+.navbar-brand .logo_j {background: url(/Content/Images/logo_j.png) no-repeat 0 0;}
+.navbar-brand .logo_zjb {background: url(/Content/Images/logo_zjb.png) no-repeat 0 0;
+display: block;
+width: 195px;
+height: 29px;
+}
+.navbar-brand .version{background:url(/Content/Images/version.png) no-repeat left 32%;}
+.navbar .navbar-brand{color: #fff;}
+.sidebar-shortcuts .short1{
+	background:url(/Content/Images/short.gif) no-repeat 0 0;
+}
+.sidebar-shortcuts .short2{
+	background:url(/Content/Images/short2.gif) no-repeat 0 0;
+}
+.sidebar-shortcuts .short3{
+	background:url(/Content/Images/short3.gif) no-repeat 0 0;
+}
+.sidebar-shortcuts .short4{
+	background:url(/Content/Images/short4.gif) no-repeat 0 0;
+}
+.nav-list>li.active>a, .nav-list>li.active>a:hover, .nav-list>li.active>a:focus, .nav-list>li.active>a:active{
+    background-color:#fff;
+	color:#408270;
+}
+
+.sidebar-collapse .icon_left{
+ background:url(/Content/Images/lv_bg/icon_left.png) no-repeat 0 0;
+}
+.sidebar-collapse .icon_right{
+	background:url(/Content/Images/lv_bg/icon_right.png) no-repeat 0 0;
+}
+.nav-list li.parent_li.active a .icon-angle-down{
+	background:url(/Content/Images/angle_arrow2.gif) no-repeat 0  0;
+}
+.icon-all{
+		background:url(/Content/Images/icon5.png) no-repeat 0 0;
+}
+.active .icon-all{
+		background:url(/Content/Images/lv_bg/icon_all_cur.png) no-repeat 0 0;
+}
+.icon-firstx{
+		background:url(/Content/Images/icon_x.png) no-repeat 0 0;
+}
+.icon-first{
+		background:url(/Content/Images/chuhuguanli.png) no-repeat 0 0;
+}
+.active .icon-firstx{
+	background:url(/Content/Images/lv_bg/icon_x_cur.png) no-repeat 0 0;
+}
+.active .icon-first{
+	background:url(/Content/Images/lv_bg/chuhuguanli_cur.png) no-repeat 0 0;
+}
+.icon-seconds{
+		background:url(/Content/Images/icon_k.png) no-repeat 0 0;
+}
+.active .icon-seconds{
+		background:url(/Content/Images/lv_bg/icon_k_cur.png) no-repeat 0 0;
+}
+.icon-second{
+		background:url(/Content/Images/zjptyz.png) no-repeat 0 0;
+}
+.active .icon-second{
+		background:url(/Content/Images/lv_bg/zjptyz_cur.png) no-repeat 0 0;
+}
+.icon-thirds{
+		background:url(/Content/Images/icon6.png) no-repeat 0 0;
+}
+.active .icon-thirds{
+		background:url(/Content/Images/lv_bg/icon6_cur.png) no-repeat 0 0;
+}
+.icon-third{
+		background:url(/Content/Images/touziguanli.png) no-repeat 0 0;
+}
+.active .icon-third{
+		background:url(/Content/Images/lv_bg/touziguanli_cur.png) no-repeat 0 0;
+}
+/*.icon-fourth{
+		background:url(/Content/Images/icon9.png) no-repeat 0 0;
+	
+}
+.active .icon-fourth{
+		background:url(/Content/Images/lv_bg/icon9_cur.png) no-repeat 0 0;
+}*/
+.icon-fourth{
+		background:url(/Content/Images/tongjifenxi.png) no-repeat 0 0;
+	
+}
+.active .icon-fourth{
+		background:url(/Content/Images/lv_bg/tongjifenxi_cur.png) no-repeat 0 0;
+}
+/*.icon-fifth{
+		background:url(/Content/Images/icon7.png) no-repeat 0 0;
+}
+.active .icon-fifth{
+		background:url(/Content/Images/lv_bg/icon7_cur.png) no-repeat 0 0;
+}*/
+.icon-fifth{
+		background:url(/Content/Images/xitongbaobiao.png) no-repeat 0 0;
+}
+.active .icon-fifth{
+		background:url(/Content/Images/lv_bg/xitongbaobiao_cur.png) no-repeat 0 0;
+}
+.icon-six{
+		background:url(/Content/Images/houtaisheding.png) no-repeat 0 0;
+}
+.active .icon-six{
+		background:url(/Content/Images/lv_bg/houtaisheding_cur.png) no-repeat 0 0;
+}
+.icon001{
+    margin:2px 0 0 0;
+		background:url(/Content/Images/icon/icon_c1.png) no-repeat 0 0;
+}
+.active .icon001{
+	background:url(/Content/Images/icon/icon_c1cur.png) no-repeat 0 0;
+}
+.icon002{
+    margin:2px 0 0 0;
+		background:url(/Content/Images/icon/icon_c2.png) no-repeat 0 0;
+}
+.active .icon002{
+	background:url(/Content/Images/icon/icon_c2cur.png) no-repeat 0 0;
+}
+.icon003{
+    margin:4px 0 0 0;
+		background:url(/Content/Images/icon/icon_c3.png) no-repeat 0 0;
+}
+.active .icon003{
+	background:url(/Content/Images/icon/icon_c3cur.png) no-repeat 0 0;
+}
+.icon004{
+    margin:2px 0 0 0;
+		background:url(/Content/Images/icon/icon_c4.png) no-repeat 0 0;
+}
+.active .icon004{
+	background:url(/Content/Images/icon/icon_c4cur.png) no-repeat 0 0;
+}
+.icon005{
+    margin:2px 0 0 0;
+		background:url(/Content/Images/icon/icon_c5.png) no-repeat 0 0;
+}
+.active .icon005{
+	background:url(/Content/Images/icon/icon_c5cur.png) no-repeat 0 0;
+}
+
+.menu-min .nav-list .parent_li.active a .menu-text{
+	border-left-color:#1963aa;
+	/*border-left:1px solid #2b7dbc;*/
+}
+.nav-list li.parent_li.active a span.arrow, .nav-list li.active li.active2 a span.arrow2{background:url(/Content/Images/lv_bg/arrow_b.png) no-repeat 0 0;}
+.nav-list>li>.submenu>li>a{
+	border-top:1px solid #fafafa;
+	border-left:1px dotted #9dbdd6;
+	position:relative;
+ }
+.nav-list>li .submenu>li>a:hover{
+	color:#408270;
+}
+.nav-list>li .submenu>li.active>a>[class*="icon-"]:first-child{
+	color:#c86139;
+}
+.nav-list li.parent_li .line{background:#288068;}
+.sidebar-collapse .bg_bd{
+	
+	border-top:1px solid #35534b;
+
+}
+.pull-right{
+	 background-color: #2d7b66;
+}

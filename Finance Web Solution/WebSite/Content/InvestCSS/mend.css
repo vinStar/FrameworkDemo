@@ -1,0 +1,572 @@
+/*每个系统不同的css文件，每次更新，只更新此css文件*/
+
+
+
+/*材料系统弹出框*/
+.options{
+	width: 98%;
+	margin: 1% auto;
+}
+.options h3{
+	height:29px;
+	line-height: 29px;
+	color:#199776;
+	border-bottom: 1px solid #ccc;
+	padding-left:10px;
+}
+
+.options_f{
+	width:99%;
+}
+.options_f h3{
+	height:32px;
+	line-height:32px;
+	color:#199776;
+	/*border-bottom: 1px solid #ccc;
+	padding-left:10px;*/
+}
+
+.secondnav{ padding-right: 25px; margin-top:5px;}
+.secondnav a { float:left; color:#199776; height: 26px; line-height: 26px;margin-left: 20px; display:inline;}
+
+.secondnav{
+	padding-right:25px;
+}
+
+/*资金账户*/
+.bank1{
+	padding-left:18px;
+	background: url(../img/KF/bank1.png) no-repeat left center;
+}
+.bank2{
+	padding-left:18px;
+	background: url(../img/KF/bank2.png) no-repeat left center;
+}
+
+.seek{
+	width: 16px;
+	height: 14px;
+	display:inline-block;
+	background: url(../img/KF/seek.png) no-repeat 0 0;
+}
+
+.btnR{
+	width: 9px;
+	height: 161px;
+	background: url(../img/KF/btnR.png) no-repeat 0 0;
+	position: fixed;
+	top: 200px;
+	right:1px;
+}
+
+.option_bh a{
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	color: #393939;
+	border: 1px solid #ccc;
+	border-width: 1px 0 0 0;
+	display: block;
+}
+.option_bh a.first{
+	border-top: none;
+}
+.option_bh a:hover,.option_bh a.active{
+	background-color:#a8d7ca;
+	color: #fff;
+}
+.option_bh {
+	border: 1px solid #ccc;
+	border-width: 0 1px 1px 1px;
+	max-height: 410px;
+	overflow-y: auto;
+}
+.degreeCont{height: 390px;}
+.degree,.degreeUp{
+	width:73px;
+	height:75px;
+	display:block;
+	float:left;
+	margin-top:10px;
+	margin-right:4px;
+	cursor:pointer;
+	text-align:center;
+}
+.degreeImg{
+	display:block;
+	width:42px;
+	height:56px;
+	line-height: 56px;
+	margin:0 20px;
+}
+.dig1{
+	background:url(../img/KF/upload_1.png) no-repeat  0 0;
+}
+.deNum{
+	width:14px;
+	height: 14px;
+	line-height: 14px;
+	display: inline-block;
+	color: #fff;
+}
+.dig1 .deNum{
+	background:url(../img/KF/deNum1.png) no-repeat  0 0;
+}
+.active .dig1 .deNum,.degree:hover .dig1 .deNum{
+	background:url(../img/KF/deNum2.png) no-repeat  0 0;
+}
+.active .dig1,.degree:hover .dig1,.degreeUp:hover .dig1{
+	background:url(../img/KF/upload_1cur.png) no-repeat  0 0;
+}
+.degreeUp:hover .deAdd{
+	color: #438eb9;
+}
+.degreeText{
+	color:#276884;
+}
+.degreeText1{
+	text-decoration:underline;
+	color:grey;
+}
+.imgBox p{
+	line-height:35px;
+	margin-bottom:5px;
+}
+#boxPic img{
+	margin: 0;
+	width:592px;
+	height: 340px;
+}
+#boxPic{
+	margin-bottom:12px;
+}
+.titleH3{
+	height: 26px;
+	line-height:26px;
+	background-color: #999;
+	color: #fff;
+}
+.titleH3 span{
+	display:inline-block;
+	text-align: center;
+}
+
+
+/*集团财务*/
+
+/*审核流水详细页*/
+.topContent{height: 70px;overflow: hidden;}
+.logobank{
+	width:240px;
+	height: 70px;
+	float: left;
+}
+.logobank.bank01{background: url(../Images/InvestImg/bank1.jpg) no-repeat center center;}
+.logobank.bank02{background: url(../Images/InvestImg/bank2.jpg) no-repeat center center;}
+.logobank.bank03{background: url(../Images/InvestImg/bank3.jpg) no-repeat center center;}
+.logobank.bank04{background: url(../Images/InvestImg/bank4.jpg) no-repeat center center;}
+.logobank.bank05{background: url(../Images/InvestImg/bank5.jpg) no-repeat center center;}
+.logobank.bank06{background: url(../Images/InvestImg/bank6.jpg) no-repeat center center;}
+.logobank.bank07{background: url(../Images/InvestImg/bank7.jpg) no-repeat center center;}
+.logobank.bank08{background: url(../Images/InvestImg/bank8.jpg) no-repeat center center;}
+.bankSelect{
+	float: left;
+}
+.bankSelectTop{
+	margin: 4px 0;
+	height: 32px;
+	line-height: 32px;
+}
+.accountBank{
+	display: block;
+	float: left;
+	color: #2794e1;
+	font-size: 18px;
+	margin-right: 20px;
+}
+/*.household1,.freezestate1,.freezestate2{
+	width: 58px;
+	height:20px;
+	line-height: 20px;
+	text-align: center;
+	float:left;
+	display: block;
+}*/
+.household1{
+	width: 58px;
+	height:20px;
+	line-height: 20px;
+	text-align: center;
+	float:left;
+	display: block;
+}
+.household1{
+	margin: 5px 10px 0px 35px;
+	color: #06b39c;
+	border: 1px solid #05a18c;
+}
+.freezestate1{
+	/*margin: 5px 10px 0 0;
+	border: 1px solid #e60012;
+	background-color: #ef4a57;*/
+}
+.freezestate2{
+	/*margin: 5px 10px 0 0;
+	border: 1px solid #0075a9;
+	background-color: #00a0e9;*/
+}
+.passwordspan{display:block;float:left;}
+input[type='text'].txtpassword,.txtpassword{
+    /*width:150px;*/
+    border:none;
+    outline:none;
+    padding-left:8px;
+    cursor:pointer;
+    height:16px;
+    line-height:20px;
+}
+
+.passwordlbl{
+	height:20px;
+	line-height: 20px;
+	text-align: center;
+	float:left;
+	display: block;
+	margin-top: 5px;
+	border-radius: 5px;
+	border: 1px solid #05a18c;
+	margin-left: 60px;
+}
+.passwordtxt{
+	display: block;
+	width: 30px;
+	float: left;
+	border-right:1px solid #05a18c;
+	color: #06b39c;
+}
+.passwordnum.circle{
+	background: url(../Images/InvestImg/passwordCircle.png) no-repeat center center;
+}
+.passwordnum{
+	cursor: pointer;
+	display: block;
+	float: left;
+	padding: 0 5px;
+	width: 70px;
+	height: 20px;
+	letter-spacing: 4px;
+}
+.timebank{
+	border-radius: 5px;
+	float: left;
+	width: 118px;
+	height: 24px;
+	line-height: 24px;
+	border: 1px solid #05a18c;
+	margin: 0 4px;
+	color: #797979;
+}
+input[type="text"].selTxt00{
+	float: left;
+	width: 142px;
+	height: 22px;
+	line-height: 22px;
+	border:1px  solid #05a18c;
+	margin-left: 14px;
+	color: #797979;
+	padding-left: 8px;
+}
+.selBtn00,.selBtn01{
+	width: 36px;
+	height: 26px;
+	line-height: 26px;	
+	border: none;
+	outline: none;
+	float: left;
+}
+.selBtn00{
+	background: url(../Images/InvestImg/selectbtn0.png) no-repeat 0 0;
+}
+.selBtn01{
+	width: 41px;
+	height: 26px;
+	color:#fff;
+	background: url(../Images/InvestImg/selectbtn1.png) no-repeat 0 0;
+}
+input[type="text"].selTxt01{
+	float: left;
+	width: 72px;
+	height: 22px;
+	line-height: 22px;
+	border:1px  solid #05a18c;
+	margin-left: 12px;
+	color: #797979;
+	padding-left: 8px;
+}
+/*.selectBtn0,.selectBtn1{
+	width: 36px;
+	height: 26px;
+	line-height: 26px;
+}
+.selectBtn0{
+	background: url(../Images/InvestImg/selectbtn0.png) no-repeat 0 0;
+}*/
+
+/*基本户、个人户详细页*/
+.logo_sm01{
+	float: left;
+	width: 198px;
+	height: 59px;
+	background: url(../Images/InvestImg/logo_sm01.png) no-repeat 0 0;
+}
+
+
+
+
+/*银行开户的弹出框*/
+
+.wrep .line1,.wrep .line2,.wrep .line3{
+	border-top: 1px solid #999999;
+	position: relative;
+	padding-bottom: 10px;
+}
+.districtFont{
+	position: absolute;
+	color:#999999;
+	top: -10px;
+	left: 17px;
+	background: #FFFFFF;
+}
+.district{margin: 10px auto;width: 460px;}
+
+.district ul.spread{
+	width: 413px;
+	position: relative;
+	padding-left: 57px;
+}
+
+.district ul.spread li{
+	height: 15px;
+	line-height: 15px;
+	width: 43px;
+	float: left;
+	color:#999999;
+	margin:0 6px 8px 0;
+	text-align: center;
+	cursor: pointer;
+	border: 1px solid #999999;
+}
+.district ul.spread li:hover,.district ul.spread li.bloc:hover{
+	color:#9dc797;
+	border: 1px solid #9dc797;
+}
+
+.district ul.spread li.cur:hover,.district ul.spread li.bloc.cur:hover,.district ul.spread li.cur,.district ul.spread li.bloc.cur{
+	background: #86B97E;
+	border: 1px solid #9dc797;
+	color:#FFFFFF;
+}
+
+.district ul.spread li.bloc{
+	height: 40px;
+	width: 48px;
+	color:#999999;
+	border: 1px solid #999999;
+	line-height: 40px;
+	position: absolute;
+	left: 0px;
+}
+.userType{width: 460px;margin: 0 auto;}
+.userType ul{margin-top: 15px;}
+.userType ul li{
+	width: 145px;
+	height: 22px;
+	border: 1px solid #d5d5d5;
+	margin-right: 9px;
+	line-height: 22px;
+	text-align: center;
+	float: left;
+	color:#999999;
+	cursor: pointer;
+}
+.userType ul li:last-child{margin-right: 0;}
+.userType ul li:hover{
+	color:#9dc797;
+	border: 1px solid #9dc797;
+}
+.userType ul li.cur,.userType ul li.cur:hover{
+	background: #86B97E;
+	border: 1px solid #9dc797;
+	color:#FFFFFF;
+}
+.showUserInfo{margin: 0 auto;width: 460px;display: none;}
+.showUserInfo .infoPanel{
+	width: 278px;
+	height: 118px;
+	padding: 7px 5px;
+	border: 1px solid #d5d5d5;
+	margin-right: 9px;
+	cursor: pointer;
+}
+.showUserInfo .addInfo{
+	cursor: pointer;
+	width: 161px;
+	height: 134px;
+	background: url(../Images/InvestImg/addInfo.png) no-repeat 0 0;
+}
+.showUserInfo .infoPanel .spaLeft{
+	width: 85px;
+	display: inline-block;
+}
+.showUserInfo .infoPanel p{
+	color:#999999;
+	line-height: 20px;
+}
+.showUserInfo .infoPanel p .signCard,.openAccout .bank_inp,.bank_inp{height: 18px;padding:0 5px;}
+.showUserInfo .infoPanel p .signCard{width: 110px;}
+.showArea{height: 145px;margin-top: 8px;}
+.openAccout{
+	width: 458px;
+	height: 105px;
+	border:1px solid #d5d5d5;
+	padding-top: 40px;
+}
+.openAccout p{
+	text-align: center;
+	color:#999999;
+	margin-bottom: 10px;
+	vertical-align: top;
+}
+.s1 .infoPanel.clicked,.s2 .infoPanel.clicked{
+	background: #e6ffe6 url(../Images/InvestImg/clickedBg.png) no-repeat 98% 90%;
+}
+.banks{width: 460px;margin: 0 auto;position: relative;}
+.banks ul{margin-top: 30px;}
+.banks ul li{
+	width: 148px;
+	height: 40px;
+	cursor: pointer;
+	float: left;
+	margin:0 8px 7px 0;
+}
+.flowLi{
+	width: 148px;
+	height: 40px;
+	background: #fff999;
+	opacity: 0.5;
+	filter:alpha(opacity=50);
+	display: none;
+	position: absolute;
+}
+.banks ul li.mr0{margin-right: 0;}
+.banks ul li.bank01{background: url(../Images/InvestImg/banks_1.png) no-repeat 0 0;}
+.banks ul li.bank02{background: url(../Images/InvestImg/banks_2.png) no-repeat 0 0;}
+.banks ul li.bank03{background: url(../Images/InvestImg/banks_3.png) no-repeat 0 0;}
+.banks ul li.bank04{background: url(../Images/InvestImg/banks_4.png) no-repeat 0 0;}
+.banks ul li.bank05{background: url(../Images/InvestImg/banks_5.png) no-repeat 0 0;}
+.banks ul li.bank06{background: url(../Images/InvestImg/banks_6.png) no-repeat 0 0;}
+.banks ul li.bank07{background: url(../Images/InvestImg/banks_7.png) no-repeat 0 0;}
+.banks ul li.bank08{background: url(../Images/InvestImg/banks_8.png) no-repeat 0 0;}
+.banks ul li.bank09{background: url(../Images/InvestImg/banks_9.png) no-repeat 0 0;}
+.bankInfo{width: 460px;margin:0 auto;}
+.bankInfo p{color:#999999;margin-bottom: 9px;}
+.bankInfo .bank_inp{width: 150px;}
+.btnDiv{margin:0 auto;width: 460px;text-align: center;}
+
+/*首页弹出框*/
+.indexPop
+{width: 90%;padding: 0 5%;}
+.indexPop p.p1{text-indent: initial;}
+.indexPop p
+{text-indent: 20px;line-height: 30px;}
+
+
+
+.opt{
+	margin:0 auto;
+	width: 664px;
+	margin-top: 10px;
+}
+.section{
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	padding:10px 0;
+}
+.section input[type='text'],.section select{
+	color: #4f4f4f;
+}
+.section select{
+	height: 26px;
+	line-height: 26px;
+}
+.section input[type='text'].width01{
+	width:110px;
+}
+.section input[type='text'].width02{
+	width:145px;
+	padding-left: 5px;
+}
+.section input[type='text'].width03{
+	width:75px;
+	padding-left: 5px;
+}
+.section select.width01{
+	width:110px;
+}
+.tb_jz tr td{
+	height: 26px;
+	line-height: 26px;
+}
+.section .title{
+	width: 15px;
+	padding-left:10px;
+	padding-right: 10px;
+	color: #666666;
+	display: block;
+	font-weight: bold;
+}
+.addMat{
+	width: 118px;
+	height: 28px;
+	line-height: 28px;
+	background-color: #f7c45b;
+	border: none;
+	outline: none;
+	float: right;
+	margin:5px 43px 10px 0;
+	margin:5px 39px 10px 0 \9;
+	cursor: pointer;
+	color:#fff;
+}
+.addMat:hover{font-weight: bold;}
+
+.bgOrder{
+	width: 15px;
+	height: 15px;
+	line-height: 15px;
+	text-align: center;
+	color: #fff;
+	float: left;
+	font-size: 10px;
+	display: block;
+	background: url(../Images/InvestImg/bgOrder3.png) no-repeat 0 0;
+	margin-top:6px;
+    overflow:hidden;
+}
+.partCL{margin-bottom: 5px;}
+.allborder{
+	width:603px;padding-top:12px;border-top: 1px solid #ccc;
+}
+.delTr{
+	width: 14px;
+	height: 14px;
+	display:block;
+	float: left;
+	margin:6px 0 0 0;
+	cursor: pointer;
+	background: url(../Images/InvestImg/delTr.png) no-repeat 0 0;
+}
+.delTr:hover{
+	background: url(../Images/InvestImg/delTrCur.png) no-repeat 0 0;
+}

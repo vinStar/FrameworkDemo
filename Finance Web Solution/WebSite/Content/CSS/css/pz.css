@@ -1,0 +1,33 @@
+.voucher { border-collapse:collapse}
+/*.voucher th { height: 48px; color: #555555; font-size: 14px; text-align: center; font-weight: bold; overflow: hidden; }*/
+/*.voucher .col_money{ font-size:12px; }*/
+.voucher .col_money .tit { display: block; height: 25px; line-height: 25px; }
+.voucher .money_unit { height: 22px; line-height: 22px; font-weight: normal;text-align: center; }
+.voucher .money_unit span { 	float: left;
+	display: block;
+	width: 11px;
+	height: 19pt;
+	line-height: 19pt;
+	font-size: 9px;
+	text-align: center;}
+
+.voucher  th{font-weight: normal;}
+/*.voucher th, .voucher td { border: 1px solid #ccc; }*/
+
+.voucher .col_debite, .voucher .col_credit, .voucher .col_money {}
+.col_summary .cell_val {  word-break: break-all; word-wrap: break-word; }
+.col_subject .cell_val { word-break : break-all; word-wrap : break-word; }
+.col_subject .cell_val select{ height:28px;line-height: 28px; border: 1px solid #ccc;}
+.voucher .col_operate { text-align: center; width: 26px; border: 1px solid #FFF; border-right: 1px solid #ccc; }
+
+.edit_money { font-family: Verdana, Geneva, sans-serif; font-size: 20px; text-align: right; overflow: hidden; ime-mode: disabled; }
+.edit_summary { font-family: Verdana, Geneva, sans-serif; font-size: 20px; text-align: right; overflow: hidden; ime-mode: disabled; }
+.col_summary .summary_val{text-align: right; padding-right: 10px;}
+.col_summary .summary_val span{ display: none; cursor: pointer;}
+.voucher .col_debite .cell_val, .voucher .col_credit .cell_val { overflow: hidden;  letter-spacing:6px; overflow: hidden; position: relative; right: -2px; *right: 4px;text-align: right; }
+.cell_val {font-size: 12px; text-align: center; color: #352f2f;}
+.options{width: 95%;padding-left:2%;}
+.options textarea{width: 96%; height:60px;}
+
+.pzContent{text-align: right; height: 28px; line-height: 28px; margin-right: 14px;}
+

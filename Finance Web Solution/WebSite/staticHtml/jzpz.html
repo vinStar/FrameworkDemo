@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+
+    <link href="../Content/CSS/common.css" rel="stylesheet" />
+    <link href="../Content/CSS/ui.css" rel="stylesheet" />
+    <link href="../Content/CSS/voucher.css" rel="stylesheet" />
+    <script src="../Scripts/js/jquery-1.8.3.min.js"></script>
+    <script src="../Scripts/js/spinbox.js"></script>
+    <script src="../Scripts/js/jquery.combo.js"></script>
+    <link href="../Scripts/My97DatePicker/skin/WdatePicker.css" rel="stylesheet" />
+    <script src="../Scripts/My97DatePicker/WdatePicker.js"></script>
+    <script src="../Scripts/js/rxued.js"></script>
+    <style type="text/css">
+        #newbieRadio {
+            font-size: 12px;
+            color: #555;
+            margin-left: 15px;
+            padding-left: 22px;
+            background: url(/css/img/dz_vedio.gif) no-repeat 0 3px;
+            font-weight: 100;
+        }
+
+        .mod-toolbar-top .more-operate-con {
+            line-height: 30px;
+            font-size: 14px;
+            _left: -1px;
+            width: 113px;
+            padding: 5px 0;
+            text-align: center;
+        }
+
+            .mod-toolbar-top .more-operate-con a {
+                display: block;
+                zoom: 1;
+            }
+
+                .mod-toolbar-top .more-operate-con a:hover {
+                    background: #337FA9;
+                    color: #FFF;
+                }
+
+        .subject_val {
+            padding: 0 5px;
+            font-size: 14px;
+        }
+    </style>
+
+</head>
+<body class="page-voucher">
+    <div class="wrapper">
+        <div class="voucher_wrap">
+            <div class="voucher_top">
+                <span class="style none"></span>
+                <div class="tit_wrap">
+                    <h2 class="voucher_tit">记账凭证</h2>
+
+                </div>
+
+                <span class="attach_wrap">
+                    附单据
+                    <input type="text" class="ui-input" id="vch_attach" value="0">
+                    张
+                </span>
+                <div class="date_div">
+                    <label>日期：</label>
+                    <input type="text" class="date_inp ui-input" id="txt_Time" value="2015-05-08" onfocus="WdatePicker()">
+                    <a href="javascript:;" class="dairly"></a>
+                </div>
+                <div class="id_number" style="width:150px;">
+                    ID:<span id="sp_SourceCode">CDTZ150508145711-33</span>
+                </div>
+            </div>
+            <table class="voucher" id="voucher">
+                <thead>
+                    <tr>
+
+                        <th class="col_summary" colspan="2">摘要</th>
+                        <th class="col_subject" colspan="2">科目</th>
+                        <th class="col_quantity">数量</th>
+                        <th class="col_currency">币别</th>
+                        <th class="col_money">
+                            <strong class="tit">借方金额</strong>
+                            <div class="money_unit"> <span>亿</span> <span>千</span> <span>百</span> <span>十</span> <span>万</span> <span>千</span> <span>百</span> <span>十</span> <span>元</span> <span>角</span> <span class="last">分</span> </div>
+                        </th>
+                        <th class="col_money">
+                            <strong class="tit">贷方金额</strong>
+                            <div class="money_unit"> <span>亿</span> <span>千</span> <span>百</span> <span>十</span> <span>万</span> <span>千</span> <span>百</span> <span>十</span> <span>元</span> <span>角</span> <span class="last">分</span> </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="entry_item">
+
+                        <td class="col_summary"><div class="cell_val summary_val" id="div_Summary1">投资名称</div></td>
+                        <td class="col_option"><div class="option"><a class="selSummary">摘要</a></div></td>
+                        <td class="col_subject"><div class="cell_val subject_val" id="div_subject1">10_521 非营业支出 购买理财</div></td>
+                        <td class="col_option"><div class="option"><a class="selSub">科目</a></div></td>
+                        <td class="col_quantity"><div class="cell_val quantity_val"></div></td>
+                        <td class="col_currency"><div class="cell_val curr_val"></div></td>
+                        <td class="col_debite"><div class="cell_val debit_val" id="div_debit_money1">￥10000</div></td>
+                        <td class="col_credit"><div class="cell_val credit_val" id="div_credit_money1"></div></td>
+                    </tr>
+                    <tr class="entry_item">
+
+                        <td class="col_summary"><div class="cell_val summary_val" id="div_Summary2">投资名称</div></td>
+                        <td class="col_option"><div class="option"><a class="selSummary">摘要</a></div></td>
+                        <td class="col_subject"><div class="cell_val subject_val" id="div_subject2">40_360 货币资金</div></td>
+                        <td class="col_option"><div class="option"><a class="selSub">科目</a></div></td>
+                        <td class="col_quantity"><div class="cell_val quantity_val"></div></td>
+                        <td class="col_currency"><div class="cell_val curr_val"></div></td>
+                        <td class="col_debite"><div class="cell_val debit_val" id="div_debit_money2"></div></td>
+                        <td class="col_credit"><div class="cell_val credit_val" id="div_credit_money2">￥10000</div></td>
+                    </tr>
+                    <tr class="entry_item">
+
+                        <td class="col_summary"><div class="cell_val summary_val" id="div_Summary3"></div></td>
+                        <td class="col_option"><div class="option"><a class="selSummary">摘要</a></div></td>
+                        <td class="col_subject"><div class="cell_val subject_val" id="div_subject3"></div></td>
+                        <td class="col_option"><div class="option"><a class="selSub">科目</a></div></td>
+                        <td class="col_quantity"><div class="cell_val quantity_val"></div></td>
+                        <td class="col_currency"><div class="cell_val curr_val"></div></td>
+                        <td class="col_debite"><div class="cell_val debit_val" id="div_debit_money3"></div></td>
+                        <td class="col_credit"><div class="cell_val credit_val" id="div_credit_money3"></div></td>
+                    </tr>
+                    <tr class="entry_item">
+
+                        <td class="col_summary"><div class="cell_val summary_val" id="div_Summary4"></div></td>
+                        <td class="col_option"><div class="option"><a class="selSummary">摘要</a></div></td>
+                        <td class="col_subject"><div class="cell_val subject_val" id="div_subject4"></div></td>
+                        <td class="col_option"><div class="option"><a class="selSub">科目</a></div></td>
+                        <td class="col_quantity"><div class="cell_val quantity_val"></div></td>
+                        <td class="col_currency"><div class="cell_val curr_val"></div></td>
+                        <td class="col_debite"><div class="cell_val debit_val" id="div_debit_money4"></div></td>
+                        <td class="col_credit"><div class="cell_val credit_val" id="div_credit_money4"></div></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="col_total">&nbsp;&nbsp;合计：<span id="capAmount"></span></td>
+                        <td class="col_debite"><div class="cell_val debit_total" id="debit_total">￥10000</div></td>
+                        <td class="col_credit"><div class="cell_val credit_total" id="credit_total">￥10000</div></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="vch_ft">制单人：<span id="vch_people">涂华梅</span></div>
+        </div>
+        <!--<div class="mod-toolbar-bottom" id="toolBottom">
+            <div class="fr"><a class="ui-btn ui-btn-sp" id="renewB">提交</a><a class="ui-btn m0" id="saveB">返回</a></div>
+        </div>-->
+    </div>
+    <input type="hidden" id="hid_subjectA" value="8">
+    <input type="hidden" id="hid_subjectB" value="28">
+    <script src="../Scripts/js/v1.js"></script>
+    <script>
+        $(function () {
+            rxued.iframe.autoHeight2("ylpzIframe", 10);
+        })
+       
+
+        $(".debit_val").each(function () {
+            if ($(this).attr("data-val") != "") {
+                $(this).data("realValue", $(this).attr("data-val"))
+            }
+        });
+
+        $(".credit_val").each(function () {
+            if ($(this).attr("data-val") != "") {
+                $(this).data("realValue", $(this).attr("data-val"))
+            }
+        });
+
+        $(".subject_val").each(function () {
+            if ($(this).attr("data-val") != "") {
+                $(this).data("subjectInfo", $(this).attr("data-val"))
+            }
+        });
+
+
+      </script>
+
+
+
+</body>
+</html>

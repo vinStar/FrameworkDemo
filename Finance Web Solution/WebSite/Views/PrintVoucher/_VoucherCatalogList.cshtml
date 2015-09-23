@@ -1,0 +1,150 @@
+﻿@model WebSite.Models.Fa_Cashier.FA_VoucherViewModel
+@using HyBy.Trading.BusinessEntity
+
+<div class="main" id="showList" style="height:auto">
+    <table class="tb">
+        <tr class="thead">
+            <td colspan="6">@Model.startCode<span>-</span>@Model.endCode<span class="span_pzml">凭证目录</span></td>
+        </tr>
+        <tr>
+            <td width="38">序号</td>
+            <td width="121">日期</td>
+            <td width="140">凭证号</td>
+            <td width="121">摘要</td>
+            <td width="120">支出金额</td>
+            <td width="110">收入金额</td>
+        </tr>
+        @if (Model.voucher == null || Model.voucher.Count <= 0)
+        {
+            <tr>
+                <td colspan="6">暂无数据...</td>
+            </tr>
+        }
+        else
+        {
+            var i=0;
+            foreach (var item in Model.voucher)
+            {
+                <tr>
+                    <td>@(++i)</td>
+                    <td>@Convert.ToDateTime(item.Time).ToString("yyyy-MM-dd")</td>
+                    <td>@item.Code</td>
+                    <td>@item.Summary1</td>
+                    @*0:收入,1:支出,2:一收一支*@
+                    @if (item.Type == 0)
+                    {
+                        <td></td>
+                        <td>@item.CreditAll</td>
+                    }
+                    else if (item.Type == 1)
+                    {
+                        <td>@item.DebitAll</td>
+                        <td></td>
+                    }
+                    else
+                    {
+                        <td>@item.DebitAll</td>
+                        <td>@item.CreditAll</td>
+                    }
+
+                </tr>
+            }
+        }
+    </table>
+</div>
+<div class="main" id="div_print" style="display:none">
+    @if (Model.voucher != null && Model.voucher.Count != 0)
+    {
+        var AllCount = Model.voucher.Count;
+        var i = 0;
+        <table class="tb">
+            <tr class="thead">
+                <td colspan="6">@Model.startCode<span>-</span>@Model.endCode<span class="span_pzml">凭证目录</span></td>
+            </tr>
+            <tr>
+                <td width="38">序号</td>
+                <td width="121">日期</td>
+                <td width="140">凭证号</td>
+                <td width="121">摘要</td>
+                <td width="120">支出金额</td>
+                <td width="110">收入金额</td>
+            </tr>
+            @for (; i < 25; i++)
+            {
+                if (AllCount > i)
+                {
+                    <tr>
+                        <td>@Model.voucher[i].RN</td>
+                        <td>@Convert.ToDateTime(Model.voucher[i].Time).ToString("yyyy-MM-dd")</td>
+                        <td>@Model.voucher[i].Code</td>
+                        <td>@Model.voucher[i].Summary1</td>
+                        @*0:收入,1:支出,2:一收一支*@
+                        @if (Model.voucher[i].Type == 0)
+                        {
+                            <td></td>
+                            <td>@Model.voucher[i].CreditAll</td>
+                        }
+                        else if (Model.voucher[i].Type == 1)
+                        {
+                            <td>@Model.voucher[i].DebitAll</td>
+                            <td></td>
+                        }
+                        else
+                        {
+                            <td>@Model.voucher[i].DebitAll</td>
+                            <td>@Model.voucher[i].CreditAll</td>
+                        }
+                    </tr>
+                }
+            }
+        </table>
+        if (AllCount > 25)
+        {
+            var coun = (AllCount - 25) / 25 + ((AllCount - 25) % 25 > 0 ? 1 : 0);
+            for (var j = 0; j < coun; j++)
+            {
+                int End = (j + 2) * 25;
+                <div style="page-break-before:always;">
+                    <table class="tb">
+                        <tr>
+                            <td width="38">序号</td>
+                            <td width="121">日期</td>
+                            <td width="140">凭证号</td>
+                            <td width="121">摘要</td>
+                            <td width="120">支出金额</td>
+                            <td width="110">收入金额</td>
+                        </tr>
+                        @for (; i < End; i++)
+                        {
+                            if (AllCount > i)
+                            {
+                                <tr>
+                                    <td>@Model.voucher[i].RN</td>
+                                    <td>@Convert.ToDateTime(Model.voucher[i].Time).ToString("yyyy-MM-dd")</td>
+                                    <td>@Model.voucher[i].Code</td>
+                                    <td>@Model.voucher[i].Summary1</td>
+                                    @*0:收入,1:支出,2:一收一支*@
+                                    @if (Model.voucher[i].Type == 0)
+                                    {
+                                        <td></td>
+                                        <td>@Model.voucher[i].CreditAll</td>
+                                    }
+                                    else if (Model.voucher[i].Type == 1)
+                                    {
+                                        <td>@Model.voucher[i].DebitAll</td>
+                                        <td></td>
+                                    }
+                                    else
+                                    {
+                                        <td>@Model.voucher[i].DebitAll</td>
+                                        <td>@Model.voucher[i].CreditAll</td>
+                                    }
+                                </tr>
+                            }
+                        }
+                    </table>
+                </div>
+            }
+        }
+    }
+</div>

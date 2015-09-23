@@ -1,0 +1,270 @@
+﻿@model WebSite.Models.Fa_Cashier.FA_VoucherViewModel
+@using HyBy.Trading.BusinessEntity
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>地产公司-待办事项</title>
+    <link href="~/Content/CSS/base.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/layout.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/sub.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/alert.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/listcase.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/CSS/color.css" type="text/css" rel="stylesheet">
+</head>
+<body style="overflow-x:auto;">
+    <div class="mask_layer" id="mask2">
+    </div>
+    <div class="tb_main" id="tb_main">
+        <div class="breadcrumbs j_alertHeight j_outerheight" id="breadcrumbs">
+            <div class="breadcrumbs_mm">
+                <span class="home fl" id="sp_title">地产公司</span><span class="color_1 fl arrow_sm"> > </span><span class="fl cur_page">待办事项</span>
+            </div>
+        </div>
+        <div style="height: 5px;" class="j_outerheight"></div>
+        <div class="tb_main" id="tb_main2">
+            <div class="tb_container" id="tablecontent" style="padding-top:0;">
+
+                <div class="ui_toptable  j_outerheight">
+                    <table cellpadding="0" cellspacing="0" class="headtable wb100" id="headtable">
+                        <thead>
+                            <tr>
+
+                                <th width="5%">序号</th>
+                                <th width="14%">凭证编号</th>
+                                <th width="9%">单号</th>
+                                <th width="9%">合同编号</th>
+                                <th width="9%">日期</th>
+                                <th width="9%">方向</th>
+                                <th width="9%">收款人</th>
+                                <th width="9%">收款账户</th>
+                                <th width="9%">科目</th>
+                                <th width="9%">金额</th>
+                                <th width="9%">操作</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <!-- -->
+                <div class="tableshow" style="overflow:auto;" id="j_scrollbox">
+                    <table cellpadding="0" cellspacing="0" class="wb100 txtCenter ui_bottomtab" id="minshowtable">
+                        <tbody>
+                            @if (Model.voucher != null && Model.voucher.Count > 0)
+                            {
+                                foreach (var item in Model.voucher)
+                                {
+                                    <tr class="target_tr">
+                                        <td width="5%">@item.RN</td>
+                                        @if (item.Status == 1)
+                                        {
+                                            if (item.Type==0)
+                                            {
+                                                 <td width="14%"><a class="color_b" href="/Landdb/ReceiveVoucher?ID=@item.SourceCode" target="framepz" voucherid="@item.SourceCode" sourcetype="@item.SourceType" onclick="IFFinish(this)">@item.SourceCode</a></td>
+                                            }
+                                            else
+                                            {
+                                                <td width="14%"><a class="color_b" href="/NewVoucher/voucher1?voucherID=@item.SourceCode&sourceType=@item.SourceType" target="framepz" voucherid="@item.SourceCode" sourcetype="@item.SourceType" onclick="IFFinish(this)">@item.SourceCode</a></td> 
+                                            }
+                                           
+                                        }
+                                        else
+                                        {
+                                            <td width="14%"><a class="color_b" onclick="alert('需先解冻才能操作')">@item.SourceCode</a></td>
+                                        }
+                                        
+                                        <td width="9%">@item.OrderID</td>
+                                        @*@if (ViewBag.sourceType == 3)
+                                        {*@
+                                            <td width="9%">@item.SpareStr</td>
+                                        @*}*@
+                                        @if (item.CreateDate != null || Convert.ToString(item.CreateDate) != "")
+                                        {
+                                            <td width="9%">@Convert.ToDateTime(item.CreateDate).ToString("yyyy-MM-dd")</td>
+                                        }
+                                        else
+                                        {
+                                            <td width="9%">@item.CreateDate</td>
+                                        }
+                                        @if (item.Type == 0)
+                                        {
+                                            <td width="9%">收</td>
+                                        }
+                                        else if (item.Type == 1)
+                                        {
+                                            <td width="9%">支</td>
+                                        }
+                                        else
+                                        {
+                                            <td width="9%">一收一支</td>
+                                        }
+                                        <td width="9%">@item.Payee</td>
+                                        <td width="9%">@item.PayeeBankNo</td>
+                                        <td width="9%">@Html.Action("GetSubject", new { subA = item.SubjectA1, subB = item.SubjectB1 })</td>
+                                        @if (item.Type == 0)
+                                        {
+                                            <td width="9%">@item.CreditAll</td>
+                                        }
+                                        else
+                                        {
+                                            <td width="9%">@item.DebitAll</td>
+                                        }
+
+                                        <td width="9%">
+                                            <input type="hidden" value="@item.SourceCode" class="sourceID" />
+                                            @if (item.Status == 1)
+                                            {
+                                                <div class="dis_il_block mt5"><a class="btn" onclick="freeze('@item.SourceCode','@item.SourceType',3)"><span>冻结</span></a></div>
+                                            }
+                                            else
+                                            {
+                                                <div class="dis_il_block mt5"><a class="btn" onclick="freeze('@item.SourceCode','@item.SourceType',1)"><span>解冻</span></a></div>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr class="target_tr">
+                                        <td colspan="10">暂无数据</td>
+                                </tr>
+                            }
+
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tbDiv3 j_outerheight">
+                    <table id="tb_3" class="tb_all txtCenter">
+                        <tbody>
+                            <tr>
+                                <td width="5%">总</td>
+                                <td width="14%"></td>
+                                <td width="9%"></td>
+                                <td width="9%"></td>
+                                <td width="9%"></td>
+                                <td width="9%"></td>
+                                <td width="9%"></td>
+                                <td width="9%"></td>
+                                <td width="9%"></td>
+                                <td width="9%">@ViewBag.allMoney</td>
+                                <td width="9%"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" value="@ViewBag.sourceType" id="hid_sourceType" />
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="~/Scripts/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="~/Scripts/js/rxued.js"></script>
+<script type="text/javascript" src="~/Scripts/js/listbase.js"></script>
+<script>
+    window.onload = function () {
+        var sourceType = $("#hid_sourceType").val();
+        var strTitle = "项目管理";
+        if (sourceType == "1") {
+            strTitle = "地产公司";
+        } else if (sourceType == "2") {
+            strTitle = "设计公司";
+        } else if (sourceType == "3") {
+            strTitle = "项目管理";
+        } else if (sourceType == "4") {
+            strTitle = "投资公司";
+        } else if (sourceType == "6") {
+            strTitle = "工程公司";
+        } else if (sourceType == "7") {
+            strTitle = "旧账管理";
+        }
+        $("#sp_title").html(strTitle);
+    }
+</script>
+<script>
+    $(function () {
+        rxued.check.allCheck($("#chk1"), $("#j_scrollbox input:checkbox"), true, $("#chk2"));
+        $('#mask2').hide();
+
+    });
+    var isFlag = false;
+    function freeze(SourceCode, SourceType, status) {
+
+        if (isFlag) {
+            alert("操作正在进行，请稍等！");
+            return;
+        }
+        isFlag = true;
+        $.ajax({
+            type: "POST",
+            data: "SourceCode=" + SourceCode + "&SourceType=" + SourceType + "&status=" + status,//注意这里的参数名称要和Action 的参数名称相同。
+            url: "/Landdb/freeze",
+            async: false,
+            success: function (data) {
+                if(data=="ok"){
+                    alert("操作成功");
+                    if (status == "1") {
+                        
+                        $("input[value='" + SourceCode + "']").parent().parent().children().eq(1).html("<a class=\"color_b\" href=\"/NewVoucher/voucher1?voucherID="+SourceCode+"&sourceType="+SourceType+"\" target=\"framepz\" voucherid=\""+SourceCode+"\" sourcetype=\""+SourceType+"\" onclick=\"IFFinish(this)\">"+SourceCode+"</a>");
+                        $("input[value='" + SourceCode + "']").parent().children().eq(1).html("<a class=\"btn\" onclick=\"freeze('"+SourceCode+"','"+SourceType+"',3)\"><span>冻结</span></a>")
+                    }
+                    else {
+                        $("input[value='" + SourceCode + "']").parent().parent().children().eq(1).html("<a class=\"color_b\" onclick=\"alert('需先解冻才能操作')\">"+SourceCode+"</a>");
+                        $("input[value='" + SourceCode + "']").parent().children().eq(1).html("<a class=\"btn\" onclick=\"freeze('"+SourceCode+"','"+SourceType+"',1)\"><span>解冻</span></a>")
+                    }
+                    //window.location.href = window.location.href;
+                    isFlag = false;
+                }else{
+                    alert("操作失败");
+                    isFlag = false;
+                }
+            }
+        });
+    }
+
+    function IFFinish(obj) {
+        var voucherid = $(obj).attr("voucherid");
+        var sourcetype = $(obj).attr("sourcetype");
+        var isTrue = -1;
+
+        $.ajax({
+            type: "POST",
+            data: "voucherid=" + voucherid ,//注意这里的参数名称要和Action 的参数名称相同。
+            url: "/Landdb/GetStatus",
+            async: false,
+            success: function (data) {
+                isTrue = data;
+            }
+        });
+        if (isTrue==3) {
+            alert("需先解冻才能操作");
+            window.location.href = window.location.href;
+            return;
+        }
+        
+        $.ajax({
+            type: "POST",
+            data: "voucherid=" + voucherid + "&sourcetype=" + sourcetype,//注意这里的参数名称要和Action 的参数名称相同。
+            url: "/Landdb/GetGrantStatus",
+            async: false,
+            success: function (data) {
+                isTrue = data;
+            }
+        });
+        if (isTrue != 1) {
+            alert("请刷新页面重试");
+            window.location.href = window.location.href;
+        } else {
+            $("#j_alertboxPZP,#mask0", top.document).show();
+            $("#j_alertboxPZP .mask_layer", top.document).show();
+        }
+
+
+    }
+</script>
+

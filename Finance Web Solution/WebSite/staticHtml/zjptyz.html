@@ -1,0 +1,394 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>资金平台运作</title>
+    <link href="../Content/CSS/base.css" rel="stylesheet" />
+    <link href="../Content/CSS/layout.css" rel="stylesheet" />
+    <link href="../Content/CSS/lvse/Inside_color.css" rel="stylesheet" />
+    <link href="../Content/CSS/sub.css" rel="stylesheet" />
+    <link href="../Content/CSS/alert.css" rel="stylesheet" />
+    <style type="text/css">
+        .tb_top_block {width:100%;height:250px;  
+                       padding:10px 0;
+                       /*min-width:1008px;*/
+        }
+        .tb_small_block {
+            width: 38%;
+            min-width: 200px;
+            float: left;
+            margin-right: 1%;
+            border: 1px solid #ccc;
+            display: inline;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+        .tb_small_tit {
+            width: 30px;
+            padding-top: 80px;
+            height: 170px;
+            line-height: 20px;
+            float: left;
+            text-align: center;
+            color: #fff;
+            border-top-left-radius:5px;
+            border-bottom-left-radius:5px;
+            background: #288068;
+        }
+        .tb_small_con {margin-left:40px;
+        }
+        .tb_small_left {
+            width:180px;
+            float:left;
+        }
+        .tb_small_left p {
+            line-height:30px;
+        }
+            .tb_small_left p  label{
+                 text-align:right;
+                 display:inline-block;
+            }
+             .tb_small_left p span {
+                font-weight: bold;
+                font-size: 16px;
+                padding: 0 10px;
+            } 
+        .tb_small_right {
+            margin-left:180px;
+            }
+        .tb_small_floatr {
+            width:18%;
+            min-width:150px;
+            float:right;
+        }
+            .tb_small_floatr .cssbtnv2, .tb_small_floatr .cssbtnv3 {
+                width: 160px;
+                text-align: center;
+                height: 40px;
+                line-height: 40px;
+                font-size: 14px;
+                display: block;
+                margin: 0 auto 15px;
+            }
+            .tb_small_floatr p {
+                text-align:center;
+                font-size:14px;
+                margin-bottom:10px;
+            }
+             .tb_small_floatr span {
+                font-size: 25px;
+            }
+        .nowidth {padding:0 10px;
+        }
+    </style>
+</head>
+
+<body style="overflow-x: auto;">
+    <div class="mask_layer" id="mask2" style="display:none;"></div>
+    <div class="tb_main" id="tb_main" style="min-width:1080px">
+        <div class="tb_container" style="padding-top:0;">
+            <div class="tb_sub_container">
+                <div class="tb_top_block j_outerheight">
+                    <div class="tb_small_block">
+                        <div class="tb_small_tit">资<br />金<br />分<br />布</div>
+                        <div class="tb_small_con">
+                            <div class="tb_small_left">
+                                <p><label>风险准备金：</label><span class="Green_color">584.7</span>万</p>
+                                <p><label>已投资：</label><span class="Red_color">200.0</span>万</p>
+                                <p><label>已借出：</label><span class="Red_color">177.0</span>万</p>
+                                <p><label>本行账面资金：</label><span class="Green_color">600.0</span>万</p>
+                            </div>
+                            <div class="tb_small_right">sdfsdf</div>
+                        </div>
+                    </div>
+                    <div class="tb_small_block">
+                        <div class="tb_small_tit">资<br />产<br />构<br />成</div>
+                        <div class="tb_small_con">
+                            <div class="tb_small_left">
+                                <p><label>本行自有资产：</label><span class="Green_color">100.00</span>万</p>
+                                <p><label>储户存款总和：</label><span class="Green_color">1461.7</span>万</p>
+                            </div>
+                            <div class="tb_small_right">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tb_small_floatr">
+                        <input class="cssbtnv2 Investment" type="button" value="投资">
+                        <input class="cssbtnv3  Toloan" type="button" value="借调资金部">
+                        <p>本行总资产：</p>
+                        <p><span class="Green_color">1561.7</span> 万</p>
+                    </div>
+                </div>
+                <div id="serchbox" class="txtRight j_outerheight">
+                    <div class="boxPos">
+                        <input name="txt_Search" type="text" value="请输入关键字搜索" id="txt_Search" onblur="this.value = (this.value == '') ? '请输入关键字搜索' : this.value" onfocus="    this.value = (this.value == '请输入关键字搜索') ? '' : this.value" style="width: 150px">
+
+                        <input type="submit" name="But_Search" value="搜索" id="But_Search" class="btnMend">
+                    </div>
+                </div>
+                <div class="ui-jqgrid-hbox j_outerheight">
+                    <table class="table_1" id="tb_1">
+                        <thead>
+                            <tr>
+                                <th width="8%">序号</th>
+                                <th width="15%">时间</th>
+                                <th width="10%">方向</th>
+                                <th width="10%">类型</th>
+                                <th width="10%">金额</th>
+                                <th width="10%">准备金率</th>
+                                <th width="10%">凭证号</th>
+                                <th width="10%">本行总资产</th>
+                                <th>本行账面资金</th>
+                            </tr>
+
+                        </thead>
+                    </table>
+                </div>
+                <!-- -->
+                <div class="ui-jqgrid-bdiv" style="overflow:auto;">
+                    <table class="table_1 notop  noright noleft" id="tb_2">
+                        <tbody>
+                            <tr class="target_tr">
+                                <td width="8%">01</td>
+                                <td width="15%">2015-05-01<span class="nowidth"></span>16:25:25</td>
+                                <td width="10%">出</td>
+                                <td width="10%">资金部借调</td>
+                                <td width="10%">50，000.00</td>
+                                <td width="10%">-</td>
+                                <td width="10%">-</td>
+                                <td width="10%">832，151.00</td>
+                                <td>832，151.00</td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td>01</td>
+                                <td>2015-05-01<span class="nowidth"></span>16:25:25</td>
+                                <td>出</td>
+                                <td>资金部借调</td>
+                                <td>50，000.00</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>832，151.00</td>
+                                <td>832，151.00</td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td>01</td>
+                                <td>2015-05-01<span class="nowidth"></span>16:25:25</td>
+                                <td>出</td>
+                                <td>资金部借调</td>
+                                <td>50，000.00</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>832，151.00</td>
+                                <td>832，151.00</td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td>01</td>
+                                <td>2015-05-01<span class="nowidth"></span>16:25:25</td>
+                                <td>出</td>
+                                <td>资金部借调</td>
+                                <td>50，000.00</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>832，151.00</td>
+                                <td>832，151.00</td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td>01</td>
+                                <td>2015-05-01<span class="nowidth"></span>16:25:25</td>
+                                <td>出</td>
+                                <td>资金部借调</td>
+                                <td>50，000.00</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>832，151.00</td>
+                                <td>832，151.00</td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td>01</td>
+                                <td>2015-05-01<span class="nowidth"></span>16:25:25</td>
+                                <td>出</td>
+                                <td>资金部借调</td>
+                                <td>50，000.00</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>832，151.00</td>
+                                <td>832，151.00</td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td>01</td>
+                                <td>2015-05-01<span class="nowidth"></span>16:25:25</td>
+                                <td>出</td>
+                                <td>资金部借调</td>
+                                <td>50，000.00</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>832，151.00</td>
+                                <td>832，151.00</td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td>01</td>
+                                <td>2015-05-01<span class="nowidth"></span>16:25:25</td>
+                                <td>出</td>
+                                <td>资金部借调</td>
+                                <td>50，000.00</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>832，151.00</td>
+                                <td>832，151.00</td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td>01</td>
+                                <td>2015-05-01<span class="nowidth"></span>16:25:25</td>
+                                <td>出</td>
+                                <td>资金部借调</td>
+                                <td>50，000.00</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>832，151.00</td>
+                                <td>832，151.00</td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td>01</td>
+                                <td>2015-05-01<span class="nowidth"></span>16:25:25</td>
+                                <td>出</td>
+                                <td>资金部借调</td>
+                                <td>50，000.00</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>832，151.00</td>
+                                <td>832，151.00</td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td>01</td>
+                                <td>2015-05-01<span class="nowidth"></span>16:25:25</td>
+                                <td>出</td>
+                                <td>资金部借调</td>
+                                <td>50，000.00</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>832，151.00</td>
+                                <td>832，151.00</td>
+                            </tr>
+                            <tr class="target_tr">
+                                <td>01</td>
+                                <td>2015-05-01<span class="nowidth"></span>16:25:25</td>
+                                <td>出</td>
+                                <td>资金部借调</td>
+                                <td>50，000.00</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>832，151.00</td>
+                                <td>832，151.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+                <div class="big_paging clear j_outerheight" style="padding:1px 0;">
+                    <div class="big_paging_left">
+                        <label>共有</label><span class="txt_danger">1</span><label>条数据 共</label><span class="txt_danger">1</span><label>页</label>
+                    </div>
+                    <div class="big_paging_right clear">
+                        <div class="big_paging_content_l fl">
+                            <div class="big_page_left fl"></div>
+                            <div class="big_page_mid fl ">
+                                <a href="#" class="pre">上一页</a>
+                                <a href="#" class="page_num active">1</a>
+                                <a href="#" class="page_num">2</a>
+                                <a href="#" class="page_num">...</a>
+                                <a href="#" class="page_num">4</a>
+                                <a href="#" class="next">下一页</a>
+                            </div>
+                            <div class="big_page_right fl"></div>
+                        </div>
+                        <div class="big_paging_content_r fl ">
+                            <span class="fl">跳转至</span>
+                            <input type="text" class="big_paging_txt fl">
+                            <span class="fl">页</span>
+                            <input type="button" value="确认" class="big_paging_btn fl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 点击投资弹出层 -->
+            <div class="alert_box alert_box_all new_tzbox">
+                <div class="alert_top"></div>
+                <div class="alert_mid">
+                    <div class="alert_box_head">
+                        <h3>新增投资计划</h3>
+                        <a class="del"></a>
+                    </div>
+                    <div class="alert_box_body">
+                        <iframe src="" id="tzjhiframe" name="tzjhiframe" frameborder="0" scrolling="yes" style="width:100%; height:430px"></iframe>
+                    </div>
+                </div>
+                <div class="alert_bottom"></div>
+            </div>
+            <!-- 点击 借调资金部 按钮弹出层 -->
+            <div class="alert_box alert_box_all new_jdzjbbox">
+                <div class="alert_top"></div>
+                <div class="alert_mid">
+                    <div class="alert_box_head">
+                        <h3>新增借调</h3>
+                        <a class="del"></a>
+                    </div>
+                    <div class="alert_box_body">
+                        <iframe src="" id="jdzjiframe" name="jdzjiframe" frameborder="0" scrolling="yes" style="width:100%; height:400px"></iframe>
+                    </div>
+                </div>
+                <div class="alert_bottom"></div>
+            </div>
+            <!-- 点击 预览凭证 按钮 弹出层 -->
+            <div class="alert_box alert_box_all new_ylpzbox" style="display:none;top:19%;">
+                <div class="alert_top"></div>
+                <div class="alert_mid">
+                    <div class="alert_box_head">
+                        <h3>预览凭证</h3>
+                        <a class="del"></a>
+                    </div>
+                    <div class="alert_box_body">
+                        <iframe id="ylpzIframe" name="ylpzIframe" src="jzpz.html" frameborder="0" scrolling="no" style="width:100%;height:100%"></iframe>
+                    </div>
+                </div>
+                <div class="alert_bottom"></div>
+            </div>
+
+
+        </div>
+    </div>
+    <script src="../Scripts/js/jquery-1.8.3.min.js"></script>
+    <script src="../Scripts/My97DatePicker/WdatePicker.js"></script>
+    <script src="../Scripts/js/publicMethod.js"></script>
+    <script>
+        $(function () {
+            //点击投资按钮弹出层
+            $(".Investment").click(function () {
+                $('#mask', parent.document).show();
+                $("#mask2,.new_tzbox").show();
+                $("#tzjhiframe").attr("src","xztzjh.html");
+            });
+            //点击借调资金部按钮 弹出层
+
+            $(".Toloan").click(function () {
+                $('#mask', parent.document).show();
+                $("#mask2,.new_jdzjbbox").show();
+                $("#jdzjiframe").attr("src", "xzjd.html");
+            });
+
+
+            //计算高度和宽度
+            $(window).load(function () { rxued.table.countTB($("#tb_1"), $("#tb_2"), $(".ui-jqgrid-bdiv")) });
+            parent.$(window).load(function () { rxued.table.countTB($("#tb_1"), $("#tb_2"), $(".ui-jqgrid-bdiv")) });
+            parent.$(window).resize(function () { rxued.table.countTB($("#tb_1"), $("#tb_2"), $(".ui-jqgrid-bdiv")) });
+            $(window).resize(function () { rxued.table.countTB($("#tb_1"), $("#tb_2"), $(".ui-jqgrid-bdiv")) });
+
+           
+
+        });
+    </script>
+</body>
+</html>

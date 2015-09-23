@@ -1,0 +1,27 @@
+
+.main{
+	width: 638px;
+/*	height: 496px;*/
+	margin: 0 auto;
+	margin-top:10px;
+}
+.span_pzml{
+	font-size: 9pt;
+}
+.tb{
+	border-collapse: collapse;
+}
+.tb .thead td{
+	height: 19px;
+	line-height: 19px;
+}
+
+.tb td{
+	text-align: center;
+	height: 17px;
+	line-height: 17px;
+	font-size: 7pt;
+	color: #332c2a;
+	border: 1px solid #000;
+}
+  

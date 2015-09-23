@@ -1,0 +1,104 @@
+﻿@charset "utf-8";
+.container{
+	width: 718px;
+	margin: 0 auto;
+	margin-top: 30px;
+	font-family: '宋体';
+}
+.mainC{
+	width: 718px;
+	margin: 0 auto;
+	position: relative;
+}
+.bd{
+	width: 0;
+	height:500px;
+	position: absolute;
+	right:51px;
+	top:-13px;
+	border-right: 1px dotted #ccc;
+}
+.main{
+	width: 632px;
+	margin-left: 75px;
+}
+.content{
+	width: 549px;
+}
+.txt_c1{
+	margin-top: 57px;
+	font-size: 10pt;	
+	font-family: '微软雅黑';
+}
+.txt_c2.txtc{
+	margin-top: 20px;
+}
+.txt_c2{
+	font-size: 9pt;
+	margin-top: 16px;
+	font-family: '微软雅黑';
+}
+.txt_c2 p{
+	line-height: 20pt;
+}
+.cover{
+	width: 82px;
+	/*font-size: 10pt;*/
+}
+.covernum{
+	padding-right: 11px;
+	/*border-right: 1px dashed #000;*/
+}
+.covernum p{
+	width: 30px;
+	white-space: normal;
+	background: url(/Content/Images/img/icon.png) no-repeat center 0;
+	padding-top: 27px;
+	text-align: center;
+}
+.covernum p span{
+	display: block;
+	font-size:9pt;
+}
+b{
+	font-family: "微软雅黑";
+	font-size: 9pt;
+	display: block;
+}
+.span1{
+	display:block;
+	margin-top:18px;
+	font-size: 9pt;
+}
+b.time{
+	display: block;
+	/*height:50px;*/
+	padding:8px 0;
+}
+.time span{
+	display: block;
+}
+b.day{
+	display: block;
+	height:44px;
+	line-height: 44px;
+}
+.covertxt{
+	width: 21px;
+	margin-left:18px ;
+}
+.covertxt p{
+	width: 21px;
+	white-space: normal;
+}
+.covertxt p span{
+	display: block;
+}
+.covertxt .mt{
+	margin-top: 53px;
+}
+.covertxt .mb{
+	font-size: 9pt;
+	margin-bottom: 73px;
+	color: #bebebf;
+}
