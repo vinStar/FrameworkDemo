@@ -12,6 +12,11 @@ using HyBy.FrameWork.Common;
 
 namespace HyBy.FrameWork.DAService
 {
+    /// <summary>
+    /// aaa
+    /// </summary>
+    /// author:vin
+    ///  
     public class DBO : IDisposable
     {
         protected static ConnectionStringSettings connStringSetting = ConfigurationHelper.GetConnectionStringSettings("default");
@@ -30,21 +35,23 @@ namespace HyBy.FrameWork.DAService
         public const int SelectDBMappingIndex = 0;
         public const int UpdateDBMappingIndex = 1;
         public const int PKDBMappingIndex = 2;
-
+        /// <summary>
+        /// aa
+        /// </summary>
         public void Dispose()
         {
-            this.dac.Close();
+            dac.Close();
         }
 
         public void ExcuteCommand(string spName, Hashtable args)
         {
             try
             {
-                this.dac.cmd.Parameters.Clear();
-                this.dac.cmd.CommandText = spName;
-                this.dac.cmd.CommandType = CommandType.StoredProcedure;
-                this.dac.cmd.Connection = this.dac.conn;
-                if (this.dac.conn is SqlConnection)
+                dac.cmd.Parameters.Clear();
+                dac.cmd.CommandText = spName;
+                dac.cmd.CommandType = CommandType.StoredProcedure;
+                //dac.cmd.Connection = dac.conn;
+                if (dac.conn is SqlConnection)
                 {
                     foreach (string str in args.Keys)
                     {
@@ -53,10 +60,11 @@ namespace HyBy.FrameWork.DAService
                             ParameterName = (str.IndexOf("@") == 0) ? str : string.Format("@{0}", str),
                             Value = args[str]
                         };
-                        this.dac.cmd.Parameters.Add(parameter);
+                        dac.cmd.Parameters.Add(parameter);
                     }
                 }
-                if (this.dac.conn is OracleConnection)
+                #region oracle
+                else if (this.dac.conn is OracleConnection)
                 {
                     foreach (string str in args.Keys)
                     {
@@ -100,6 +108,7 @@ namespace HyBy.FrameWork.DAService
                         this.dac.cmd.Parameters.Add(parameter3);
                     }
                 }
+                #endregion
                 this.dac.OpenConnection();
                 this.dac.cmd.ExecuteNonQuery();
             }
@@ -248,6 +257,7 @@ namespace HyBy.FrameWork.DAService
 
         private static IList GenerateListT<T>(T item)
         {
+            //反射泛型
             return (Activator.CreateInstance(typeof(List<>).MakeGenericType(new Type[] { item.GetType() })) as IList);
         }
 
@@ -255,9 +265,9 @@ namespace HyBy.FrameWork.DAService
         {
             try
             {
-                this.dac.cmd.Parameters.Clear();
-                this.dac.cmd.CommandText = spName;
-                this.dac.cmd.CommandType = CommandType.StoredProcedure;
+                dac.cmd.Parameters.Clear();
+                dac.cmd.CommandText = spName;
+                dac.cmd.CommandType = CommandType.StoredProcedure;
             }
             catch (Exception exception)
             {
@@ -358,9 +368,9 @@ namespace HyBy.FrameWork.DAService
 
         public IList GetAllBySP<T>(string spName, T item, Dictionary<string, object> args)
         {
-            IList list = GenerateListT<T>(item);
-            this.GenereateSqlCommand(spName);
-            if (this.dac.conn is SqlConnection)
+            IList list = GenerateListT(item);
+            GenereateSqlCommand(spName);
+            if (dac.conn is SqlConnection)
             {
                 foreach (string str in args.Keys)
                 {
@@ -369,9 +379,9 @@ namespace HyBy.FrameWork.DAService
                         ParameterName = (str.IndexOf("@") == 0) ? str : string.Format("@{0}", str),
                         Value = (args[str] == null) ? DBNull.Value : args[str]
                     };
-                    this.dac.cmd.Parameters.Add(parameter);
+                    dac.cmd.Parameters.Add(parameter);
                 }
-                this.dac.OpenConnection();
+                dac.OpenConnection();
                 IDataReader reader = this.dac.cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -916,13 +926,13 @@ namespace HyBy.FrameWork.DAService
                         parameter3.Value = "N";
                     }
                     goto Label_0392;
-                Label_033B:
+                    Label_033B:
                     time = (DateTime)item.Rows[0][mapping2.Second];
                     parameter3.Value = time.ToString("yyyy/MM/dd hh:mm:ss");
                     goto Label_0392;
-                Label_0370:
+                    Label_0370:
                     parameter3.Value = item.Rows[0][mapping2.Second];
-                Label_0392:
+                    Label_0392:
                     parameter3.OracleType = mapping2.OracleType;
                     this.dac.cmd.Parameters.Add(parameter3);
                 }
@@ -1053,13 +1063,13 @@ namespace HyBy.FrameWork.DAService
                         parameter4.Value = "N";
                     }
                     goto Label_0328;
-                Label_02FF:
+                    Label_02FF:
                     time = (DateTime)obj2;
                     parameter4.Value = time.ToString("yyyy/MM/dd hh:mm:ss");
                     goto Label_0328;
-                Label_031D:
+                    Label_031D:
                     parameter4.Value = obj2;
-                Label_0328:
+                    Label_0328:
                     parameter4.OracleType = mapping2.OracleType;
                     this.dac.cmd.Parameters.Add(parameter4);
                 }
@@ -1093,13 +1103,13 @@ namespace HyBy.FrameWork.DAService
                         parameter4.Value = "N";
                     }
                     goto Label_0487;
-                Label_045E:
+                    Label_045E:
                     time = (DateTime)obj2;
                     parameter4.Value = time.ToString("yyyy/MM/dd hh:mm:ss");
                     goto Label_0487;
-                Label_047C:
+                    Label_047C:
                     parameter4.Value = obj2;
-                Label_0487:
+                    Label_0487:
                     parameter4.OracleType = mapping2.OracleType;
                     this.dac.cmd.Parameters.Add(parameter4);
                 }
@@ -2377,13 +2387,13 @@ namespace HyBy.FrameWork.DAService
                         parameter3.Value = "N";
                     }
                     goto Label_02B0;
-                Label_025B:
+                    Label_025B:
                     time = (DateTime)item.Rows[0][mapping2.Second];
                     parameter3.Value = time.ToString("yyyy/MM/dd hh:mm:ss");
                     goto Label_02B0;
-                Label_028F:
+                    Label_028F:
                     parameter3.Value = item.Rows[0][mapping2.Second];
-                Label_02B0:
+                    Label_02B0:
                     parameter3.OracleType = mapping2.OracleType;
                     this.dac.cmd.Parameters.Add(parameter3);
                 }
@@ -2445,13 +2455,13 @@ namespace HyBy.FrameWork.DAService
                         parameter3.Value = "N";
                     }
                     goto Label_0210;
-                Label_01E7:
+                    Label_01E7:
                     time = (DateTime)obj2;
                     parameter3.Value = time.ToString("yyyy/MM/dd hh:mm:ss");
                     goto Label_0210;
-                Label_0205:
+                    Label_0205:
                     parameter3.Value = obj2;
-                Label_0210:
+                    Label_0210:
                     parameter3.OracleType = mapping2.OracleType;
                     this.dac.cmd.Parameters.Add(parameter3);
                 }
