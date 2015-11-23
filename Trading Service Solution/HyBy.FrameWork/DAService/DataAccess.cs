@@ -4,18 +4,44 @@ using System.Data;
 using System.Data.Common;
 using System.Runtime.InteropServices;
 
+//using System.Data.SqlClient;
+
 using HyBy.FrameWork.Common;
 
 namespace HyBy.FrameWork.DAService
 {
     public class DataAccess
     {
-        public IDbCommand cmd = dbFactory.CreateCommand();
-        public IDbConnection conn = dbFactory.CreateConnection();
+        //数据库连接字符串
         protected static ConnectionStringSettings connStringSetting = ConfigurationHelper.GetConnectionStringSettings("default");
+        //抽象工厂，用以支持多种数据库(ProviderName默认System.Data.SqlClient)
         protected static DbProviderFactory dbFactory = DbProviderFactories.GetFactory(connStringSetting.ProviderName);
+
+        //依赖倒置原则
+        //A.高层次的模块不应该依赖于低层次的模块，他们都应该依赖于抽象。
+        //B.抽象不应该依赖于具体，具体应该依赖于抽象。
+        //工厂创建 new SqlCommand();    
+        public IDbCommand cmd = dbFactory.CreateCommand();//依赖于抽象接口 IDbCommand  //DbCommand dbcom = dbFactory.CreateCommand();
+        public IDbConnection conn = dbFactory.CreateConnection();//依赖于抽象接口 IDbConnection
+
+        //事务TransactionScope
         private CommonScope scope = null;
 
+        public CommonScope Scope
+        {
+            get
+            {
+                return scope;
+            }
+            set
+            {
+                scope = value;
+            }
+        }
+
+        //可选和命名参数  4.0语法糖 等同 DataAccess(  string connstr="")
+        //DataAccess a = new DataAccess();
+        //DataAccess aa = new DataAccess(connstr:"11");
         public DataAccess([Optional, DefaultParameterValue("")] string connstr)
         {
             //连接参数则使用传入的连接字符串
@@ -23,16 +49,16 @@ namespace HyBy.FrameWork.DAService
             {
                 connStringSetting = ConfigurationHelper.GetConnectionStringSettings(connstr);
             }
-            this.conn.ConnectionString = connStringSetting.ConnectionString;
-            this.cmd.Connection = this.conn;
+            conn.ConnectionString = connStringSetting.ConnectionString;
+            cmd.Connection = conn;
         }
 
         public void Close()
         {
             try
             {
-                this.conn.Close();
-                this.conn.Dispose();
+                conn.Close();
+                conn.Dispose();
             }
             catch (Exception exception)
             {
@@ -44,11 +70,11 @@ namespace HyBy.FrameWork.DAService
         {
             try
             {
-                this.cmd.Parameters.Clear();
-                if (this.scope == null)
+                cmd.Parameters.Clear();
+                if (scope == null)
                 {
-                    this.conn.Close();
-                    this.conn.Dispose();
+                    conn.Close();
+                    conn.Dispose();
                 }
             }
             catch (Exception exception)
@@ -61,12 +87,12 @@ namespace HyBy.FrameWork.DAService
         {
             try
             {
-                if (((this.conn == null) || (this.scope == null)) || (this.conn.State == ConnectionState.Closed))
+                if (((conn == null) || (scope == null)) || (conn.State == ConnectionState.Closed))
                 {
-                    this.conn = dbFactory.CreateConnection();
-                    this.conn.ConnectionString = connStringSetting.ConnectionString;
-                    this.cmd.Connection = this.conn;
-                    this.conn.Open();
+                    conn = dbFactory.CreateConnection();
+                    conn.ConnectionString = connStringSetting.ConnectionString;
+                    cmd.Connection = conn;
+                    conn.Open();
                 }
             }
             catch (Exception exception)
@@ -75,17 +101,6 @@ namespace HyBy.FrameWork.DAService
             }
         }
 
-        public CommonScope Scope
-        {
-            get
-            {
-                return this.scope;
-            }
-            set
-            {
-                this.scope = value;
-            }
-        }
     }
 }
 
